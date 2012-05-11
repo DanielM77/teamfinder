@@ -1,0 +1,43 @@
+<h1>Listing offers</h1>
+
+<table>
+  <tr>
+    <th>Club</th>
+    <th>Team</th>
+    <th>Description</th>
+    <th>League</th>
+    <th>Min league</th>
+    <th>Season</th>
+    <th>Position</th>
+    <th>Min age</th>
+    <th>Max age</th>
+    <th>Valid from</th>
+    <th>Valid until</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @offers.each do |offer| %>
+  <tr>
+    <td><%= offer.club %></td>
+    <td><%= offer.team %></td>
+    <td><%= offer.description %></td>
+    <td><%= offer.league %></td>
+    <td><%= offer.min_league %></td>
+    <td><%= offer.season %></td>
+    <td><%= offer.position %></td>
+    <td><%= offer.min_age %></td>
+    <td><%= offer.max_age %></td>
+    <td><%= offer.valid_from %></td>
+    <td><%= offer.valid_until %></td>
+    <td><%= link_to 'Show', offer %></td>
+    <td><%= link_to 'Edit', edit_offer_path(offer) %></td>
+    <td><%= link_to 'Destroy', offer, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Offer', new_offer_path %>
