@@ -1,8 +1,10 @@
 class OffersController < ApplicationController
+  before_filter :authenticate_user!
   # GET /offers
   # GET /offers.json
   def index
-    @offers = Offer.all
+    @offers = Offer.find_all_by_user_id(current_user)
+    #@offers = Offer.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,7 +27,7 @@ class OffersController < ApplicationController
   # GET /offers/new.json
   def new
     @offer = Offer.new
-
+    @offer.user_id=current_user
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @offer }
@@ -41,10 +43,10 @@ class OffersController < ApplicationController
   # POST /offers.json
   def create
     @offer = Offer.new(params[:offer])
-
+    @offer.user_id = current_user.id
     respond_to do |format|
       if @offer.save
-        format.html { redirect_to @offer, notice: 'Offer was successfully created.' }
+        format.html { redirect_to offers_path, notice: 'Offer was successfully created.' }
         format.json { render json: @offer, status: :created, location: @offer }
       else
         format.html { render action: "new" }

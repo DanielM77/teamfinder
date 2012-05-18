@@ -1,0 +1,16 @@
+<h2><%= @offer.club %></h2>
+<p>
+  <%= @offer.team %>
+</p>
+
+<% @contacts.each do |contact| %>
+      <div class = "well">
+        <strong><%=link_to contact.name, "#" %></strong>(<%= contact.age %>)<br>
+        <%= contact.league %> <br>
+        <%= contact.message %><br>
+
+      </div>
+
+<% end %>
+
+<%= link_to "Back",offers_path %>

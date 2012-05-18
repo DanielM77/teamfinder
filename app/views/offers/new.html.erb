@@ -1,5 +1,9 @@
-<h1>New offer</h1>
-
+<div class="subnav">
+  <ul class="nav nav-pills">
+    <li><%= link_to "All Offers", offers_path %></li>
+    <li class="active"><%= link_to 'New Offer', new_offer_path %></li>
+  </ul>
+</div>
 <%= render 'form' %>
 
 <%= link_to 'Back', offers_path %>
