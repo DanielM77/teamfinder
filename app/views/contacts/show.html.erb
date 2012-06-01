@@ -41,5 +41,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_contact_path(@contact) %> |
-<%= link_to 'Back', contacts_path %>
+<%= link_to 'Edit', edit_offer_contact_path(offer_id: @offer.id,id:@contact) %> |
+<%= link_to 'Back', offer_contacts_path(@offer) %>

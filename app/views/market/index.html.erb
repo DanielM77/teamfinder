@@ -1,5 +1,39 @@
 <% provide :title, 'Marketplace' %>
-<h1>Marketplace</h1>
+<% content_for :leftside do %>
+    <div class="well sidebar-nav">
+      <ul class="nav nav-list">
+        <li class="nav-header">Position</li>
+        <li><%= link_to "Alle", market_index_path %></li>
+        <li><%= link_to "Tor", market_index_path(position:'Tor') %></li>
+        <li><%= link_to "Abwehr", market_index_path(position:'Abwehr') %></li>
+        <li><%= link_to "Mittelfeld", market_index_path(position:'Mittelfeld') %></li>
+        <li><%= link_to "Sturm", market_index_path(position:'Sturm') %></li>
+      </ul>
+
+    </div><!--/.well -->
+<% end %>
+<% content_for :rightside do %>
+    <div class="well">
+      <h3>Was passiert auf teamfinder.de</h3>
+      <ul>
+        <li><%=  @offers.count %> offene Angebote</li>
+        <li><%=  @offers.contact_count  %> Spieler suchen einen Verein</li>
+      </ul>
+      <ul>
+      <% @contacts.each do |contact| %>
+            <li>
+            <h4>Spieler (<%= contact.age %> Jahre)</h4>
+            <%= contact.league %> (<%= contact.position %>)<br>
+        <%=  contact.message %>
+            </li>
+      <% end %>
+      </ul>
+      Be a part of it...
+    </div><!--/.well -->
+<% end %>
+<header class="jumbotron subhead" id="overview">
+  <h1>Marketplace</h1>
+  <p class="lead">Finde Deinen Verein - alle Angebote aus Deiner Region</p>
 <% @offers.each do |offer| %>
   <div class="well">
         <h3><%=offer.club  %>     </h3>

@@ -25,19 +25,19 @@
   </div>
   <div class="field">
     <%= f.label :league %><br />
-    <%= f.text_field :league %>
+    <%= f.select :league, Offer::LEAGUE_TYPES %>
   </div>
   <div class="field">
     <%= f.label :min_league %><br />
-    <%= f.text_field :min_league %>
+    <%= f.select :min_league,Offer::LEAGUE_TYPES  %>
   </div>
   <div class="field">
     <%= f.label :season %><br />
-    <%= f.text_field :season %>
+    <%= f.select :season, Offer::SEASONS %>
   </div>
   <div class="field">
     <%= f.label :position %><br />
-    <%= f.text_field :position %>
+    <%= f.select :position, Offer::POSITIONS %>
   </div>
   <div class="field">
     <%= f.label :min_age %><br />

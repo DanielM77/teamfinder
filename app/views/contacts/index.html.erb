@@ -1,14 +1,21 @@
 <h2><%= @offer.club %></h2>
 <p>
-  <%= @offer.team %>
+  <%= @offer.team %> (<%= @offer.position %>)
 </p>
 
 <% @contacts.each do |contact| %>
       <div class = "well">
-        <strong><%=link_to contact.name, "#" %></strong>(<%= contact.age %>)<br>
-        <%= contact.league %> <br>
-        <%= contact.message %><br>
+        <strong><%=link_to contact.name, "#" %></strong>
+        <% unless contact.age.nil?  %>
+            (<%= contact.age %>)
+        <% end  %>
 
+        <br>
+        <%= contact.league %> <br>
+        <%= contact.message %>
+        <div id="btn-contact">
+          <%= link_to 'Mehr',offer_contact_path(offer_id: @offer.id, id: contact) ,class:'btn btn-primary' %>
+        </div>
       </div>
 
 <% end %>

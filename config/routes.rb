@@ -9,7 +9,7 @@ Teamfinder::Application.routes.draw do
   resources :offers  do
     resources :contacts
   end
-
+  get "static_pages/index"
   get "static_pages/help"
 
   get "static_pages/about"
@@ -63,7 +63,7 @@ Teamfinder::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'market#index'
+   root :to => 'static_pages#index'
 
   # See how all your routes lay out with "rake routes"
 
