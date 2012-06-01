@@ -14,40 +14,36 @@
   <div class="navbar-inner">
     <div class="container-fluid">
       <%= link_to "Teamfinder", '#',class:"brand" %>
-      <nav class="nav-collapse">
-        <ul class="nav">
-
-
-          <% if user_signed_in? %>
-              <li><%= link_to "Home",   market_index_path %></li>
-              <li><%= link_to "Marktplatz",market_index_path  %></li>
-              <li><%= link_to "Mein Verein",offers_path  %></li>
-
-              <li class="navbar-text" ></li>
-              </ul>
-              <div class="btn-group pull-right">
-
-                <%= link_to '#',class:'btn dropdown-toggle', 'data-toggle'=>'drop-down' do %>
-                    <i class='icon-user'></i><%= current_user.email  %><span class='caret'></span>
-                <% end  %>
-
-                <ul class="dropdown-menu">
-                  <li><%= link_to "Profile","#" %></li>
-                  <li class="divider"></li>
-                  <li><%= link_to "Logout",destroy_user_session_path, :method => :delete  %></li>
-
-                </ul>
-              </div>
-          <% else %>
-              <li><%= link_to "Home",   root_path %></li>
-              <li><%= link_to "Login", new_user_session_path %> </li>
-              <li><%= link_to "Register", new_user_registration_path %> </li>
-              </ul>
-          <% end %>
-
-
-
-      </nav>
+      <% if user_signed_in? %>
+        <div class="btn-group pull-right">
+          <%= link_to raw("<i class='icon-user'></i> #{current_user.email} <span class='caret'></span>"),'#',class:"btn dropdown-toggle", 'data-toggle'=>"dropdown" %>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Profile","#" %></li>
+            <li class="divider"></li>
+            <li><%= link_to "Logout",destroy_user_session_path, :method => :delete  %></li>
+          </ul>
+        </div>
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li><%= link_to "Home",   market_index_path %></li>
+            <li><%= link_to "Marktplatz",market_index_path  %></li>
+            <% if current_user.has_role?(:club_superuser) %>
+              <li><%= link_to "Mein Verein","#"  %></li>
+            <% else %>
+              <li><%= link_to "Verein anlegen",new_club_path  %></li>
+            <% end %>
+            <li><%= link_to "Meine Angebote",offers_path  %></li>
+          </ul>
+        </div>
+      <% else %>
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li><%= link_to "Home",   root_path %></li>
+            <li><%= link_to "Login", new_user_session_path %> </li>
+            <li><%= link_to "Register", new_user_registration_path %> </li>
+          </ul>
+        </div>  
+      <% end %>      
     </div>
   </div>
 </header>
@@ -62,10 +58,10 @@
     </div>
     <div class="span6">
         <% unless notice.blank? %>
-            <p class="alert alert-info"><%= notice %></p>
+            <p class="alert alert-info"><%= :notice %></p>
         <% end %>
         <% unless alert.blank? %>
-            <p class="alert alert-error"><%= alert %></p>
+            <p class="alert alert-error"><%= :alert %></p>
         <% end %>
         <%= yield %>
     </div>

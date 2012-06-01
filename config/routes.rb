@@ -1,7 +1,9 @@
 Teamfinder::Application.routes.draw do
 
-  devise_for :users
+  resources :clubs
 
+  devise_for :users
+  resources :users, :only => [:show, :index]
 
 
   get "market/index"
