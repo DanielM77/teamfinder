@@ -27,12 +27,21 @@
           <ul class="nav">
             <li><%= link_to "Home",   market_index_path %></li>
             <li><%= link_to "Marktplatz",market_index_path  %></li>
-            <% if current_user.has_role?(:club_superuser) %>
-              <li><%= link_to "Mein Verein","#"  %></li>
-            <% else %>
-              <li><%= link_to "Verein anlegen",new_club_path  %></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                Mein Verein <b class="caret"></b>
+              </a>
+
+            <ul class="dropdown-menu">
+            <% Club.with_role(:club_superuser, current_user).each do |club| %>
+                <li><%= link_to  club.name,club_path(club.id) %></li>
             <% end %>
-            <li><%= link_to "Meine Angebote",offers_path  %></li>
+              <% unless Club.with_role(:club_superuser, current_user).empty? %>
+              <li class="divider"></li>
+              <% end %>
+              <li><%= link_to "Verein anlegen",new_club_path  %></li>
+            </ul>
+            </li>
           </ul>
         </div>
       <% else %>

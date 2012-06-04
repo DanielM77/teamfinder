@@ -7,6 +7,9 @@ class Ability
        user ||= User.new # guest user (not logged in)
        if user.has_role?(:admin)
          can :manage, :all
+       else
+         can :read, Club, :id => Club.with_role(:club_superuser, user).map{|club| club.id}
+         can :write, Club, :id => Club.with_role(:club_superuser, user).map{|club| club.id}
        end
     #
     # The first argument to `can` is the action you are giving the user permission to do.

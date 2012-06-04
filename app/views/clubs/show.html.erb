@@ -1,3 +1,26 @@
+<% provide :title, @club.name %>
+<% content_for :leftside do %>
+    <div class="well sidebar-nav">
+      <ul class="nav nav-list">
+        <li class="nav-header">Verein</li>
+        <li><%= link_to "Daten anzeigen",'#' %></li>
+        <li><%= link_to "Daten ändern",'#' %></li>
+        <li class="nav-header">Ansprechpartner</li>
+        <li><%= link_to "Alle anzeigen",'#' %></li>
+        <li><%= link_to "Neu anlegen",'#' %></li>
+        <li class="nav-header">Mannschaften</li>
+        <li><%= link_to "Alle anzeigen",'#' %></li>
+        <li><%= link_to "Neu anlegen",'#' %></li>
+        <li class="nav-header">Angebote</li>
+        <li><%= link_to "Alle anzeigen",'#' %></li>
+        <li><%= link_to "Neu anlegen",'#' %></li>
+        <li class="nav-header">Kontaktanfragen</li>
+        <li><%= link_to "Eingang",'#' %></li>
+        <li><%= link_to "Ausgang",'#' %></li>
+      </ul>
+
+    </div>
+<% end %>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -13,11 +36,6 @@
 <p>
   <b>Street no:</b>
   <%= @club.street_no %>
-</p>
-
-<p>
-  <b>Strinp:</b>
-  <%= @club.strinp %>
 </p>
 
 <p>

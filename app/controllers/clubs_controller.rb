@@ -1,8 +1,10 @@
 class ClubsController < ApplicationController
+  before_filter :authenticate_user!
+  load_and_authorize_resource :only => [ :index, :show ]
   # GET /clubs
   # GET /clubs.json
   def index
-    @clubs = Club.all
+    @clubs = Club.with_role(:club_superuser, current_user).map{|club| club.id}
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,6 +46,7 @@ class ClubsController < ApplicationController
 
     respond_to do |format|
       if @club.save
+        current_user.add_role("club_superuser",@club)
         format.html { redirect_to @club, notice: 'Club was successfully created.' }
         format.json { render json: @club, status: :created, location: @club }
       else

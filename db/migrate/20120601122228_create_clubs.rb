@@ -4,7 +4,6 @@ class CreateClubs < ActiveRecord::Migration
       t.string :name
       t.string :street
       t.string :street_no
-      t.string :strinp
       t.string :zip
       t.string :city
       t.string :phone
