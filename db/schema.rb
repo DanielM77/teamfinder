@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120604191654) do
+ActiveRecord::Schema.define(:version => 20120605145040) do
+
+  create_table "areas", :force => true do |t|
+    t.string   "name"
+    t.integer  "league_type_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "clubs", :force => true do |t|
     t.string   "name"
@@ -44,6 +51,14 @@ ActiveRecord::Schema.define(:version => 20120604191654) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "league_types", :force => true do |t|
+    t.string   "name"
+    t.integer  "ranking"
+    t.integer  "team_type_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "offers", :force => true do |t|
     t.string   "club"
     t.string   "team"
@@ -72,6 +87,12 @@ ActiveRecord::Schema.define(:version => 20120604191654) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "team_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "teams", :force => true do |t|
     t.string   "name"

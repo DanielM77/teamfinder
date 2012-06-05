@@ -22,3 +22,29 @@ club_member.add_role 'club_member'
 club_superuser.add_role 'super_user'
 player.add_role 'player'
 trainer.add_role 'trainer'
+
+team_types = TeamType.create!([{name: 'Herren'},{name: 'A-Junioren'},{name: 'B-Junioren'},{name: 'Frauen'},{name: 'A-Juniorinnen'},{name: 'B-Juniorinnen'}])
+team_type = TeamType.find_by_name('Herren')
+team_type.league_types.create!(name: 'Hessenliga', ranking:4)
+team_type.league_types.create!(name: 'Verbandsliga', ranking:5)
+team_type.league_types.create!(name: 'Gruppenliga', ranking:6)
+team_type.league_types.create!(name: 'Kreisoberliga', ranking:7)
+team_type.league_types.create!(name: 'Kreisklasse A', ranking:8)
+team_type.league_types.create!(name: 'Kreisklasse B', ranking:9)
+team_type.league_types.create!(name: 'Kreisklasse C', ranking:10)
+
+league_type = LeagueType.find_by_name('Hessenliga')
+league_type.areas.create!(name:'Hessen')
+league_type = LeagueType.find_by_name('Verbandsliga')
+league_type.areas.create!(name:'Hessen')
+league_type = LeagueType.find_by_name('Gruppenliga')
+league_type.areas.create!(name:'Region Wiesbaden')
+
+area = LeagueType.find_by_name('Verbandsliga')areas.find_by_name('Hessen')
+
+
+
+
+
+
+

@@ -2,6 +2,14 @@ Teamfinder::Application.routes.draw do
 
 
 
+  resources :leagues
+
+  resources :areas
+
+  resources :league_types
+
+  resources :team_types
+
   resources :clubs do
     resources :teams
   end
