@@ -66,10 +66,10 @@
       <% end %>
     </div>
     <div class="span6">
-        <% unless notice.blank? %>
+        <% if notice %>
             <p class="alert alert-info"><%= :notice %></p>
         <% end %>
-        <% unless alert.blank? %>
+        <% if alert %>
             <p class="alert alert-error"><%= :alert %></p>
         <% end %>
         <%= yield %>

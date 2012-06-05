@@ -1,5 +1,7 @@
 <h1>Editing club</h1>
-
+<% content_for :leftside do %>
+    <%= render 'sidenav' %>
+<% end %>
 <%= render 'form' %>
 
 <%= link_to 'Show', @club %> |

@@ -1,6 +1,10 @@
 Teamfinder::Application.routes.draw do
 
-  resources :clubs
+
+
+  resources :clubs do
+    resources :teams
+  end
 
   devise_for :users
   resources :users, :only => [:show, :index]
