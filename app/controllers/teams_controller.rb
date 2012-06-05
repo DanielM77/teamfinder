@@ -49,7 +49,7 @@ class TeamsController < ApplicationController
 
     respond_to do |format|
       if @team.save
-        format.html { redirect_to @team, notice: 'Team was successfully created.' }
+        format.html { redirect_to club_teams_path(@club), notice: 'Team was successfully created.' }
         format.json { render json: @team, status: :created, location: @team }
       else
         format.html { render action: "new" }
@@ -81,7 +81,7 @@ class TeamsController < ApplicationController
     @team.destroy
 
     respond_to do |format|
-      format.html { redirect_to teams_url }
+      format.html { redirect_to club_teams_url(@club.id) }
       format.json { head :no_content }
     end
   end

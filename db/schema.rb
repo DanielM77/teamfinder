@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20120604191654) do
     t.string   "name"
     t.string   "street"
     t.string   "street_no"
+    t.string   "strinp"
     t.string   "zip"
     t.string   "city"
     t.string   "phone"

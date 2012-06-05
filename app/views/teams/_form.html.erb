@@ -1,4 +1,4 @@
-<%= form_for(@team) do |f| %>
+<%= form_for([@club, @team]) do |f| %>
   <% if @team.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@team.errors.count, "error") %> prohibited this team from being saved:</h2>
@@ -17,11 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :league %><br />
-    <%= f.text_field :league %>
-  </div>
-  <div class="field">
-    <%= f.label :club_id %><br />
-    <%= f.number_field :club_id %>
+    <%= f.select :league, Team::LEAGUE_TYPE %>
   </div>
   <div class="actions">
     <%= f.submit %>

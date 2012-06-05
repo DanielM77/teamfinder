@@ -1,5 +1,8 @@
-<p id="notice"><%= notice %></p>
-
+<% content_for :leftside do %>
+    <%= render 'clubs/sidenav' %>
+<% end %>
+<%= render 'clubs/header' %>
+<h2>Meine Mannschaften</h2>
 <p>
   <b>Name:</b>
   <%= @team.name %>
@@ -10,11 +13,6 @@
   <%= @team.league %>
 </p>
 
-<p>
-  <b>Club:</b>
-  <%= @team.club_id %>
-</p>
 
-
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', teams_path %>
+<%= link_to 'Edit', edit_club_team_path(@club.id, @team) %> |
+<%= link_to 'Back', club_teams_path(@club.id) %>

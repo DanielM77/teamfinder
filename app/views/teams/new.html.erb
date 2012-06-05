@@ -1,5 +1,7 @@
-<h1>New team</h1>
-
+<% content_for :leftside do %>
+    <%= render 'clubs/sidenav' %>
+<% end %>
+<%= render 'clubs/header' %>
 <%= render 'form' %>
 
-<%= link_to 'Back', teams_path %>
+<%= link_to 'Back', club_teams_path(@club.id) %>
