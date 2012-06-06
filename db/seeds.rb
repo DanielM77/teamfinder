@@ -24,43 +24,61 @@ player.add_role 'player'
 trainer.add_role 'trainer'
 
 team_types = TeamType.create!([{name: 'Herren'},{name: 'A-Junioren'},{name: 'B-Junioren'},{name: 'Frauen'},{name: 'A-Juniorinnen'},{name: 'B-Juniorinnen'}])
+team_types.each do |tt|
+	puts 'TeamType created: ' << tt.name
+end
 team_type = TeamType.find_by_name('Herren')
-team_type.league_types.create!(name: 'Hessenliga', ranking:4)
-team_type.league_types.create!(name: 'Verbandsliga', ranking:5)
-team_type.league_types.create!(name: 'Gruppenliga', ranking:6)
-team_type.league_types.create!(name: 'Kreisoberliga', ranking:7)
-team_type.league_types.create!(name: 'Kreisliga A', ranking:8)
-team_type.league_types.create!(name: 'Kreisliga B', ranking:9)
-team_type.league_types.create!(name: 'Kreisliga C', ranking:10)
+league_type = team_type.league_types.create!(name: 'Hessenliga', ranking:4)
+puts 'LeagueType created: ' << league_type.name
+	area = league_type.areas.create!(name:'Hessen')
+	puts 'Area created: ' << area.name
 
-league_type = LeagueType.find_by_name('Hessenliga')
-league_type.areas.create!(name:'Hessen')
-league_type = LeagueType.find_by_name('Verbandsliga')
-league_type.areas.create!(name:'Hessen')
-league_type = LeagueType.find_by_name('Gruppenliga')
-league_type.areas.create!(name:'Region Wiesbaden')
-league_type = LeagueType.find_by_name('Kreisoberliga')
-league_type.areas.create!(name:'Kreis Limburg-Weilburg')
+league_type = team_type.league_types.create!(name: 'Verbandsliga', ranking:5)
+puts 'LeagueType created: ' << league_type.name
+	area = league_type.areas.create!(name:'Hessen')
+	puts 'Area created: ' << area.name
+		league = area.leagues.create!(name:'Verbandsliga Gruppe Mitte')
+		puts 'League created: ' << league.name
+		league = area.leagues.create!(name:'Verbandsliga Gruppe Nord')
+		puts 'League created: ' << league.name
+		league = area.leagues.create!(name:'Verbandsliga Gruppe Sued')
+		puts 'League created: ' << league.name
 
-area = LeagueType.find_by_name('Verbandsliga').areas.find_by_name('Hessen')
-area.leagues.create!(name:'Verbandsliga Gruppe Mitte')
-area.leagues.create!(name:'Verbandsliga Gruppe Nord')
-area.leagues.create!(name:'Verbandsliga Gruppe Sued')
+league_type = team_type.league_types.create!(name: 'Gruppenliga', ranking:6)
+puts 'LeagueType created: ' << league_type.name
+	area = league_type.areas.create!(name:'Region Wiesbaden')
+	puts 'Area created: ' << area.name
+	area.leagues.create!(name:'Gruppenliga Wiesbaden')
+	puts 'League created: ' << league.name
 
-area = LeagueType.find_by_name('Gruppenliga').areas.find_by_name('Region Wiesbaden')
-area.leagues.create!(name:'Gruppenliga Wiesbaden')
 
-area = LeagueType.find_by_name('Kreisoberliga').areas.find_by_name('Kreis Limburg-Weilburg')
-area.leagues.create!(name:'Kreisoberliga Limburg-Weilburg')
+league_type = team_type.league_types.create!(name: 'Kreisoberliga', ranking:7)
+puts 'LeagueType created: ' << league_type.name
+	area = league_type.areas.create!(name:'Kreis Limburg-Weilburg')
+	puts 'Area created: ' << area.name
+	league = area.leagues.create!(name:'Kreisoberliga Limburg-Weilburg')
+	puts 'League created: ' << league.name
 
-area = LeagueType.find_by_name('Kreisliga A').areas.find_by_name('Kreis Limburg-Weilburg')
-area.leagues.create!(name:'Kreisliga Limburg-Weilburg')
+league_type = team_type.league_types.create!(name: 'Kreisliga A', ranking:8)
+puts 'LeagueType created: ' << league_type.name
+	area = league_type.areas.create!(name:'Kreis Limburg-Weilburg')
+	puts 'Area created: ' << area.name
+	league = area.leagues.create!(name:'Kreisliga A Limburg-Weilburg')
+	puts 'League created: ' << league.name
 
-area = LeagueType.find_by_name('Kreisliga B').areas.find_by_name('Kreis Limburg-Weilburg')
-area.leagues.create!(name:'Kreisliga Limburg-Weilburg')
+league_type = team_type.league_types.create!(name: 'Kreisliga B', ranking:9)
+puts 'LeagueType created: ' << league_type.name
+	area = league_type.areas.create!(name:'Kreis Limburg-Weilburg')
+	puts 'Area created: ' << area.name
+	league = area.leagues.create!(name:'Kreisliga B Limburg-Weilburg')
+	puts 'League created: ' << league.name
 
-area = LeagueType.find_by_name('Kreisliga C').areas.find_by_name('Kreis Limburg-Weilburg')
-area.leagues.create!(name:'Kreisliga Limburg-Weilburg')
+league_type = team_type.league_types.create!(name: 'Kreisliga C', ranking:10)
+puts 'LeagueType created: ' << league_type.name
+	area = league_type.areas.create!(name:'Kreis Limburg-Weilburg')
+	puts 'Area created: ' << area.name
+	league = area.leagues.create!(name:'Kreisliga C Limburg-Weilburg')
+	puts 'League created: ' << league.name
 
 
 

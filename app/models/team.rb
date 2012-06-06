@@ -1,6 +1,9 @@
 class Team < ActiveRecord::Base
   resourcify
   belongs_to :club
-  LEAGUE_TYPE = ["Oberliga", "Verbandsliga", "Gruppenliga", "Kreisoberliga", "Kreisliga A", "Kreisliga B", "Kreisliga C"]
-  attr_accessible :league, :name
+  belongs_to :league
+  attr_accessible :league, :name, :league_id
+  def team_type_name
+  	return league.area.league_type.team_type.name
+  end
 end

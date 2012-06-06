@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :league %><br />
-    <%= f.select :league, Team::LEAGUE_TYPE %>
+    <%= f.collection_select(:league_id, League.all, :id, :name, prompt:true) %>
   </div>
   <div class="actions">
     <%= f.submit %>
