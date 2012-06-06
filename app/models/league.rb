@@ -1,3 +1,4 @@
 class League < ActiveRecord::Base
-  attr_accessible :area_id, :name
+  belongs_to :area
+  attr_accessible :name
 end

@@ -1,3 +1,5 @@
 class Area < ActiveRecord::Base
-  attr_accessible :league_type_id, :name
+  belongs_to :league_type
+  has_many :leagues
+  attr_accessible :name
 end

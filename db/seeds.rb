@@ -29,9 +29,9 @@ team_type.league_types.create!(name: 'Hessenliga', ranking:4)
 team_type.league_types.create!(name: 'Verbandsliga', ranking:5)
 team_type.league_types.create!(name: 'Gruppenliga', ranking:6)
 team_type.league_types.create!(name: 'Kreisoberliga', ranking:7)
-team_type.league_types.create!(name: 'Kreisklasse A', ranking:8)
-team_type.league_types.create!(name: 'Kreisklasse B', ranking:9)
-team_type.league_types.create!(name: 'Kreisklasse C', ranking:10)
+team_type.league_types.create!(name: 'Kreisliga A', ranking:8)
+team_type.league_types.create!(name: 'Kreisliga B', ranking:9)
+team_type.league_types.create!(name: 'Kreisliga C', ranking:10)
 
 league_type = LeagueType.find_by_name('Hessenliga')
 league_type.areas.create!(name:'Hessen')
@@ -39,10 +39,28 @@ league_type = LeagueType.find_by_name('Verbandsliga')
 league_type.areas.create!(name:'Hessen')
 league_type = LeagueType.find_by_name('Gruppenliga')
 league_type.areas.create!(name:'Region Wiesbaden')
+league_type = LeagueType.find_by_name('Kreisoberliga')
+league_type.areas.create!(name:'Kreis Limburg-Weilburg')
 
-area = LeagueType.find_by_name('Verbandsliga')areas.find_by_name('Hessen')
+area = LeagueType.find_by_name('Verbandsliga').areas.find_by_name('Hessen')
+area.leagues.create!(name:'Verbandsliga Gruppe Mitte')
+area.leagues.create!(name:'Verbandsliga Gruppe Nord')
+area.leagues.create!(name:'Verbandsliga Gruppe Sued')
 
+area = LeagueType.find_by_name('Gruppenliga').areas.find_by_name('Region Wiesbaden')
+area.leagues.create!(name:'Gruppenliga Wiesbaden')
 
+area = LeagueType.find_by_name('Kreisoberliga').areas.find_by_name('Kreis Limburg-Weilburg')
+area.leagues.create!(name:'Kreisoberliga Limburg-Weilburg')
+
+area = LeagueType.find_by_name('Kreisliga A').areas.find_by_name('Kreis Limburg-Weilburg')
+area.leagues.create!(name:'Kreisliga Limburg-Weilburg')
+
+area = LeagueType.find_by_name('Kreisliga B').areas.find_by_name('Kreis Limburg-Weilburg')
+area.leagues.create!(name:'Kreisliga Limburg-Weilburg')
+
+area = LeagueType.find_by_name('Kreisliga C').areas.find_by_name('Kreis Limburg-Weilburg')
+area.leagues.create!(name:'Kreisliga Limburg-Weilburg')
 
 
 
