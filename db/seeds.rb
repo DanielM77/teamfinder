@@ -23,6 +23,7 @@ club_superuser.add_role 'super_user'
 player.add_role 'player'
 trainer.add_role 'trainer'
 
+# Teamtypes and Leagues
 team_types = TeamType.create!([{name: 'Herren'},{name: 'A-Junioren'},{name: 'B-Junioren'},{name: 'Frauen'},{name: 'A-Juniorinnen'},{name: 'B-Juniorinnen'}])
 team_types.each do |tt|
 	puts 'TeamType created: ' << tt.name
@@ -80,7 +81,51 @@ puts 'LeagueType created: ' << league_type.name
 	league = area.leagues.create!(name:'Kreisliga C Limburg-Weilburg')
 	puts 'League created: ' << league.name
 
+#Clubs
+club = Club.create!({name:"RSV Wuerges"})
+club_superuser.add_role("club_superuser",club)
+#Team
+league = League.find_by_name('Kreisoberliga Limburg-Weilburg')
+team = club.teams.create!({name:'1. Mannschaft', league:league, club:club})
 
+#Positions
+groups = PositionGroup.create!([{name:'Tor'},{name:'Abwehr'},{name:'Mittelfeld'},{name:'Sturm'}])
+puts 'PositionGroups created :' << groups.count
+group = PositionGroup.find_by_name('Tor')
+  position = group.positions.create!(name:'Tor')
+  puts 'position created: ' << position.name << '(' << position.position_group.name << ')'
 
+group = PositionGroup.find_by_name('Abwehr')
+  position = group.positions.create!(name:'rechte Abwehr')
+  puts 'position created: ' << position.name << '(' << position.position_group.name << ')'
+  position = group.positions.create!(name:'linke Abwehr')
+  puts 'position created: ' << position.name << '(' << position.position_group.name << ')'
+  position = group.positions.create!(name:'Innenverteidigung')
+  puts 'position created: ' << position.name << '(' << position.position_group.name << ')'
+  position = group.positions.create!(name:'Libero')
+  puts 'position created: ' << position.name << '(' << position.position_group.name << ')'
+
+group = PositionGroup.find_by_name("Mittelfeld")
+  position = group.positions.create!(name:"linkes Mittelfeld")
+  puts 'position created: ' << position.name << '(' << position.position_group.name << ')'
+  position = group.positions.create!(name:"rechtes Mittelfeld")
+  puts 'position created: ' << position.name << '(' << position.position_group.name << ')'
+  position = group.positions.create!(name:"zentrales Mitteldfeld")
+  puts 'position created: ' << position.name << '(' << position.position_group.name << ')'
+  position = group.positions.create!(name:"offensives Mittelfeld")
+  puts 'position created: ' << position.name << '(' << position.position_group.name << ')'
+  position = group.positions.create!(name:"defensives Mittelfeld")
+  puts 'position created: ' << position.name << '(' << position.position_group.name << ')'
+
+group = PositionGroup.find_by_name("Sturm")
+  position = group.positions.create!(name:"linker Sturm")
+  puts 'position created: ' << position.name << '(' << position.position_group.name << ')'
+  position = group.positions.create!(name:"rechter Sturm")
+  puts 'position created: ' << position.name << '(' << position.position_group.name << ')'
+  position = group.positions.create!(name:"Mittelstuermer")
+  puts 'position created: ' << position.name << '(' << position.position_group.name << ')'
+
+# Seasons
+  seasons = Season.create!([{name:'Saison 2012/ 2013', year:2013},{name:'Saison 2013/ 2014', year:2014},{name:'Saison 2014/ 2015', year:2015}])
 
 

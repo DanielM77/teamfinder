@@ -1,10 +1,29 @@
 class OffersController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :setup_club, :setup_team
+  def setup_club
+    if params.has_key?(:club_id)
+      @club = Club.find(params[:club_id])
+    end
+  end
+  def setup_team
+    if params.has_key?(:team_id)
+      @team = Team.find(params[:team_id])
+      @club = @team.club
+    end
+
+  end
   # GET /offers
   # GET /offers.json
   def index
-    @offers = Offer.find_all_by_user_id(current_user)
-    #@offers = Offer.all
+    if @team
+      @offers = @team.offers
+    else
+      @club.teams.each { |team|
+        @offers << team.offers
+      }
+    end
+    #@offers = Offer.find_all_by_user_id(current_user)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -26,7 +45,8 @@ class OffersController < ApplicationController
   # GET /offers/new
   # GET /offers/new.json
   def new
-    @offer = Offer.new
+
+    @offer = @team.offers.build
     @offer.user_id=current_user
     respond_to do |format|
       format.html # new.html.erb
@@ -42,11 +62,12 @@ class OffersController < ApplicationController
   # POST /offers
   # POST /offers.json
   def create
-    @offer = Offer.new(params[:offer])
+    @offer = @team.offers.build(params[:offer])
+    #@offer = Offer.new(params[:offer])
     @offer.user_id = current_user.id
     respond_to do |format|
       if @offer.save
-        format.html { redirect_to offers_path, notice: 'Offer was successfully created.' }
+        format.html { redirect_to team_offers_path(@team), notice: 'Offer was successfully created.' }
         format.json { render json: @offer, status: :created, location: @offer }
       else
         format.html { render action: "new" }
@@ -62,7 +83,7 @@ class OffersController < ApplicationController
 
     respond_to do |format|
       if @offer.update_attributes(params[:offer])
-        format.html { redirect_to @offer, notice: 'Offer was successfully updated.' }
+        format.html { redirect_to team_offers_path(@team), notice: 'Offer was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

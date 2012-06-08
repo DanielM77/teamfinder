@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120606130326) do
+ActiveRecord::Schema.define(:version => 20120607181451) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -70,7 +70,6 @@ ActiveRecord::Schema.define(:version => 20120606130326) do
     t.string   "team"
     t.text     "description"
     t.string   "league"
-    t.string   "min_league"
     t.string   "season"
     t.string   "position"
     t.integer  "min_age"
@@ -78,9 +77,30 @@ ActiveRecord::Schema.define(:version => 20120606130326) do
     t.string   "status"
     t.date     "valid_from"
     t.date     "valid_until"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.integer  "user_id"
+    t.integer  "club_id"
+    t.integer  "team_id"
+    t.integer  "position_id"
+    t.integer  "season_id"
+    t.string   "strong_foot"
+    t.string   "contract"
+    t.string   "transfer_fee"
+    t.integer  "min_league_type"
+  end
+
+  create_table "position_groups", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "positions", :force => true do |t|
+    t.string   "name"
+    t.integer  "position_group_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "roles", :force => true do |t|
@@ -93,6 +113,13 @@ ActiveRecord::Schema.define(:version => 20120606130326) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "seasons", :force => true do |t|
+    t.string   "name"
+    t.integer  "year"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "team_types", :force => true do |t|
     t.string   "name"

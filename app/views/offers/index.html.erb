@@ -1,11 +1,8 @@
-<header class="jumbotron subhead" id="overview">
-<div class="subnav">
-  <ul class="nav nav-pills">
-    <li class="active"><%= link_to "All Offers", "#" %></li>
-    <li><%= link_to 'New Offer', new_offer_path %></li>
-  </ul>
-</div>
-</header>
+<% content_for :leftside do %>
+    <%= render 'clubs/sidenav' %>
+<% end %>
+<%= render 'clubs/header' %>
+<h3>Meine Angebote</h3>
 
 <table class="table">
   <thead>
@@ -14,22 +11,15 @@
     <th>Season</th>
     <th>Position</th>
     <th>Anfragen</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </thead>
   <tbody>
 <% @offers.each do |offer| %>
   <tr>
-    <td><%= offer.team %></td>
-    <td><%= offer.league %></td>
-    <td><%= offer.season %></td>
-    <td><%= offer.position %></td>
+    <td><%= offer.team.name %></td>
+    <td><%= offer.team.league.name %></td>
+    <td><%= offer.season.name %></td>
+    <td><%= offer.position.name %></td>
     <td> (<%= link_to offer.contacts.count, offer_contacts_path(offer_id:offer) %>)</td>
-
-    <td><%= link_to 'Show', offer %></td>
-    <td><%= link_to 'Edit', edit_offer_path(offer) %></td>
-    <td><%= link_to 'Destroy', offer, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
   </tbody>

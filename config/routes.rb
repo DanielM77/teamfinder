@@ -1,6 +1,11 @@
 Teamfinder::Application.routes.draw do
 
 
+  resources :seasons
+
+  resources :position_groups
+
+  resources :positions
 
   resources :leagues
 
@@ -10,8 +15,11 @@ Teamfinder::Application.routes.draw do
 
   resources :team_types
 
-  resources :clubs do
-    resources :teams
+  resources :clubs, shallow:true do
+    resources :teams do
+      resources :offers
+    end
+    resources :offers
   end
 
   devise_for :users

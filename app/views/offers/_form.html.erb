@@ -1,4 +1,4 @@
-<%= form_for(@offer) do |f| %>
+<%= form_for([@team,@offer]) do |f| %>
   <% if @offer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@offer.errors.count, "error") %> prohibited this offer from being saved:</h2>
@@ -10,34 +10,23 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :club %><br />
-    <%= f.text_field :club %>
-  </div>
-  <div class="field">
-    <%= f.label :team %><br />
-    <%= f.text_field :team %>
-  </div>
+  <h2><%= @team.club.name %></h2>
+  <h3><%= @team.name %></h3>
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :league %><br />
-    <%= f.select :league, Offer::LEAGUE_TYPES %>
-  </div>
-  <div class="field">
     <%= f.label :min_league %><br />
-    <%= f.select :min_league,Offer::LEAGUE_TYPES  %>
+    <%= f.collection_select(:min_league_type,LeagueType.all, :id, :name)  %>
   </div>
   <div class="field">
     <%= f.label :season %><br />
-    <%= f.select :season, Offer::SEASONS %>
+    <%= f.collection_select(:season_id, Season.all, :id, :name)  %>
   </div>
   <div class="field">
     <%= f.label :position %><br />
-    <%= f.select :position, Offer::POSITIONS %>
+    <%= f.grouped_collection_select :position_id, PositionGroup.all,:positions, :name, :id, :name %>
   </div>
   <div class="field">
     <%= f.label :min_age %><br />
@@ -56,6 +45,6 @@
     <%= f.date_select :valid_until %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit(:team_id => @team.id) %>
   </div>
 <% end %>
