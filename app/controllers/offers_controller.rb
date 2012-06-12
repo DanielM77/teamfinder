@@ -1,27 +1,22 @@
 class OffersController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :setup_club, :setup_team
-  def setup_club
-    if params.has_key?(:club_id)
-      @club = Club.find(params[:club_id])
-    end
-  end
-  def setup_team
+  before_filter :setup_team_or_club
+  def setup_team_or_club
     if params.has_key?(:team_id)
       @team = Team.find(params[:team_id])
-      @club = @team.club
+    end
+    if params.has_key?(:club_id)
+      @club = Club.find(params[:club_id])
     end
 
   end
   # GET /offers
   # GET /offers.json
   def index
-    if @team
-      @offers = @team.offers
+    if @club
+      @offers = Offer.from_teams_by_club(@club)
     else
-      @club.teams.each { |team|
-        @offers << team.offers
-      }
+      @offers = @team.offers
     end
     #@offers = Offer.find_all_by_user_id(current_user)
 

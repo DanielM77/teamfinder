@@ -15,10 +15,14 @@ Teamfinder::Application.routes.draw do
 
   resources :team_types
 
-  resources :clubs, shallow:true do
-    resources :teams do
-      resources :offers
-    end
+  resources :clubs do
+    resources :teams
+  end
+  resources :clubs do
+    resources :offers, :only => [:index]
+  end
+
+  resources :teams do
     resources :offers
   end
 

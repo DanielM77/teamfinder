@@ -1,6 +1,6 @@
 
 <% content_for :leftside do %>
-    <%= render 'clubs/sidenav' %>
+    <%=     render 'clubs/sidenav' %>
 <% end %>
 <%= render 'clubs/header' %>
 <h3>Meine Mannschaften</h3>
@@ -31,4 +31,4 @@
 
 <br />
 
-<%= link_to 'New Team', new_club_team_path(@club.id) %>
+<%= link_to 'New Team', new_club_team_path(@club) %>

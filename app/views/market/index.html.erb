@@ -23,7 +23,7 @@
       <% @contacts.each do |contact| %>
             <li>
             <h4>Spieler (<%= contact.age %> Jahre)</h4>
-            <%= contact.league %> (<%= contact.position %>)<br>
+            <%= contact.league %> (<%= contact.position.name %>)<br>
         <%=  contact.message %>
             </li>
       <% end %>
@@ -38,7 +38,7 @@
   <div class="well">
         <h3><%=offer.club  %>     </h3>
         <%= offer.description %>   <br>
-        Position: <%=  offer.position %>
+        Position: <%=  offer.position.name %>
         <div id="btn-contact">
             <%= link_to 'Kontakt',new_offer_contact_path(offer_id: offer) ,class:'btn btn-primary' %>
         </div>

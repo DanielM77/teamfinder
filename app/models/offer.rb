@@ -14,14 +14,20 @@ class Offer < ActiveRecord::Base
   scope :one_position, lambda{ |pos| where('position = ?',pos)}
 
   def self.valid_only
-    return where("valid_from <= ? and valid_until >= ?", Date.today, Date.today)
+    where("valid_from <= ? and valid_until >= ?", Date.today, Date.today)
   end
   def self.contact_count
-    return Contact.count
+    Contact.count
   end
 
   def club_id
     team.club_id
   end
 
+  def self.from_teams_by_club(club)
+    #club = Club.find(club_id)
+    team_ids = club.team_ids.join(', ')
+    #team_ids = [1]
+    where("team_id in ( ? )", team_ids)
+  end
 end

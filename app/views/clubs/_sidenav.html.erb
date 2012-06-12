@@ -10,8 +10,11 @@
     <li><%= link_to "Alle anzeigen", club_teams_path(@club) %></li>
     <li><%= link_to "Neu anlegen",new_club_team_path(@club) %></li>
     <li class="nav-header">Angebote</li>
-    <li><%= link_to "Alle anzeigen",'#' %></li>
-    <li><%= link_to "Neu anlegen",'#' %></li>
+    <li><%= link_to "Alle anzeigen",club_offers_path(@club) %></li>
+    <% unless @team.nil? %>
+        <li><%= link_to "Neu anlegen",new_team_offer_path(:team_id => @team) %></li>
+    <% end %>
+
     <li class="nav-header">Kontaktanfragen</li>
     <li><%= link_to "Eingang",'#' %></li>
     <li><%= link_to "Ausgang",'#' %></li>

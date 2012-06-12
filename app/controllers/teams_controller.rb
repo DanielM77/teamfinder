@@ -39,7 +39,7 @@ class TeamsController < ApplicationController
 
   # GET /teams/1/edit
   def edit
-    @team = @club.find(params[:id])
+    @team = Team.find(params[:id])
   end
 
   # POST /teams

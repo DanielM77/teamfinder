@@ -2,7 +2,7 @@
     <%= render 'clubs/sidenav' %>
 <% end %>
 <%= render 'clubs/header' %>
-<h3>Meine Angebote</h3>
+<h3>Meine Spielergesuche</h3>
 
 <table class="table">
   <thead>
@@ -10,6 +10,8 @@
     <th>League</th>
     <th>Season</th>
     <th>Position</th>
+    <th>Gültig ab</th>
+    <th>Gültig bis</th>
     <th>Anfragen</th>
   </thead>
   <tbody>
@@ -19,6 +21,8 @@
     <td><%= offer.team.league.name %></td>
     <td><%= offer.season.name %></td>
     <td><%= offer.position.name %></td>
+    <td><%= offer.valid_from %></td>
+    <td><%= offer.valid_until %></td>
     <td> (<%= link_to offer.contacts.count, offer_contacts_path(offer_id:offer) %>)</td>
   </tr>
 <% end %>
