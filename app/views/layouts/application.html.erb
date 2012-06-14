@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Teamsite | <%= yield(:title) %></title>
+  <title>Teamfinder | <%= yield(:title) %></title>
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -27,9 +27,17 @@
           <ul class="nav">
             <li><%= link_to "Home",   market_index_path %></li>
             <li><%= link_to "Marktplatz",market_index_path  %></li>
+            <li>
+            <% if Player.with_role(:player,current_user).empty?  %>
+              <%= link_to "Spielerprofil anlegen",new_player_path %>
+            <% else %>
+              <%= link_to "Dein Spielerprofil",player_path(Player.with_role(:player,current_user).first ) %>
+            <% end %>
+            </li>
+
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                Mein Verein <b class="caret"></b>
+                Dein Verein <b class="caret"></b>
               </a>
 
             <ul class="dropdown-menu">

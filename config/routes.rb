@@ -1,6 +1,8 @@
 Teamfinder::Application.routes.draw do
 
 
+  resources :players
+
   resources :seasons
 
   resources :position_groups

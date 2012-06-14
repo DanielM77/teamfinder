@@ -18,10 +18,6 @@ trainer = User.create!(email:'trainer@mail.de',password:'geheim',password_confir
 puts 'trainer created ' << trainer.email
 
 admin.add_role 'admin'
-club_member.add_role 'club_member'
-club_superuser.add_role 'super_user'
-player.add_role 'player'
-trainer.add_role 'trainer'
 
 # Teamtypes and Leagues
 team_types = TeamType.create!([{name: 'Herren'},{name: 'A-Junioren'},{name: 'B-Junioren'},{name: 'Frauen'},{name: 'A-Juniorinnen'},{name: 'B-Juniorinnen'}])

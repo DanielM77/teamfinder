@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120607181451) do
+ActiveRecord::Schema.define(:version => 20120613152653) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -88,6 +88,32 @@ ActiveRecord::Schema.define(:version => 20120607181451) do
     t.string   "contract"
     t.string   "transfer_fee"
     t.integer  "min_league_type"
+  end
+
+  create_table "players", :force => true do |t|
+    t.string   "name"
+    t.string   "first_name"
+    t.date     "birthdate"
+    t.string   "street"
+    t.string   "zip"
+    t.string   "city"
+    t.string   "phone"
+    t.string   "mobile"
+    t.string   "email"
+    t.string   "nationality"
+    t.integer  "current_league_type_id"
+    t.integer  "expected_league_type_id"
+    t.integer  "max_distance"
+    t.integer  "position_id"
+    t.string   "strong_foot"
+    t.float    "transfer_fee"
+    t.boolean  "has_contract"
+    t.float    "expected_money"
+    t.boolean  "show_profile"
+    t.boolean  "is_public"
+    t.string   "gender"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
   end
 
   create_table "position_groups", :force => true do |t|

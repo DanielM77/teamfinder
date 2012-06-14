@@ -1,6 +1,6 @@
 class ClubsController < ApplicationController
   before_filter :authenticate_user!
-  load_and_authorize_resource :only => [ :index, :show ]
+  #load_and_authorize_resource :only => [ :index, :show ]
   # GET /clubs
   # GET /clubs.json
   def index
