@@ -17,6 +17,7 @@ class OffersController < ApplicationController
       @offers = Offer.from_teams_by_club(@club)
     else
       @offers = @team.offers
+      @club = @team.club
     end
     #@offers = Offer.find_all_by_user_id(current_user)
 
@@ -30,7 +31,6 @@ class OffersController < ApplicationController
   # GET /offers/1.json
   def show
     @offer = Offer.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @offer }
