@@ -16,4 +16,15 @@ class Player < ActiveRecord::Base
     end
 
   end
+
+  def age
+    unless birthdate.nil?
+      today = Date.today
+      a = today.year - birthdate.year
+      if today.month > birthdate.month ||
+          (today.month >= birthdate.month && today.day > birthdate.day)
+        a = a - 1
+      end
+    end
+  end
 end

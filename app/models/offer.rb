@@ -1,5 +1,6 @@
 class Offer < ActiveRecord::Base
   has_many :contacts
+  has_many :player_contacts
   belongs_to :leaque_type
   belongs_to :team
   belongs_to :position
@@ -17,7 +18,7 @@ class Offer < ActiveRecord::Base
     where("valid_from <= ? and valid_until >= ?", Date.today, Date.today)
   end
   def self.contact_count
-    Contact.count
+    PlayerContact.where("status <> ?", "beendet")
   end
 
   def club_id

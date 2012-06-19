@@ -1,0 +1,24 @@
+<h2><%= @offer.club %></h2>
+<p>
+  <%= @offer.team.name %> (<%= @offer.position.name %>)
+</p>
+
+
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Mobile</th>
+    <th>Aktuelle Liga</th>
+    <th>Position</th>
+  </tr>
+
+  <% @player_contacts.each do |contact| %>
+      <tr>
+        <td><%= link_to contact.full_name, offer_player_contact_path( @offer.id, contact.id)  %></td>
+        <td><%= contact.mobile %></td>
+        <td><%= contact.current_league_type.name unless contact.current_league_type.nil? %></td>
+        <td><%= contact.position.name unless contact.position.nil? %></td>
+      </tr>
+  <% end %>
+</table>
+<%= link_to "Back",team_offers_path(@offer.team) %>

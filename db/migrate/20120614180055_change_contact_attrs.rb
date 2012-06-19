@@ -8,6 +8,7 @@ class ChangeContactAttrs < ActiveRecord::Migration
     remove_column :contacts, :league
     remove_column :contacts, :gender
     add_column :contacts, :player_id, :integer
+    add_column :contacts, :status, :string
 
   end
 end

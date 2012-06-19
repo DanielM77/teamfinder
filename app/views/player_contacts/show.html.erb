@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @player_contact.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @player_contact.email %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @player_contact.phone %>
+</p>
+
+<p>
+  <b>Alter:</b>
+  <%= @player_contact.age %>
+</p>
+
+<p>
+  <b>Nachricht:</b>
+  <%= @player_contact.message %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%= @player_contact.position.name %>
+</p>
+
+<p>
+  <b>gewünschte Liga</b>
+  <%= @player_contact.expected_league_type.name %>
+</p>
+
+<p>
+  <b>Geschlecht:</b>
+  <%= @player_contact.gender %>
+</p>
+
+
+<%= link_to 'Edit', edit_offer_contact_path(offer_id: @offer.id,id:@player_contact) %> |
+<%= link_to 'Back', offer_contacts_path(@offer) %>

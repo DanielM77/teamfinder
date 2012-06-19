@@ -1,0 +1,82 @@
+
+<div class="field">
+  <%= f.label :name %><br />
+  <%= f.text_field :name %>
+</div>
+<div class="field">
+  <%= f.label :first_name %><br />
+  <%= f.text_field :first_name %>
+</div>
+<div class="field">
+  <%= f.label :birthdate %><br />
+  <%= f.date_select :birthdate %>
+</div>
+<div class="field">
+  <%= f.label :street %><br />
+  <%= f.text_field :street %>
+</div>
+<div class="field">
+  <%= f.label :zip %><br />
+  <%= f.text_field :zip %>
+</div>
+<div class="field">
+  <%= f.label :city %><br />
+  <%= f.text_field :city %>
+</div>
+<div class="field">
+  <%= f.label :phone %><br />
+  <%= f.text_field :phone %>
+</div>
+<div class="field">
+  <%= f.label :mobile %><br />
+  <%= f.text_field :mobile %>
+</div>
+<div class="field">
+  <%= f.label :email %><br />
+  <%= f.text_field :email %>
+</div>
+<div class="field">
+  <%= f.label :nationality %><br />
+  <%= f.text_field :nationality %>
+</div>
+<div class="field">
+  <%= f.label :gender %><br />
+  <%= f.select :gender, %w{männlich weiblich} %>
+</div>
+<div class="field">
+  <%= f.label :max_distance %><br />
+  <%= f.text_field :max_distance %>
+</div>
+<div class="field">
+  <%= f.label :strong_foot %><br />
+  <%= f.select :strong_foot, %w{links rechts beidfuessig} %>
+</div>
+<div class="field">
+  <%= f.label :current_league_type %><br />
+  <%= f.collection_select :current_league_type_id, LeagueType.all, :id, :name %>
+  <%= f.collection_select :current_league_type_id, LeagueType.all, :id, :name %>
+</div>
+<div class="field">
+  <%= f.label :expected_league_type %><br />
+  <%= f.collection_select :expected_league_type_id, LeagueType.all, :id, :name %>
+</div>
+<div class="field">
+  <%= f.label :transfer_fee %><br />
+  <%= f.text_field :transfer_fee %>
+</div>
+<div class="field">
+  <%= f.label :position %><br />
+  <%= f.grouped_collection_select :position_id, PositionGroup.all,:positions, :name, :id, :name %>
+</div>
+<div class="field">
+  <%= f.label :has_contract %><br />
+  <%= f.check_box :has_contract %>
+</div>
+<div class="field">
+  <%= f.label :expected_money %><br />
+  <%= f.text_field :expected_money %>
+</div>
+<div class="field">
+  <%= f.label :show_profile %><br />
+  <%= f.check_box :show_profile %>
+</div>

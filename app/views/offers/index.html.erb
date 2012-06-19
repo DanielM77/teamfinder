@@ -23,7 +23,7 @@
     <td><%= offer.position.name %></td>
     <td><%= offer.valid_from %></td>
     <td><%= offer.valid_until %></td>
-    <td> (<%= link_to offer.contacts.count, offer_contacts_path(offer_id:offer) %>)</td>
+    <td> (<%= link_to offer.player_contacts.count, offer_player_contacts_path(offer_id:offer) %>)</td>
   </tr>
 <% end %>
   </tbody>

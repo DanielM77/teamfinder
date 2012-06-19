@@ -1,0 +1,17 @@
+<%= form_for([@offer, @player_contact]) do |f| %>
+  <% if @player_contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@player_contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+      <ul>
+      <% @player_contact.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <%= render partial:'players/player', locals:{f:f} %>
+    <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

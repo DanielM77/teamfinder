@@ -17,16 +17,7 @@
       <h3>Was passiert auf teamfinder.de</h3>
       <ul>
         <li><%=  @offers.count %> offene Angebote</li>
-        <li><%=  @offers.contact_count  %> Spieler suchen einen Verein</li>
-      </ul>
-      <ul>
-      <% @contacts.each do |contact| %>
-            <li>
-            <h4>Spieler (<%= contact.age %> Jahre)</h4>
-            <%= contact.league %> (<%= contact.position.name %>)<br>
-        <%=  contact.message %>
-            </li>
-      <% end %>
+        <li><%=  @offers.contact_count.count  %> Spieler suchen einen Verein</li>
       </ul>
       Be a part of it...
     </div><!--/.well -->
@@ -40,7 +31,7 @@
         <%= offer.description %>   <br>
         Position: <%=  offer.position.name %>
         <div id="btn-contact">
-            <%= link_to 'Kontakt',new_offer_contact_path(offer_id: offer) ,class:'btn btn-primary' %>
+            <%= link_to 'Kontakt',new_offer_player_contact_path(offer_id: offer) ,class:'btn btn-primary' %>
         </div>
     </div>
 

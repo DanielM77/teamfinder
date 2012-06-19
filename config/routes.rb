@@ -37,6 +37,10 @@ Teamfinder::Application.routes.draw do
   resources :offers  do
     resources :contacts
   end
+
+  resources :offers do
+    resources :player_contacts
+  end
   get "static_pages/index"
   get "static_pages/help"
 
