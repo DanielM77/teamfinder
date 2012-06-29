@@ -14,7 +14,7 @@ class OffersController < ApplicationController
   # GET /offers.json
   def index
     if @club
-      @offers = Offer.from_teams_by_club(@club)
+      @offers = @club.offers
     else
       @offers = @team.offers
       @club = @team.club

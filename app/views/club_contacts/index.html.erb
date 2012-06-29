@@ -1,0 +1,21 @@
+<h2>Deine Anfragen bei Spielern</h2>
+<table class="table">
+  <tr>
+    <th>Spieler</th>
+    <th>Datum</th>
+    <th>Beschreibung</th>
+    <th>f&uuml;r Mannschaft</th>
+    <th>Status</th>
+  </tr>
+
+<% @club_contacts.each do |contact| %>
+  <tr>
+    <td><%= contact.player.full_name unless contact.player.nil? %></td>
+    <td><%= contact.created_at %></td>
+    <td><%= contact.description %></td>
+    <td><%= contact.team.name %></td>
+    <td><%= contact.team.name %></td>
+  </tr>
+<% end %>
+</table>
+<%= debug(@club_contacts) %>

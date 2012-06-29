@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120618154449) do
+ActiveRecord::Schema.define(:version => 20120629161448) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -72,8 +72,8 @@ ActiveRecord::Schema.define(:version => 20120618154449) do
     t.string   "status"
     t.date     "valid_from"
     t.date     "valid_until"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.integer  "user_id"
     t.integer  "club_id"
     t.integer  "team_id"
@@ -82,7 +82,9 @@ ActiveRecord::Schema.define(:version => 20120618154449) do
     t.string   "strong_foot"
     t.string   "contract"
     t.string   "transfer_fee"
-    t.integer  "min_league_type"
+    t.integer  "min_league_type_id"
+    t.integer  "player_id"
+    t.string   "typ"
   end
 
   create_table "players", :force => true do |t|

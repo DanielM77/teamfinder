@@ -10,8 +10,12 @@ class Ability
        else
          can :read, Club, :id => Club.with_role(:club_superuser, user).map{|club| club.id}
          can :write, Club, :id => Club.with_role(:club_superuser, user).map{|club| club.id}
-         can :read, Player, :id => Player.with_role(:player, user).map{|player| player.id}
-         can :write, Player, :id => Player.with_role(:player, user).map{|player| player.id}
+
+         can :read, PlayerProfile, :id => PlayerProfile.with_role(:player, user).map{|player| player.id}
+         can :write, PlayerProfile, :id => PlayerProfile.with_role(:player, user).map{|player| player.id}
+
+         can :read, ClubContact, :id => ClubContact.with_role(:club_superuser, user).map{|club_contact| club_contact.id}
+         can :write, ClubContact if user.has_role?(:club_superuser)
        end
     #
     # The first argument to `can` is the action you are giving the user permission to do.

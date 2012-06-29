@@ -11,7 +11,7 @@
     <th></th>
   </tr>
 
-<% @players.each do |player| %>
+<% @player_profiles.each do |player| %>
   <tr>
     <td><%= player.full_name %></td>
     <td><%= player.mobile %></td>
@@ -26,4 +26,4 @@
 
 <br />
 
-<%= link_to 'New Player', new_player_path %>
+<%= link_to 'New Player Profile', new_player_profile_path %>

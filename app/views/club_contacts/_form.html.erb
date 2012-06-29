@@ -1,0 +1,34 @@
+<%= form_for([@player_profile, @club_contact]) do |f| %>
+  <% if @club_contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@club_contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+      <ul>
+      <% @club_contact.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <h2><%= @club.name %></h2>
+    <div class="field">
+      <%= f.label :team %><br />
+      <%= f.collection_select(:team_id,@club.teams, :id, :name ) %>
+    </div>
+    <div class="field">
+      <%= f.label :description %><br />
+      <%= f.text_area :description %>
+    </div>
+    <div class="field">
+      <%= f.label :season %><br />
+      <%= f.collection_select(:season_id, Season.all, :id, :name)  %>
+    </div>
+    <div class="field">
+      <%= f.label :position %><br />
+      <%= f.grouped_collection_select :position_id, PositionGroup.all,:positions, :name, :id, :name %>
+    </div>
+    <div class="actions">
+      <%= f.submit:player_profile_id => @player_profile.id %>
+    </div>
+  </div>
+<% end %>

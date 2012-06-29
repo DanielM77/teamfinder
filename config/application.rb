@@ -63,5 +63,11 @@ module Teamfinder
     config.assets.version = '1.0'
 
     config.assets.initialize_on_precompile = false
+
+    # don't generate RSpec tests for views and helpers
+    config.generators do |g|
+      g.view_specs false
+      g.helper_specs false
+    end
   end
 end

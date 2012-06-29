@@ -1,7 +1,15 @@
 Teamfinder::Application.routes.draw do
 
 
-  resources :players
+  get "players_market/index"
+
+  resources :player_profiles do
+    resources :club_contacts
+  end
+
+  resources :club_contacts
+
+  resources :player_profiles
 
   resources :seasons
 

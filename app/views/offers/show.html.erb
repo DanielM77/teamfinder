@@ -7,7 +7,7 @@
 
 <p>
   <b>Team:</b>
-  <%= @offer.team %>
+  <%= @offer.team.name %>
 </p>
 
 <p>
@@ -22,17 +22,17 @@
 
 <p>
   <b>Min league:</b>
-  <%= @offer.min_league %>
+  <%= @offer.min_league_type.name unless @offer.min_league_type.nil? %>
 </p>
 
 <p>
   <b>Season:</b>
-  <%= @offer.season %>
+  <%= @offer.season.name %>
 </p>
 
 <p>
   <b>Position:</b>
-  <%= @offer.position %>
+  <%= @offer.position.name %>
 </p>
 
 <p>

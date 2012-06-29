@@ -18,7 +18,7 @@ require 'spec_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-describe PlayersController do
+describe PlayerProfilesController do
 
   # This should return the minimal set of attributes required to create a valid
   # Player. As you add validations to Player, be sure to
@@ -29,16 +29,16 @@ describe PlayersController do
   
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
-  # PlayersController. Be sure to keep this updated too.
+  # PlayerProfilesController. Be sure to keep this updated too.
   def valid_session
     {}
   end
 
   describe "GET index" do
-    it "assigns all players as @players" do
+    it "assigns all player_profiles as @player_profiles" do
       player = Player.create! valid_attributes
       get :index, {}, valid_session
-      assigns(:players).should eq([player])
+      assigns(:player_profiles).should eq([player])
     end
   end
 
@@ -106,7 +106,7 @@ describe PlayersController do
     describe "with valid params" do
       it "updates the requested player" do
         player = Player.create! valid_attributes
-        # Assuming there are no other players in the database, this
+        # Assuming there are no other player_profiles in the database, this
         # specifies that the Player created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
@@ -154,7 +154,7 @@ describe PlayersController do
       }.to change(Player, :count).by(-1)
     end
 
-    it "redirects to the players list" do
+    it "redirects to the player_profiles list" do
       player = Player.create! valid_attributes
       delete :destroy, {:id => player.to_param}, valid_session
       response.should redirect_to(players_url)

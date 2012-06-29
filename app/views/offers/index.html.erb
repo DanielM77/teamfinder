@@ -17,6 +17,7 @@
   <tbody>
 <% @offers.each do |offer| %>
   <tr>
+    <td><%= link_to raw('<i class="icon-search"></i>'),offer_path(offer) %></td>
     <td><%= offer.team.name %></td>
     <td><%= offer.team.league.name %></td>
     <td><%= offer.season.name %></td>
@@ -30,5 +31,6 @@
 </table>
 
 <br />
+
 
 

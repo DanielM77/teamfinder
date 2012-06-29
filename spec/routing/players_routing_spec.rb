@@ -1,34 +1,34 @@
 require "spec_helper"
 
-describe PlayersController do
+describe PlayerProfilesController do
   describe "routing" do
 
     it "routes to #index" do
-      get("/players").should route_to("players#index")
+      get("/player_profiles").should route_to("player_profiles#index")
     end
 
     it "routes to #new" do
-      get("/players/new").should route_to("players#new")
+      get("/player_profiles/new").should route_to("player_profiles#new")
     end
 
     it "routes to #show" do
-      get("/players/1").should route_to("players#show", :id => "1")
+      get("/player_profiles/1").should route_to("player_profiles#show", :id => "1")
     end
 
     it "routes to #edit" do
-      get("/players/1/edit").should route_to("players#edit", :id => "1")
+      get("/player_profiles/1/edit").should route_to("player_profiles#edit", :id => "1")
     end
 
     it "routes to #create" do
-      post("/players").should route_to("players#create")
+      post("/player_profiles").should route_to("player_profiles#create")
     end
 
     it "routes to #update" do
-      put("/players/1").should route_to("players#update", :id => "1")
+      put("/player_profiles/1").should route_to("player_profiles#update", :id => "1")
     end
 
     it "routes to #destroy" do
-      delete("/players/1").should route_to("players#destroy", :id => "1")
+      delete("/player_profiles/1").should route_to("player_profiles#destroy", :id => "1")
     end
 
   end

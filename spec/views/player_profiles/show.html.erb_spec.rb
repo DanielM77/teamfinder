@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "players/show" do
+describe "player_profiles/show" do
   before(:each) do
     @player = assign(:player, stub_model(Player,
       :name => "Name",

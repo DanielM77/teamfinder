@@ -8,7 +8,7 @@ class PlayerContactsController < ApplicationController
   end
 
   def index
-    @player_contacts = PlayerContact.all
+    @player_contacts = @offer.player_contacts
 
     respond_to do |format|
       format.html # index.html.erb
@@ -38,21 +38,27 @@ class PlayerContactsController < ApplicationController
     end
   end
 
-  # GET /player_contactss/1/edit
+  # GET /player_contacts/1/edit
   def edit
     @player_contact = PlayerContact.find(params[:id])
   end
 
-  # POST /players
-  # POST /players.json
+  # POST /player_profiles
+  # POST /player_profiles.json
   def create
     @player_contact = @offer.player_contacts.build(params[:player_contact])
 
     respond_to do |format|
       if @player_contact.save
-        #current_user.add_role("player",@player)
+        #current_user.add_role("player",@player_contact)
+        if Player.with_role(:player,current_user).empty?
+          @player_profile = @player_contact.create_profile
+          @player_profile.save
+          current_user.add_role("player",@player)
+        end
+
         format.html { redirect_to offer_player_contact_path(@offer,@player_contact), notice: 'Contact of Player was successfully created.' }
-        format.json { render json: @player_contact, status: :created, location: @player }
+        format.json { render json: @player_contact, status: :created, location: @player_contact }
       else
         format.html { render action: "new" }
         format.json { render json: @player_contact.errors, status: :unprocessable_entity }
