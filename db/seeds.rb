@@ -7,15 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 puts 'setting up the default user login'
 admin = User.create!(email:'admin@mail.de',password:'geheim',password_confirmation:'geheim')
-puts 'admin created ' << admin.email
-club_member = User.create!(email:'club_member@mail.de',password:'geheim',password_confirmation:'geheim')
-puts 'club_member created ' << club_member.email
-club_superuser = User.create!(email:'club_superuser@mail.de',password:'geheim',password_confirmation:'geheim')
-puts 'club_superuser created ' << club_superuser.email
-player = User.create!(email:'player@mail.de',password:'geheim',password_confirmation:'geheim')
-puts 'player created ' << player.email
-trainer = User.create!(email:'trainer@mail.de',password:'geheim',password_confirmation:'geheim')
-puts 'trainer created ' << trainer.email
+
 
 admin.add_role 'admin'
 
@@ -76,13 +68,6 @@ puts 'LeagueType created: ' << league_type.name
 	puts 'Area created: ' << area.name
 	league = area.leagues.create!(name:'Kreisliga C Limburg-Weilburg')
 	puts 'League created: ' << league.name
-
-#Clubs
-club = Club.create!({name:"RSV Wuerges"})
-club_superuser.add_role("club_superuser",club)
-#Team
-league = League.find_by_name('Kreisoberliga Limburg-Weilburg')
-team = club.teams.create!({name:'1. Mannschaft', league:league, club:club})
 
 #Positions
 groups = PositionGroup.create!([{name:'Tor'},{name:'Abwehr'},{name:'Mittelfeld'},{name:'Sturm'}])
