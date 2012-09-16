@@ -1,0 +1,11 @@
+<%= form_tag market_index_path, :method => 'get', class:"form-search" do %>
+    <p></p><%= text_field_tag :search,@param_search, class:'input-medium search-query',placeholder:'Suchtext eingeben', size:100 %>   </p>
+    <p><%= select_tag(:position_group_id, options_from_collection_for_select(@position_groups,:id,:name, @param_position_group_id), {prompt:'Position auswählen'},  ) %></p>
+    <p><%= select_tag(:area_id, options_from_collection_for_select(@areas,:id,:name, @param_areas), {prompt:'Region auswählen'},  ) %></p>
+    <p><%= select_tag(:league_type_ranking, options_from_collection_for_select(@league_types, :ranking, :name, @param_league_type_ranking), {prompt:'Liga auswählen'}) %></p>
+    <p><%= text_field_tag :age, @param_age, class:'input', placeholder:'Alter eingeben' %></p>
+    <p><%= select_tag(:strong_foot,options_for_select(Offer::STRONG_FOOT,@param_strong_foot),{prompt:'Starken Fuß auswählen'}) %></p>
+    <p><%= select_tag(:contract,options_for_select(Offer::CONTRACT, @param_contract),{prompt:'Vertragsart auswählen'}) %></p>
+    <p><%= submit_tag 'Suchen', class:'btn btn-primary' %>
+       <%= submit_tag 'Zurücksetzen',name:'reset', type:'reset', class:'btn' %></p>
+<% end %>

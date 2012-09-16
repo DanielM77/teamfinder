@@ -1,97 +1,42 @@
-<p id="notice"><%= notice %></p>
+<h3>Deine persönlichen Informationen</h3>
+<div class="row-fluid">
+  <div class="span6">
+    <%= @player_profile.first_name %> <%= @player_profile.name %><br>
+    <%= @player_profile.street %>    <br>
+    <%= @player_profile.zip %> <%= @player_profile.city %> <br><br>
+    <b>Geburtsdatum:</b> <%= @player_profile.birthdate %><br>
+    <b>Nationalität</b> <%= @player_profile.nationality %>
+  </div>
+  <div class="span6">
+
+    <b>Telefonnummer:</b> <%= @player_profile.phone %><br>
+    <b>Handynummer:</b> <%=  @player_profile.mobile %><br>
+    <b>Email:</b> <%= @player_profile.email %>
+  </div>
+</div>
+<p></p>
+<h3>Dein Spielerprofil</h3>
+<%= render :partial => 'player_profile_without_personal', :locals =>{:player_profile => @player_profile} %>
+<b>Dein Profil veröffentlichen (ohne Namen):</b>
+<%= @player_profile.show_profile %>
 
 <p>
-  <b>Vorname</b>
-  <%= @player_profile.first_name %>
+    <%= link_to 'Spielerpofil anpassen', edit_player_profile_path(@player_profile) %>
 </p>
 
-<p>
-  <b>Nachname</b>
-  <%= @player_profile.name %>
-</p>
-
-<p>
-  <b>Birthdate:</b>
-  <%= @player_profile.birthdate %>
-</p>
-
-<p>
-  <b>Straße</b>
-  <%= @player_profile.street %>
-</p>
-
-<p>
-  <b>Plz</b>
-  <%= @player_profile.zip %>
-</p>
-
-<p>
-  <b>Stadt</b>
-  <%= @player_profile.city %>
-</p>
-
-<p>
-  <b>Telefonnummer</b>
-  <%= @player_profile.phone %>
-</p>
-
-<p>
-  <b>Handy</b>
-  <%= @player_profile.mobile %>
-</p>
-
-<p>
-  <b>Email</b>
-  <%= @player_profile.email %>
-</p>
-
-<p>
-  <b>Nationalität</b>
-  <%= @player_profile.nationality %>
-</p>
-
-<p>
-  <b>Aktuelle Liga</b>
-  <%= @player_profile.current_league_type.name unless @player_profile.current_league_type.nil? %>
-</p>
-
-<p>
-  <b>Gew&uuml;nschte Liga</b>
-  <%= @player_profile.expected_league_type.name unless @player_profile.expected_league_type.nil? %>
-</p>
-
-<p>
-  <b>Maximale Entfernung</b>
-  <%= @player_profile.max_distance %>
-</p>
-
-<p>
-  <b>Position:</b>
-  <%= @player_profile.position.name  unless @player_profile.position.nil? %>
-</p>
-
-<p>
-  <b>Starker Fuß</b>
-  <%= @player_profile.strong_foot %>
-</p>
-
-<p>
-  <b>Ablösesumme</b>
-  <%= @player_profile.transfer_fee %>
-</p>
-<p>
-  <b>Bestehender Vertrag</b>
-  <%= @player_profile.has_contract %>
-</p>
-
-<p>
-  <b>erwartetes Gehalt</b>
-  <%= @player_profile.expected_money %>
-</p>
-
-<p>
-  <b>Profil veröffentlichen (ohne Namen)</b>
-  <%= @player_profile.show_profile %>
-</p>
-
-<%= link_to 'Edit', edit_player_profile_path(@player_profile) %> |
+<h3>Deine Anfragen bei Vereinen</h3>
+<% unless @player_contacts.empty? %>
+    <%= render :partial => 'player_contacts' %>
+<% else  %>
+    <div class="alert alert-info">
+        Aktuell hast Du keine Anfragen gestellt
+    </div>
+<% end %>
+<h3>Anfragen von Vereinen</h3>
+<% unless @club_contacts.empty? %>
+<%= render :partial => 'club_contacts' %>
+<% else %>
+    <div class="alert alert-info">
+      Aktuell hast Du keine aktuellen Anfragen
+    </div>
+<% end %>

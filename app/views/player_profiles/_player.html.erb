@@ -1,82 +1,158 @@
+<div class='row-fluid'>
+  <legend>Name und Adresse</legend>
+  <div class='span12'>
+    <div class='span6'>
+      <div class='control-group'>
+        <%= f.label:first_name,"Vorname",class:'control-label' %>
+        <div class='controls'>
+          <%= f.text_field :first_name, class:'input-large', placeholder:'Vorname' %>
+        </div>
+      </div>
 
-<div class="field">
-  <%= f.label :name %><br />
-  <%= f.text_field :name %>
+      <div class='control-group'>
+        <%= f.label:street,"Straße",class:'control-label' %>
+        <div class='controls'>
+          <%= f.text_field :street, class:'input-large', placeholder:'Straße' %>
+        </div>
+      </div>
+      <div class='control-group'>
+        <%= f.label:zip,"Postleitzahl",class:'control-label' %>
+        <div class='controls'>
+          <%= f.text_field :zip, class:'input-large', placeholder:'Postleitzahl' %>
+        </div>
+      </div>
+
+      <div class='control-group'>
+        <%= f.label:phone,"Telefonnummer",class:'control-label' %>
+        <div class='controls'>
+          <%= f.text_field :phone, class:'input-large', placeholder:'Telefonnummer' %>
+        </div>
+      </div>
+      <div class='control-group'>
+        <%= f.label:email,"Email",class:'control-label' %>
+        <div class='controls'>
+          <%= f.text_field :email, class:'input-large', placeholder:'Email' %>
+        </div>
+      </div>
+      <div class='control-group'>
+        <%= f.label:gender,"Geschlecht",class:'control-label' %>
+        <div class='controls'>
+          <%= f.select :gender, %w{männlich weiblich}, class:'input-large', placeholder:'Geschlecht' %>
+        </div>
+      </div>
+    </div>
+
+    <div class='span6'>
+      <div class='control-group'>
+        <%= f.label :name,"Name",class:'control-label' %>
+        <div class='controls'>
+          <%= f.text_field :name, class:'input-large', placeholder:'Name' %>
+        </div>
+      </div>
+      <div class='control-group'>
+        <%= f.label:birthdate,"Geburtsdatum",class:'control-label' %>
+        <div class='controls'>
+          <%= f.text_field :birthdate, class:'input-large', placeholder:'Geburtsdatum' %>
+        </div>
+      </div>
+      <div class='control-group'>
+        <%= f.label:city,"Ort",class:'control-label' %>
+        <div class='controls'>
+          <%= f.text_field :city, class:'input-large', placeholder:'Ort' %>
+        </div>
+      </div>
+      <div class='control-group'>
+        <%= f.label:mobile,"Handynummer",class:'control-label' %>
+        <div class='controls'>
+          <%= f.text_field :mobile, class:'input-large', placeholder:'Handynummer' %>
+        </div>
+      </div>
+      <div class='control-group'>
+        <%= f.label:nationality,"Nationalität",class:'control-label' %>
+        <div class='controls'>
+          <%= f.text_field :nationality, class:'input-large', placeholder:'Nationalität' %>
+        </div>
+      </div>
+    </div>
 </div>
-<div class="field">
-  <%= f.label :first_name %><br />
-  <%= f.text_field :first_name %>
+  <legend>Dein Spielerprofil</legend>
+  <div class='span12'>
+  <div class='span6'>
+    <div class='control-group'>
+      <%= f.label:current_league_type_id,"aktuelle Liga",class:'control-label' %>
+      <div class='controls'>
+        <%= f.collection_select :current_league_type_id, LeagueType.all, :id, :name, class:'input-large', placeholder:'aktuelle Liga' %>
+      </div>
+    </div>
+    <div class='control-group'>
+      <%= f.label:position_id,"Position",class:'control-label' %>
+      <div class='controls'>
+        <%= f.grouped_collection_select :position_id, PositionGroup.all,:positions, :name, :id, :name, class:'input-large', placeholder:'Position' %>
+      </div>
+    </div>
+
+    <div class='control-group'>
+      <%= f.label:max_distance,"Maximale Entfernung",class:'control-label' %>
+      <div class='controls'>
+        <%= f.text_field :max_distance, class:'input-large', placeholder:'Maximale Entfernung' %>
+      </div>
+    </div>
+    <div class='control-group'>
+      <%= f.label:expected_money,"erwartete Vergütung",class:'control-label' %>
+      <div class='controls'>
+        <%= f.text_field :expected_money, class:'input-large', placeholder:'erwartete Vergütung' %>
+      </div>
+    </div>
+
+    <div class='control-group'>
+      <div class='controls'>
+        <%= f.check_box :show_profile,{ class:'input-large' }%> Dein Spielerprofil veröffentlichen (ohne Namen)
+      </div>
+    </div>
+    </div>
+  <div class='span6'>
+    <div class='control-group'>
+      <%= f.label:expected_league_type_id,"gewünschte Liga",class:'control-label' %>
+      <div class='controls'>
+        <%= f.collection_select :expected_league_type_id, LeagueType.all, :id, :name, class:'input-large', placeholder:'gewünschte Liga' %>
+      </div>
+    </div>
+    <div class='control-group'>
+      <%= f.label:strong_foot,"starker Fuß",class:'control-label' %>
+      <div class='controls'>
+        <%= f.select :strong_foot, %w{links rechts beidfuessig}, class:'input-large', placeholder:'starker Fuß' %>
+      </div>
+  </div>
+
+  <div class='control-group'>
+    <%= f.label:transfer_fee,"Ablösesumme",class:'control-label' %>
+    <div class='controls'>
+      <%= f.text_field :transfer_fee, class:'input-large', placeholder:'Ablösesumme' %>
+    </div>
+  </div>
+  <div class='control-group'>
+    <div class='controls'>
+      <%= f.check_box :has_contract, class:'input-large' %> laufender Vertrag
+    </div>
+  </div>
 </div>
-<div class="field">
-  <%= f.label :birthdate %><br />
-  <%= f.date_select :birthdate %>
+  </div>
 </div>
-<div class="field">
-  <%= f.label :street %><br />
-  <%= f.text_field :street %>
-</div>
-<div class="field">
-  <%= f.label :zip %><br />
-  <%= f.text_field :zip %>
-</div>
-<div class="field">
-  <%= f.label :city %><br />
-  <%= f.text_field :city %>
-</div>
-<div class="field">
-  <%= f.label :phone %><br />
-  <%= f.text_field :phone %>
-</div>
-<div class="field">
-  <%= f.label :mobile %><br />
-  <%= f.text_field :mobile %>
-</div>
-<div class="field">
-  <%= f.label :email %><br />
-  <%= f.text_field :email %>
-</div>
-<div class="field">
-  <%= f.label :nationality %><br />
-  <%= f.text_field :nationality %>
-</div>
-<div class="field">
-  <%= f.label :gender %><br />
-  <%= f.select :gender, %w{männlich weiblich} %>
-</div>
-<div class="field">
-  <%= f.label :max_distance %><br />
-  <%= f.text_field :max_distance %>
-</div>
-<div class="field">
-  <%= f.label :strong_foot %><br />
-  <%= f.select :strong_foot, %w{links rechts beidfuessig} %>
-</div>
-<div class="field">
-  <%= f.label :current_league_type %><br />
-  <%= f.collection_select :current_league_type_id, LeagueType.all, :id, :name %>
-  <%= f.collection_select :current_league_type_id, LeagueType.all, :id, :name %>
-</div>
-<div class="field">
-  <%= f.label :expected_league_type %><br />
-  <%= f.collection_select :expected_league_type_id, LeagueType.all, :id, :name %>
-</div>
-<div class="field">
-  <%= f.label :transfer_fee %><br />
-  <%= f.text_field :transfer_fee %>
-</div>
-<div class="field">
-  <%= f.label :position %><br />
-  <%= f.grouped_collection_select :position_id, PositionGroup.all,:positions, :name, :id, :name %>
-</div>
-<div class="field">
-  <%= f.label :has_contract %><br />
-  <%= f.check_box :has_contract %>
-</div>
-<div class="field">
-  <%= f.label :expected_money %><br />
-  <%= f.text_field :expected_money %>
-</div>
-<div class="field">
-  <%= f.label :show_profile %><br />
-  <%= f.check_box :show_profile %>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

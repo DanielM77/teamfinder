@@ -2,8 +2,23 @@
 <p>
   <%= @offer.team %> (<%= @offer.position %>)
 </p>
+<table class="table table-striped">
+  <thead>
+  <th>Mannschaft</th>
+  <th>name</th>
+  <th>Position</th>
+  <th>Liga</th>
+  <th></th>
+  </thead>
+  <tbody>
+    <% @contacts.each do |contact| %>
+        <tr>
+          <td><%= club_contact.team.name %></td>
+          <td>Spieler <%= club_contact.player_profile.id %></td>
+          <td><%= player_profile.current_league.name %></td>
+          <td><%= link_to "Details",club_contact_path(club_contact) class:'btn btn-mini' %></td>
 
-<% @contacts.each do |contact| %>
+        </tr>
       <div class = "well">
         <strong><%=link_to contact.name, "#" %></strong>
         <% unless contact.age.nil?  %>
@@ -20,4 +35,5 @@
 
 <% end %>
 
+</table>
 <%= link_to "Back",offers_path %>

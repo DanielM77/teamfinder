@@ -1,0 +1,23 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Mannschaftsart</th>
+    <th>Liga</th>
+  </tr>
+  </thead>
+
+  <% @teams.each do |team| %>
+      <tr>
+        <td><%= link_to team.name, club_team_path(@club.id, team) %></td>
+        <td><%= team.team_type_name %></td>
+        <td><%= team.league.name %></td>
+        <td>
+          <%# link_to 'Bearbeiten', edit_club_team_path(@club.id, team), class:'btn btn-mini btn-info' %>
+          <%# link_to 'Löschen', club_team_path(@club.id, team), confirm: 'Bist Du sicher?', method: :delete, class:'btn btn-mini btn-danger' %>
+          <%= link_to 'Neues Angebot', new_team_public_offer_path(team.id), class:'btn btn-mini btn-success' %>
+
+        </td>
+      </tr>
+  <% end %>
+</table>

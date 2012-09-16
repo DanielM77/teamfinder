@@ -4,30 +4,7 @@
 <% end %>
 <%= render 'clubs/header' %>
 <h3>Meine Mannschaften</h3>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Name</th>
-      <th>Mannschaftsart</th>
-      <th>Liga</th>
-    </tr>
-  </thead>
-
-<% @teams.each do |team| %>
-  <tr>
-    <td><%= link_to raw("<i class='icon-pencil'></i>"), edit_club_team_path(@club.id, team) %>
-    <%= link_to raw("<i class='icon-trash'></i>"), club_team_path(@club.id, team) , confirm: 'Are you sure?', method: :delete %></td>
-    <td><%= link_to team.name, club_team_path(@club.id, team) %></td>
-    <td><%= team.team_type_name %></td>
-    <td><%= team.league.name %></td>
-
-    <td></td>
-   
-    
-  </tr>
-<% end %>
-</table>
+<%= render :partial => 'teams' %>
 
 <br />
 

@@ -1,0 +1,24 @@
+<div class="row-fluid">
+  <div class="span6">
+    <b>Aktuelle Liga</b>
+    <%= player_profile.current_league_type.name unless player_profile.current_league_type.nil? %><br>
+    <b>Gewünschte Liga</b>
+    <%= player_profile.expected_league_type.name unless player_profile.expected_league_type.nil? %>  <br>
+    <b>Position:</b>
+    <%= player_profile.position.name  unless player_profile.position.nil? %><br>
+    <b>Starker Fuß</b>
+    <%= player_profile.strong_foot %><br>
+  </div>
+  <div class="span6">
+    <b>Maximale Entfernung</b>
+    <%= player_profile.max_distance %><br>
+
+    <b>Ablösesumme</b>
+    <%= player_profile.transfer_fee %><br>
+    <b>Bestehender Vertrag</b>
+    <%= player_profile.has_contract %><br>
+    <b>erwartetes Gehalt</b>
+    <%= player_profile.expected_money %><br>
+
+  </div>
+</div>

@@ -1,5 +1,10 @@
 <h1>Kontaktanfrage</h1>
-
+<p>Stelle Deine Kontaktanfrage. Wenn der Spieler interessiert ist, gibt er seine Kontaktdaten an Dich weiter.</p>
+<h3>Spielerprofil</h3>
+<div class="well">
+<%= render :partial => 'player_profiles/player_profile_without_personal', :locals =>{:player_profile => @player_profile} %>
+</div>
+<div class="well">
 <%= render 'form' %>
-
+</div>
 <%= link_to 'Back', root_path %>

@@ -11,4 +11,7 @@ class StaticPagesController < ApplicationController
 
     end
   end
+  def pricing
+
+  end
 end

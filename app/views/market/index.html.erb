@@ -3,35 +3,57 @@
     <div class="well sidebar-nav">
       <ul class="nav nav-list">
         <li class="nav-header">Position</li>
-        <li><%= link_to "Alle", market_index_path %></li>
-        <li><%= link_to "Tor", market_index_path(position:'Tor') %></li>
-        <li><%= link_to "Abwehr", market_index_path(position:'Abwehr') %></li>
-        <li><%= link_to "Mittelfeld", market_index_path(position:'Mittelfeld') %></li>
-        <li><%= link_to "Sturm", market_index_path(position:'Sturm') %></li>
+        <li><%= link_to "Alle", market_index_path(league_type_id:@param_league_type_ranking,
+                                                  team_type_id:@param_team_type_id) %></li>
+        <% @position_groups.each do |position_group|  %>
+          <li><%= link_to position_group.name, market_index_path(league_type_id:@param_league_type_ranking,
+                                                                 position_group_id:position_group.id,
+                                                                 team_type_id:@param_team_type_id) %></li>
+        <% end %>
+      </ul>
+      <ul class="nav nav-list">
+        <li class="nav-header">Liga</li>
+        <li><%= link_to "Alle", market_index_path(position_group_id:@param_position_group_id,
+                                                  team_type_id:@param_team_type_id) %></li>
+        <% @league_types.each do |league_type|  %>
+            <li><%= link_to league_type.name, market_index_path(league_type_ranking:league_type.ranking,
+                                                                 position_group_id:@param_position_group_id,
+                                                                 team_type_id:@param_team_type_id) %></li>
+        <% end %>
+      </ul>
+      <ul class="nav nav-list">
+        <li class="nav-header">Mannschaft</li>
+        <li><%= link_to "Alle", market_index_path(league_type_ranking:@param_league_type_ranking,
+                                                  position_group_id:@param_position_group_id,
+                                                                     ) %></li>
+        <% @team_types.each do |team_type|  %>
+            <li><%= link_to team_type.name, market_index_path(league_type_ranking:@param_league_type_ranking,
+                                                               position_group_id:@param_position_group_id,
+                                                               team_type_id:team_type.id) %></li>
+
+        <% end %>
       </ul>
 
     </div>
 <% end %>
 <% content_for :rightside do %>
     <div class="well">
-      <h3>Was passiert auf teamfinder.de</h3>
+      <h3>Was passiert auf spielertransfer.de</h3>
       <ul>
-        <li><%=  @offers.count %> offene Angebote</li>
-        <li><%=  @offers.contact_count.count  %> Spieler suchen einen Verein</li>
+        <li><%= @all_offers_count %> offene Angebote</li>
+        <li><%= @open_player_profiles_count %> Spieler suchen einen Verein</li>
+        <li><%= @all_player_contacts_count %> Spieler haben einen Verein angefragt</li>
       </ul>
       Be a part of it...
     </div><!--/.well -->
 <% end %>
-<header class="jumbotron subhead" id="overview">
-  <h1>Marketplace</h1>
-  <p class="lead">Finde Deinen Verein - alle Angebote aus Deiner Region</p>
-<% @offers.each do |offer| %>
-  <div class="well">
-        <h3><%=offer.club  %>     </h3>
-        <%= offer.description %>   <br>
-        Position: <%=  offer.position.name %>
-        <div id="btn-contact">
-            <%= link_to 'Kontakt',new_offer_player_contact_path(offer_id: offer) ,class:'btn btn-primary' %>
-        </div>
-    </div>
+<div class="page-header" id="overview">
+  <h2>Vereinsangebote</h2>
+  <p class="lead">Diese Vereine suchen Spieler! Ist etwas für Dich dabei?</p>
+
+  <%# render 'search'%>
+</div>
+<% @public_offers.each do |offer| %>
+    <%= render 'public_offer', offer:offer %>
 <% end  %>
+<%#  debug(request.inspect) %>

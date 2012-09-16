@@ -1,3 +1,4 @@
+<legend>Neue Mannschaft anlegen</legend>
 <%= form_for([@club, @team]) do |f| %>
   <% if @team.errors.any? %>
     <div id="error_explanation">
@@ -10,16 +11,22 @@
       </ul>
     </div>
   <% end %>
+  <div class="control-group">
+    <%= f.label :name, "Name", class:"control-label" %>
+    <div class="controls">
+        <%= f.text_field :name, placeholder:'Name' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :league, "Liga", class:"control-label" %>
+    <div class="controls" >
+    <%= f.collection_select(:league_id, League.all, :id, :name, prompt:'Liga auswählen') %>
+    </div>
+  </div>
+    <div class="control-group">
+      <div class="controls" >
+        <%= f.submit "Absenden", class:'btn btn-primary' %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :league %><br />
-    <%= f.collection_select(:league_id, League.all, :id, :name, prompt:true) %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

@@ -1,0 +1,25 @@
+<table class="table table-striped">
+  <thead>
+  <th>Verein</th>
+  <th>Mannschaft</th>
+  <th>Liga</th>
+  <th>Position</th>
+  <th>Status</th>
+  <th></th>
+  </thead>
+  <tbody>
+  <% @club_contacts.each do |contact| %>
+      <tr>
+        <td><%= contact.team.club.name %></td>
+        <td><%= contact.team.name %></td>
+        <td><%= contact.team.league.name %></td>
+        <td><%= contact.position.name %></td>
+        <td><%= contact.status %></td>
+        <td>
+          <%= link_to "Details", player_profile_club_contact_path(contact.player_profile,contact),class:'btn btn-mini' %>
+          <%= link_to "Annehmen", player_profile_club_contact_path(contact.player_profile,contact),class:'btn btn-mini btn-success' if contact.status=="angefragt" %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

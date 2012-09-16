@@ -1,64 +1,38 @@
 <% provide :title, @club.name %>
 <%= render 'header' %>
 <% content_for :leftside do %>
-    <%= render 'sidenav' %>
+    <%# render 'sidenav' %>
 <% end %>
+<h3>Mannschaften</h3>
+<%  unless @club.teams.empty? %>
+    <%= render :partial => 'teams/teams' %>
+<% else %>
+    <div class="alert alert-info"> Du hast noch keine Mannschaften angelegt  </div>
+<% end  %>
 
-<p>
-  <b>Name:</b>
-  <%= @club.name %>
-</p>
+<%= link_to 'Neue Mannschaft', new_club_team_path(@club.id), class:'btn btn-mini' %>
+<p></p>
+<h3>Angebote</h3>
+<%  unless @club.public_offers.empty? %>
+    <%= render :partial => 'public_offers/offers' %>
+<% else %>
+    <div class="alert alert-info">Du hast noch keine Angebote erstellt</div>
+<% end  %>
+<p></p>
+<h3>Anfragen von Spielern</h3>
+<p></p>
 
-<p>
-  <b>Street:</b>
-  <%= @club.street %>
-</p>
+<% @club.public_offers.each do |offer| %>
+    <%= render :partial => 'player_contacts/player_contacts', :locals=>{:player_contacts => offer.player_contacts, :public_offer => offer}  unless offer.player_contacts.empty? %>
+<% end %>
+<p></p>
+<h3>Deine Anfragen bei Spielern</h3>
+<p></p>
 
-<p>
-  <b>Street no:</b>
-  <%= @club.street_no %>
-</p>
-
-<p>
-  <b>Zip:</b>
-  <%= @club.zip %>
-</p>
-
-<p>
-  <b>City:</b>
-  <%= @club.city %>
-</p>
-
-<p>
-  <b>Phone:</b>
-  <%= @club.phone %>
-</p>
-
-<p>
-  <b>Fax:</b>
-  <%= @club.fax %>
-</p>
-
-<p>
-  <b>Mobile:</b>
-  <%= @club.mobile %>
-</p>
-
-<p>
-  <b>Image path:</b>
-  <%= @club.image_path %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @club.email %>
-</p>
-
-<p>
-  <b>Homepage:</b>
-  <%= @club.homepage %>
-</p>
+        <%= render :partial => 'club_contacts/club_contacts', :locals=>{teams:@club.teams} %>
 
 
-<%= link_to 'Edit', edit_club_path(@club) %> |
-<%= link_to 'Back', clubs_path %>
+<p></p>
+
+
+

@@ -1,6 +1,5 @@
 Teamfinder::Application.routes.draw do
 
-
   get "players_market/index"
 
   resources :player_profiles do
@@ -29,28 +28,29 @@ Teamfinder::Application.routes.draw do
     resources :teams
   end
   resources :clubs do
-    resources :offers, :only => [:index]
+    resources :public_offers, only: [:index]
   end
 
   resources :teams do
-    resources :offers
+    resources :public_offers
   end
 
   devise_for :users
-  resources :users, :only => [:show, :index]
+  #devise_for :users,  :controllers => { :registrations => "users/registrations" }
+  resources :users, only: [:show, :index]
+
 
 
   get "market/index"
 
-  resources :offers  do
-    resources :contacts
-  end
+  resources :public_offers, only: [:show]
 
-  resources :offers do
+  resources :public_offers do
     resources :player_contacts
   end
   get "static_pages/index"
   get "static_pages/help"
+  get "membership" => "static_pages#pricing"
 
   get "static_pages/about"
 

@@ -5,7 +5,7 @@
   <p class="lead">Finde Deinen Spieler - alle Angebote aus Deiner Region</p>
   <% @player_profiles.each do |player_profile| %>
       <div class="well">
-        <h3><%=player_profile.full_name %></h3>
+        <h3>Spieler <%=player_profile.id %></h3>
 
         Position: <%=  player_profile.position.name unless player_profile.position.nil? %>
         <div id="btn-contact">

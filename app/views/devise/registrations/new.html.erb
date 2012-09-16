@@ -1,18 +1,41 @@
-<h2>Register</h2>
+<h2>Leg mit einem kostenlosen Account los</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
+  <legend>Melde Dich in 30 Sekunden an. Keine Zahlungsinformationen benötigt</legend>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+    <div class="control-group">
+      <%# f.label :initial_role,'Ich bin ein:', class:'control-label'  %>
+      <div class="controls"  >
+        <%= f.radio_button :initial_role,'player', class:'checkbox' %> Spieler
+        <%= f.radio_button :initial_role, 'club', class:'checkbox' %> Verein
+        </div>
+    </div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <div class="control-group">
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+        <%= f.label :email, class:'control-label' %>
 
-  <div><%= f.submit "Registrieren" %></div>
+    <div class="controls"  >
+      <div class="input-prepend">
+        <span class="add-on">@</span>
+        <%= f.email_field :email %>
+      </div>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :password,'Passwort', class:'control-label' %>
+    <div class="controls"  >
+      <%= f.password_field :password %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :password_confirmation,'Passwort bestätigen', class:'control-label' %>
+    <div class="controls"  >
+      <%= f.password_field :password_confirmation %>
+    </div>
+  </div>
+  <div><%= f.submit "Anmelden", class:'btn btn-primary' %></div>
 <% end %>
 
 <%= render "links" %>

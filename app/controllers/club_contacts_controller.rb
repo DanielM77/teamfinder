@@ -4,7 +4,7 @@ class ClubContactsController < ApplicationController
 
   def setup_player_and_club
     @player_profile = PlayerProfile.find(params[:player_profile_id]) if params.has_key?(:player_profile_id)
-    @club = Club.with_role(:club_superuser,current_user).first()
+    @club = Club.with_role(:club,current_user).first()
   end
 
   def index
@@ -33,9 +33,12 @@ class ClubContactsController < ApplicationController
   # POST /clubs.json
   def create
     @club_contact = @player_profile.club_contacts.new(params[:club_contact])
+    @club_contact.status = "angefragt"
       if @club_contact.save
-        current_user.add_role("club_superuser",@club_contact)
-        redirect_to @club_contact, notice:'ClubContact was successfully created.'
+        current_user.add_role(:club,@club_contact)
+        user = User.find(@player_profile.user_id)
+        user.add_role(:player,@club_contact)
+        redirect_to @club, notice:'Deine Anfrage wurde gestellt.'
       else
         render action: "new"
       end

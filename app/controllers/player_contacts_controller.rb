@@ -1,14 +1,16 @@
 class PlayerContactsController < ApplicationController
   # GET /player_contacts
   # GET /player_contacts.json
+  before_filter :authenticate_user!
   before_filter :setup_offer
+  load_and_authorize_resource
 
   def setup_offer
-    @offer = Offer.find(params[:offer_id])
+    @public_offer = PublicOffer.find(params[:public_offer_id])
   end
 
   def index
-    @player_contacts = @offer.player_contacts
+    @player_contacts = @public_offer.player_contacts
 
     respond_to do |format|
       format.html # index.html.erb
@@ -19,7 +21,7 @@ class PlayerContactsController < ApplicationController
   # GET /player_contacts/1
   # GET /player_contacts/1.json
   def show
-    @player_contact = @offer.player_contacts.find(params[:id])
+    @player_contact = @public_offer.player_contacts.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -30,8 +32,11 @@ class PlayerContactsController < ApplicationController
   # GET /player_contacts/new
   # GET /player_contacts/new.json
   def new
-    @player_contact = @offer.player_contacts.build
-
+    unless PlayerProfile.with_role(:player,current_user).empty?
+      @player_profile = PlayerProfile.with_role(:player,current_user).first
+      @default_contact_attributes = @player_profile.create_contact_defaults
+    end
+    @player_contact = @public_offer.player_contacts.build(@default_contact_attributes)
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @player_contact }
@@ -46,18 +51,14 @@ class PlayerContactsController < ApplicationController
   # POST /player_profiles
   # POST /player_profiles.json
   def create
-    @player_contact = @offer.player_contacts.build(params[:player_contact])
-
+    @player_contact = @public_offer.player_contacts.build(params[:player_contact])
+    @player_contact.status='angefragt'
     respond_to do |format|
       if @player_contact.save
-        #current_user.add_role("player",@player_contact)
-        if Player.with_role(:player,current_user).empty?
-          @player_profile = @player_contact.create_profile
-          @player_profile.save
-          current_user.add_role("player",@player)
-        end
-
-        format.html { redirect_to offer_player_contact_path(@offer,@player_contact), notice: 'Contact of Player was successfully created.' }
+        current_user.add_role(:player,@player_contact)
+        user = User.find(@public_offer.user_id)
+        user.add_role(:club,@player_contact)
+        format.html { redirect_to market_index_path, notice: 'Deine Anfrage wurde erfolgreich verschickt' }
         format.json { render json: @player_contact, status: :created, location: @player_contact }
       else
         format.html { render action: "new" }
@@ -70,10 +71,9 @@ class PlayerContactsController < ApplicationController
   # PUT /player_contacts/1.json
   def update
     @player_contact = PlayerContact.find(params[:id])
-
     respond_to do |format|
       if @player_contact.update_attributes(params[:player_contact])
-        format.html { redirect_to @player_contact, notice: 'Contact was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Deine Anfrage wurde angepasst.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

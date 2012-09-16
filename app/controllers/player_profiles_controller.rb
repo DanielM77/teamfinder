@@ -1,6 +1,7 @@
 class PlayerProfilesController < ApplicationController
   before_filter :authenticate_user!
-  load_and_authorize_resource :only => [ :index, :show, :update ]
+  #load_and_authorize_resource :only => [ :index, :show, :update ]
+  load_and_authorize_resource
   # GET /player_profiles
   # GET /player_profiles.json
   def index
@@ -11,6 +12,8 @@ class PlayerProfilesController < ApplicationController
   # GET /player_profiles/1.json
   def show
     @player_profile = PlayerProfile.find(params[:id])
+    @player_contacts = PlayerContact.with_role(:player,current_user)
+    @club_contacts = ClubContact.with_role(:player,current_user)
   end
 
   # GET /player_profiles/new
@@ -28,9 +31,10 @@ class PlayerProfilesController < ApplicationController
   # POST /player_profiles.json
   def create
     @player_profile = PlayerProfile.new(params[:player_profile])
+    @player_profile.user_id = current_user.id
     if @player_profile.save
       current_user.add_role("player",@player_profile)
-       redirect_to @player_profile, notice: 'Player was successfully created.'
+       redirect_to @player_profile, notice: 'Dein Profil wurde erfolgreich erstellt.'
     else
       render action: "new"
     end
@@ -41,7 +45,7 @@ class PlayerProfilesController < ApplicationController
   def update
     @player_profile = PlayerProfile.find(params[:id])
     if @player_profile.update_attributes(params[:player_profile])
-      redirect_to @player_profile, notice: 'Player profil was successfully updated.'
+      redirect_to @player_profile, notice: 'Dein Profil wurde erfolgreich aktualisiert.'
     else
        render action: "edit"
     end

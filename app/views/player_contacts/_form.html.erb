@@ -1,4 +1,4 @@
-<%= form_for([@offer, @player_contact]) do |f| %>
+<%= form_for([@public_offer, @player_contact],:html=>{class:'form-horizontal'}) do |f| %>
   <% if @player_contact.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@player_contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
@@ -10,8 +10,9 @@
       </ul>
     </div>
   <% end %>
-    <%= render partial:'player_profiles/player', locals:{f:f} %>
+    <%= render partial:'player_profiles/player_min', locals:{f:f} %>
     <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Absenden',class:'btn btn-primary' %>
+    <%= link_to 'Zurück', market_index_path ,class:'btn' %>
   </div>
 <% end %>

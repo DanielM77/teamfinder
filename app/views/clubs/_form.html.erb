@@ -1,4 +1,5 @@
-<%= form_for(@club) do |f| %>
+
+<%= form_for(@club, :html=>{class:'form-horizontal'}) do |f| %>
   <% if @club.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@club.errors.count, "error") %> prohibited this club from being saved:</h2>
@@ -10,52 +11,72 @@
       </ul>
     </div>
   <% end %>
+    <%= hidden_field_tag :membership, value:@membership %>
+    <div class="control-group">
+      <%= f.label :name, "Vereinsname", class:'control-label' %>
+        <div class="controls">
+          <%= f.text_field :name, placeholder:'Vereinsname' %>
+        </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :email,"Email", class:'control-label' %>
+      <div class="controls">
+        <%= f.email_field :email, placeholder:'Email' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :mobile,"Handy", class:'control-label' %>
+      <div class="controls">
+        <%= f.text_field :mobile, placeholder:'Handy' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :street, "Straße", class:'control-label' %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :street %><br />
-    <%= f.text_field :street %>
-  </div>
-  <div class="field">
-    <%= f.label :street_no %><br />
-    <%= f.text_field :street_no %>
-  </div>
-  <div class="field">
-    <%= f.label :zip %><br />
-    <%= f.text_field :zip %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :fax %><br />
-    <%= f.text_field :fax %>
-  </div>
-  <div class="field">
-    <%= f.label :mobile %><br />
-    <%= f.text_field :mobile %>
-  </div>
-  <div class="field">
-    <%= f.label :image_path %><br />
-    <%= f.text_field :image_path %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :homepage %><br />
-    <%= f.text_field :homepage %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+        <div class="controls">
+          <%= f.text_field :street, placeholder:'Straße' %>
+        </div>
+    </div>
+      <div class="control-group">
+        <%= f.label :zip,"Postleitzahl", class:'control-label' %>
+        <div class="controls">
+          <%= f.text_field :zip, placeholder:'Postleitzahl' %>
+        </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :city,"Stadt", class:'control-label' %>
+      <div class="controls">
+        <%= f.text_field :city, placeholder:'Stadt' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :phone,"Telefon", class:'control-label' %>
+      <div class="controls">
+        <%= f.text_field :phone, placeholder:'Telefon' %>
+      </div>
+    </div>
+      <div class="control-group">
+        <%= f.label :fax,"Fax", class:'control-label' %>
+        <div class="controls">
+          <%= f.text_field :fax, placeholder:'Fax' %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :image_path,"Vereinslogo", class:'control-label' %>
+        <div class="controls">
+          <%= f.file_field :image_path, placeholder:'Vereinslogo' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :homepage,"Homepage", class:'control-label' %>
+        <div class="controls">
+          <%= f.text_field :homepage, placeholder:'Homepage' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <%= f.submit "Absenden", class:'btn btn-primary' %>
+        </div>
+      </div>
 <% end %>

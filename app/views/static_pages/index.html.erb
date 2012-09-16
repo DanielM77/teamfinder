@@ -1,28 +1,26 @@
+<% content_for :rightside do %>
+
+<% end %>
+
 <div class="hero-unit">
-
-
-  <h1>Teamfinder</h1>
-  <p>Finde Deinen Traumverein. Suche den perfekten Spieler für Deine Mannschaft. Registriere Dich jetzt kostenlos und nutze alle Vorteile von Teamfinder</p>
-  <p><%= link_to "Registrierung &raquo;".html_safe, new_user_registration_path, class:"btn btn-large btn-primary" %></p>
-  <br>Du hast schon einen Account bei uns? Dann nutze den <%= link_to "Login",new_user_session_path  %>
+  <h1>Spielertransfer24.de</h1>
+  <p>Die Plattform für Spieler und Vereine</p>
+  <div class="row-fluid">
+    <div class="span3"> <%= link_to "für Spieler", market_index_path, class:"btn btn-large btn-primary" %></div>
+    <div class="span3"><%= link_to "für Vereine", players_market_index_path, class:"btn btn-large btn-primary" %></div>
+  </div>
 </div>
 <div class="row-fluid">
-  <div class="span4">
-    <h2>Spieler sucht Verein</h2>
+  <div class="span6">
+    <h2>für Spieler</h2>
     <p>Finde auf unserem Marktplatz Deinen Traumverein und nimm direkt Kontakt auf.
-      Oder stelle Dein Spielerprofil online und warte auf das perfekte Angebot.<br><br><br></p>
+      Oder stelle Dein Spielerprofil online und warte auf das perfekte Angebot.</p>
     <p><%= link_to "Mehr &raquo;".html_safe, market_index_path, class:"btn" %> </p>
   </div>
-  <div class="span4">
-    <h2>Verein sucht Spieler</h2>
+  <div class="span6">
+    <h2>für Vereine</h2>
     <p>Suchst Du noch Spieler für Dein perfektes Team? Stell Dein Angebot auf unseren Markplatz und finde Deinen Spieler.
       Oder wähle aus den zahlreichen Spielerprofilen auf unserem Marktplatz aus.</p>
-    <p><%= link_to "Mehr &raquo;".html_safe, market_index_path, class:"btn" %></p>
-  </div>
-  <div class="span4">
-    <h2>Trainer sucht Verein</h2>
-    <p>Du bist auf der Suche nach einem neuen Team und willst Dein Profil zur Verfügung stellen? Dann registriere
-      Dich bei uns und finde Deinen neuen Verein.<br><br><br></p>
-    <p><%= link_to "Mehr &raquo;".html_safe, '#' , class:"btn" %></p>
+    <p><%= link_to "Mehr &raquo;".html_safe, players_market_index_path, class:"btn" %></p>
   </div>
 </div>

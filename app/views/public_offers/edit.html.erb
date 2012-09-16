@@ -1,0 +1,5 @@
+<h2><%= @team.club.name unless @team.nil? %></h2>
+<h3><%= @team.name  unless @team.nil?%></h3>
+
+<%= render 'form' %>
+<%= link_to 'Zurück', club_path(@team.club) unless @team.nil? %>

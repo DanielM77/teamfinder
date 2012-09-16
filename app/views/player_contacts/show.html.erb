@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <b>Name:</b>
   <%= @player_contact.name %>
@@ -29,10 +27,9 @@
   <b>Position:</b>
   <%= @player_contact.position.name %>
 </p>
-
 <p>
-  <b>gewünschte Liga</b>
-  <%= @player_contact.expected_league_type.name %>
+  <b>aktuelle Liga</b>
+  <%= @player_contact.current_league_type.name unless @player_contact.current_league_type.nil? %>
 </p>
 
 <p>
@@ -42,4 +39,10 @@
 
 
 <%# link_to 'Edit', edit_offer_player_contact_path(offer_id: @offer.id,id:@player_contact) %>
-<%= link_to 'Back', offer_player_contacts_path(@offer) %>
+<% if current_user.has_role?(:player) %>
+    <%= link_to 'Bearbeiten', edit_public_offer_player_contact_path(public_offer_id:@player_contact.public_offer.id) %> |
+    <%= link_to 'Zurück', player_profile_path %>
+<% else %>
+    <%# link_to 'Zurück', club_path(@player_contact.offer.club) %>
+<% end %>
+

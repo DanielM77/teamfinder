@@ -1,11 +1,10 @@
 class ClubsController < ApplicationController
   before_filter :authenticate_user!
-  #load_and_authorize_resource :only => [ :index, :show ]
+  load_and_authorize_resource
   # GET /clubs
   # GET /clubs.json
   def index
-    @clubs = Club.with_role(:club_superuser, current_user).map{|club| club.id}
-
+    @clubs = Club.all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @clubs }
@@ -16,7 +15,8 @@ class ClubsController < ApplicationController
   # GET /clubs/1.json
   def show
     @club = Club.find(params[:id])
-
+    @teams = @club.teams.all
+    @public_offers = @club.public_offers
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @club }
@@ -27,6 +27,16 @@ class ClubsController < ApplicationController
   # GET /clubs/new.json
   def new
     @club = Club.new
+    case params[:membership]
+      when "free"
+        @membership = "Basis"
+      when "pro"
+        @membership = "Professionell"
+      when "premium"
+        @membership = "Premium"
+      else
+        @membership = "Basis"
+      end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,11 +53,22 @@ class ClubsController < ApplicationController
   # POST /clubs.json
   def create
     @club = Club.new(params[:club])
-
+    @membership = params[:membership]
     respond_to do |format|
       if @club.save
-        current_user.add_role("club_superuser",@club)
-        format.html { redirect_to @club, notice: 'Club was successfully created.' }
+        current_user.add_role("club",@club)
+        case @membership
+          when "Basis"
+            current_user.add_role("basis_club",@club)
+          when "Professionell"
+            current_user.add_role("prof_club",@club)
+          when "Premium"
+            current_user.add_role("premium_club",@club)
+          else
+            current_user.add_role("basis_club",@club)
+        end
+
+        format.html { redirect_to @club, notice: 'Dein Verein wurde erfolgreich erstellt' }
         format.json { render json: @club, status: :created, location: @club }
       else
         format.html { render action: "new" }

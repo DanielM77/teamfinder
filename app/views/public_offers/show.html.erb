@@ -1,0 +1,58 @@
+<p>
+  <b>Club:</b>
+  <%= @public_offer.team.club.name %>
+</p>
+
+<p>
+  <b>Team:</b>
+  <%= @public_offer.team.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @public_offer.description %>
+</p>
+
+<p>
+  <b>League:</b>
+  <%= @public_offer.team.league.name %>
+</p>
+
+<p>
+  <b>Min league:</b>
+  <%= @public_offer.min_league_type.name unless @public_offer.min_league_type.nil? %>
+</p>
+
+<p>
+  <b>Season:</b>
+  <%= @public_offer.season.name %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%= @public_offer.position.name %>
+</p>
+
+<p>
+  <b>Min age:</b>
+  <%= @public_offer.min_age %>
+</p>
+
+<p>
+  <b>Max age:</b>
+  <%= @public_offer.max_age %>
+</p>
+
+<p>
+  <b>Valid from:</b>
+  <%= @public_offer.valid_from %>
+</p>
+
+<p>
+  <b>Valid until:</b>
+  <%= @public_offer.valid_until %>
+</p>
+
+
+<%# link_to 'Edit', edit_team_public_offer_path(@public_offer.team, @public_offer) %>
+<%# link_to 'Back', public_offers_path %>
