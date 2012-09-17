@@ -1,5 +1,9 @@
 Teamfinder::Application.routes.draw do
 
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   get "players_market/index"
 
   resources :player_profiles do

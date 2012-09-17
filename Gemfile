@@ -6,6 +6,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'cancan', '>=1.6.7'
 gem 'rolify', '>=3.1.0'
+gem 'activeadmin'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
