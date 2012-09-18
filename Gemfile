@@ -6,7 +6,8 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'cancan', '>=1.6.7'
 gem 'rolify', '>=3.1.0'
-gem 'activeadmin'
+gem 'sass-rails',   '~> 3.2.3'
+gem 'activeadmin', :git => 'https://github.com/gregbell/active_admin.git'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -20,7 +21,7 @@ end
 
 # Gems used only for assets and not required
 # in production environments by default.
-gem 'sass-rails',   '~> 3.2.3'
+
 group :assets do
 
   gem 'coffee-rails', '~> 3.2.1'
