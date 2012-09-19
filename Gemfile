@@ -7,7 +7,7 @@ gem 'devise'
 gem 'cancan', '>=1.6.7'
 gem 'rolify', '>=3.1.0'
 gem 'sass-rails',   '~> 3.2.3'
-gem 'activeadmin', :git => 'https://github.com/gregbell/active_admin.git'
+gem 'activeadmin'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

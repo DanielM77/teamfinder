@@ -5,39 +5,39 @@
       <div class='control-group'>
         <%= f.label:first_name,"Vorname",class:'control-label' %>
         <div class='controls'>
-          <%= f.text_field :first_name, class:'input-large', placeholder:'Vorname' %>
+          <%= f.text_field :first_name, class:'input-large', placeholder:'Vorname', tabindex:1 %>
         </div>
       </div>
 
       <div class='control-group'>
         <%= f.label:street,"Straße",class:'control-label' %>
         <div class='controls'>
-          <%= f.text_field :street, class:'input-large', placeholder:'Straße' %>
+          <%= f.text_field :street, class:'input-large', placeholder:'Straße', tabindex:3 %>
         </div>
       </div>
       <div class='control-group'>
         <%= f.label:zip,"Postleitzahl",class:'control-label' %>
         <div class='controls'>
-          <%= f.text_field :zip, class:'input-large', placeholder:'Postleitzahl' %>
+          <%= f.text_field :zip, class:'input-large', placeholder:'Postleitzahl', tabindex:5 %>
         </div>
       </div>
 
       <div class='control-group'>
         <%= f.label:phone,"Telefonnummer",class:'control-label' %>
         <div class='controls'>
-          <%= f.text_field :phone, class:'input-large', placeholder:'Telefonnummer' %>
+          <%= f.text_field :phone, class:'input-large', placeholder:'Telefonnummer', tabindex:7 %>
         </div>
       </div>
       <div class='control-group'>
         <%= f.label:email,"Email",class:'control-label' %>
         <div class='controls'>
-          <%= f.text_field :email, class:'input-large', placeholder:'Email' %>
+          <%= f.text_field :email, class:'input-large', placeholder:'Email', tabindex:9 %>
         </div>
       </div>
       <div class='control-group'>
         <%= f.label:gender,"Geschlecht",class:'control-label' %>
         <div class='controls'>
-          <%= f.select :gender, %w{männlich weiblich}, class:'input-large', placeholder:'Geschlecht' %>
+          <%= f.select :gender, %w{männlich weiblich}, class:'input-large', placeholder:'Geschlecht', tabindex:11 %>
         </div>
       </div>
     </div>
@@ -46,31 +46,31 @@
       <div class='control-group'>
         <%= f.label :name,"Name",class:'control-label' %>
         <div class='controls'>
-          <%= f.text_field :name, class:'input-large', placeholder:'Name' %>
+          <%= f.text_field :name, class:'input-large', placeholder:'Name', tabindex:2 %>
         </div>
       </div>
       <div class='control-group'>
         <%= f.label:birthdate,"Geburtsdatum",class:'control-label' %>
         <div class='controls'>
-          <%= f.text_field :birthdate, class:'input-large', placeholder:'Geburtsdatum' %>
+          <%= f.text_field :birthdate, class:'input-large',placeholder:'Geburtsdatum', tabindex:4 %>
         </div>
       </div>
       <div class='control-group'>
         <%= f.label:city,"Ort",class:'control-label' %>
         <div class='controls'>
-          <%= f.text_field :city, class:'input-large', placeholder:'Ort' %>
+          <%= f.text_field :city, class:'input-large', placeholder:'Ort', tabindex:6 %>
         </div>
       </div>
       <div class='control-group'>
         <%= f.label:mobile,"Handynummer",class:'control-label' %>
         <div class='controls'>
-          <%= f.text_field :mobile, class:'input-large', placeholder:'Handynummer' %>
+          <%= f.text_field :mobile, class:'input-large', placeholder:'Handynummer', tabindex:8 %>
         </div>
       </div>
       <div class='control-group'>
         <%= f.label:nationality,"Nationalität",class:'control-label' %>
         <div class='controls'>
-          <%= f.text_field :nationality, class:'input-large', placeholder:'Nationalität' %>
+          <%= f.text_field :nationality, class:'input-large', placeholder:'Nationalität', tabindex:10 %>
         </div>
       </div>
     </div>
@@ -81,32 +81,35 @@
     <div class='control-group'>
       <%= f.label:current_league_type_id,"aktuelle Liga",class:'control-label' %>
       <div class='controls'>
-        <%= f.collection_select :current_league_type_id, LeagueType.all, :id, :name, class:'input-large', placeholder:'aktuelle Liga' %>
+        <%= f.collection_select :current_league_type_id, LeagueType.all,
+                                :id, :name, class:'input-large', placeholder:'aktuelle Liga', tabindex:12 %>
       </div>
     </div>
     <div class='control-group'>
       <%= f.label:position_id,"Position",class:'control-label' %>
       <div class='controls'>
-        <%= f.grouped_collection_select :position_id, PositionGroup.all,:positions, :name, :id, :name, class:'input-large', placeholder:'Position' %>
+        <%= f.grouped_collection_select :position_id, PositionGroup.all,
+                                        :positions, :name, :id, :name, class:'input-large',
+                                        placeholder:'Position', tabindex:14 %>
       </div>
     </div>
 
     <div class='control-group'>
       <%= f.label:max_distance,"Maximale Entfernung",class:'control-label' %>
       <div class='controls'>
-        <%= f.text_field :max_distance, class:'input-large', placeholder:'Maximale Entfernung' %>
+        <%= f.text_field :max_distance, class:'input-large', placeholder:'Maximale Entfernung', tabindex:16 %>
       </div>
     </div>
     <div class='control-group'>
       <%= f.label:expected_money,"erwartete Vergütung",class:'control-label' %>
       <div class='controls'>
-        <%= f.text_field :expected_money, class:'input-large', placeholder:'erwartete Vergütung' %>
+        <%= f.text_field :expected_money, class:'input-large', placeholder:'erwartete Vergütung', tabindex:18 %>
       </div>
     </div>
 
     <div class='control-group'>
       <div class='controls'>
-        <%= f.check_box :show_profile,{ class:'input-large' }%> Dein Spielerprofil veröffentlichen (ohne Namen)
+        <%= f.check_box :show_profile, class:'input-large', tabindex:20 %> Dein Spielerprofil veröffentlichen (ohne Namen)
       </div>
     </div>
     </div>
@@ -114,25 +117,28 @@
     <div class='control-group'>
       <%= f.label:expected_league_type_id,"gewünschte Liga",class:'control-label' %>
       <div class='controls'>
-        <%= f.collection_select :expected_league_type_id, LeagueType.all, :id, :name, class:'input-large', placeholder:'gewünschte Liga' %>
+        <%= f.collection_select :expected_league_type_id, LeagueType.all, :id, :name,
+                                class:'input-large', placeholder:'gewünschte Liga', tabindex:13 %>
       </div>
     </div>
     <div class='control-group'>
       <%= f.label:strong_foot,"starker Fuß",class:'control-label' %>
       <div class='controls'>
-        <%= f.select :strong_foot, %w{links rechts beidfuessig}, class:'input-large', placeholder:'starker Fuß' %>
+        <%= f.select :strong_foot, %w{links rechts beidfuessig}, class:'input-large',
+                     placeholder:'starker Fuß', tabindex:15 %>
       </div>
   </div>
 
   <div class='control-group'>
     <%= f.label:transfer_fee,"Ablösesumme",class:'control-label' %>
     <div class='controls'>
-      <%= f.text_field :transfer_fee, class:'input-large', placeholder:'Ablösesumme' %>
+      <%= f.text_field :transfer_fee, class:'input-large',
+                       placeholder:'Ablösesumme', tabindex:17 %>
     </div>
   </div>
   <div class='control-group'>
     <div class='controls'>
-      <%= f.check_box :has_contract, class:'input-large' %> laufender Vertrag
+      <%= f.check_box :has_contract, class:'input-large', tabindex:20 %> laufender Vertrag
     </div>
   </div>
 </div>
