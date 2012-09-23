@@ -1,7 +1,10 @@
-<div class='row-fluid'>
-  <legend>Name und Adresse</legend>
-  <div class='span12'>
-    <div class='span6'>
+<div class="widget">
+  <div class="widget-header">
+    <h3>Name und Adresse</h3>
+  </div>
+  <div class="widget-content">
+    <div class='row'>
+    <div class='span3'>
       <div class='control-group'>
         <%= f.label:first_name,"Vorname",class:'control-label' %>
         <div class='controls'>
@@ -27,22 +30,22 @@
         <div class='controls'>
           <%= f.text_field :phone, class:'input-large', placeholder:'Telefonnummer', tabindex:7 %>
         </div>
-      </div>
-      <div class='control-group'>
-        <%= f.label:email,"Email",class:'control-label' %>
-        <div class='controls'>
-          <%= f.text_field :email, class:'input-large', placeholder:'Email', tabindex:9 %>
         </div>
-      </div>
-      <div class='control-group'>
-        <%= f.label:gender,"Geschlecht",class:'control-label' %>
-        <div class='controls'>
-          <%= f.select :gender, %w{männlich weiblich}, class:'input-large', placeholder:'Geschlecht', tabindex:11 %>
+        <div class='control-group'>
+            <%= f.label:email,"Email",class:'control-label' %>
+            <div class='controls'>
+            <%= f.text_field :email, class:'input-large', placeholder:'Email', tabindex:9 %>
+            </div>
         </div>
-      </div>
-    </div>
+        <div class='control-group'>
+            <%= f.label:gender,"Geschlecht",class:'control-label' %>
+            <div class='controls'>
+                <%= f.select :gender, %w{männlich weiblich}, class:'input-large', placeholder:'Geschlecht', tabindex:11 %>
+            </div>
+        </div>
+        </div>
 
-    <div class='span6'>
+    <div class='span3'>
       <div class='control-group'>
         <%= f.label :name,"Name",class:'control-label' %>
         <div class='controls'>
@@ -73,11 +76,18 @@
           <%= f.text_field :nationality, class:'input-large', placeholder:'Nationalität', tabindex:10 %>
         </div>
       </div>
-    </div>
 </div>
-  <legend>Dein Spielerprofil</legend>
-  <div class='span12'>
-  <div class='span6'>
+</div>
+  </div>
+</div>
+<div class="widget">
+  <div class="widget-header">
+    <h3>Dein Spielerprofil</h3>
+  </div>
+  <div class="widget-content">
+
+  <div class='row'>
+  <div class='span3'>
     <div class='control-group'>
       <%= f.label:current_league_type_id,"aktuelle Liga",class:'control-label' %>
       <div class='controls'>
@@ -113,7 +123,7 @@
       </div>
     </div>
     </div>
-  <div class='span6'>
+  <div class='span3'>
     <div class='control-group'>
       <%= f.label:expected_league_type_id,"gewünschte Liga",class:'control-label' %>
       <div class='controls'>
@@ -143,7 +153,8 @@
   </div>
 </div>
   </div>
-</div>
+  </div>
+    <p></p>
 
 
 
