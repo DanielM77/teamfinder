@@ -57,7 +57,9 @@ module Teamfinder
     config.active_record.whitelist_attributes = true
 
     # Enable the asset pipeline
-    config.assets.enabled = false
+    config.assets.enabled = true
+    config.assets.paths << "#{Rails.root}/app/assets/fonts"
+    config.assets.paths << "#{Rails.root}/app/assets/images"
     config.app_generators.stylesheet_engine :sass
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'

@@ -1,13 +1,13 @@
 /*
  *= require_self
+ *= require_tree .
 
 */
 
-@import  'base-admin/css/bootstrap.min.css';
-@import  'base-admin/css/font-awesome.css';
-@import  'base-admin/css/base-admin.css';
-@import  'base-admin/css/signin.css';
-
+@import  'base-admin/base-admin.css';
+@import  'base-admin/base-admin-responsive.css';
+@import  'base-admin/font-awesome.css';
+@import  'base-admin/signin.css';
 /* market/index  */
 #btn-contact {
     clear:both;
