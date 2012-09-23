@@ -2,21 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79168461-11c0-4a8e-b963-2332fcf75d29" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/base_admin/fontawesome-webfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/base_admin/fontawesome-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/base_admin/fontawesome-webfont.svgz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/base_admin/fontawesome-webfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/base_admin/fontawesome-webfont.woff" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/static_pages.css.scss" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/base-admin/css/base-admin-responsive.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/base_admin/base-admin-responsive.css.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/base-admin/css/base-admin.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/base_admin/base-admin.css.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/base-admin/css/bootstrap-responsive.min.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/bootstrap-responsive.min.css.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/base-admin/css/bootstrap.min.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/bootstrap.min.css.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/base-admin/css/font-awesome.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/base_admin/font-awesome.css.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/base-admin/css/signin.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/base_admin/signin.css.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/base-admin/font/fontawesome-webfont.eot" afterPath="$PROJECT_DIR$/app/assets/stylesheets/base_admin/fontawesome-webfont.eot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/base-admin/font/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/app/assets/stylesheets/base_admin/fontawesome-webfont.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/base-admin/font/fontawesome-webfont.svgz" afterPath="$PROJECT_DIR$/app/assets/stylesheets/base_admin/fontawesome-webfont.svgz" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/base-admin/font/fontawesome-webfont.ttf" afterPath="$PROJECT_DIR$/app/assets/stylesheets/base_admin/fontawesome-webfont.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/base-admin/font/fontawesome-webfont.woff" afterPath="$PROJECT_DIR$/app/assets/stylesheets/base_admin/fontawesome-webfont.woff" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/bootstrap-responsive.min.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/base_admin/bootstrap-responsive.min.css.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/bootstrap.min.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/base_admin/bootstrap.min.css.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/application.rb" afterPath="$PROJECT_DIR$/config/application.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/base_admin/font-awesome.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/base_admin/font-awesome.css.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/base_admin/signin.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/base_admin/signin.css.scss" />
     </list>
     <ignored path="teamfinder.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,19 +57,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.css.scss" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="application.css.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="66" selection-start="257" selection-end="257" vertical-scroll-proportion="0.35519126">
+            <state line="16" column="17" selection-start="374" selection-end="374" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="font-awesome.css.scss" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="font-awesome.css.scss" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/base_admin/font-awesome.css.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="27" column="286" selection-start="1413" selection-end="1413" vertical-scroll-proportion="0.8455115">
               <folding />
             </state>
           </provider>
@@ -81,7 +78,7 @@
       <file leaf-file-name="base-admin-responsive.css.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/base_admin/base-admin-responsive.css.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="27" column="16" selection-start="498" selection-end="498" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -90,7 +87,7 @@
       <file leaf-file-name="base-admin.css.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/base_admin/base-admin.css.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="6.0">
               <folding />
             </state>
           </provider>
@@ -99,16 +96,16 @@
       <file leaf-file-name="signin.css.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/base_admin/signin.css.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="16" column="23" selection-start="313" selection-end="313" vertical-scroll-proportion="-6.5">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/player_contacts/index.html.erb">
+      <file leaf-file-name="bootstrap.min.css.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/base_admin/bootstrap.min.css.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="9" column="3" selection-start="514" selection-end="517" vertical-scroll-proportion="-4.5">
               <folding />
             </state>
           </provider>
@@ -117,7 +114,7 @@
       <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="14" selection-start="1843" selection-end="1843" vertical-scroll-proportion="0.0">
+            <state line="57" column="14" selection-start="1843" selection-end="1843" vertical-scroll-proportion="-0.625">
               <folding />
             </state>
           </provider>
@@ -153,7 +150,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
         <option value="$PROJECT_DIR$/app/views/devise/sessions/new.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/base-admin/css/signin.css" />
         <option value="$PROJECT_DIR$/app/controllers/market_controller.rb" />
@@ -164,11 +160,12 @@
         <option value="$PROJECT_DIR$/app/views/public_offers/_offers.html.erb" />
         <option value="$PROJECT_DIR$/app/views/market/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/market/_public_offers.html.erb" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/base_admin/font-awesome.css.scss" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/base_admin/base-admin.css.scss" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/base_admin/signin.css.scss" />
         <option value="$PROJECT_DIR$/config/application.rb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/bootstrap.min.css.scss" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/base_admin/signin.css.scss" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/base_admin/font-awesome.css.scss" />
       </list>
     </option>
   </component>
@@ -274,6 +271,76 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="stylesheets">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="teamfinder">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="assets">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="stylesheets">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="base_admin">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="teamfinder">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="assets">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="teamfinder">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="assets">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="images">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -288,6 +355,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/assets/images" />
       <recent name="$PROJECT_DIR$/app/assets/stylesheets/base-admin/css" />
       <recent name="$PROJECT_DIR$/app/assets/javascripts/base-admin" />
       <recent name="$PROJECT_DIR$/app/views/player_profiles" />
@@ -758,11 +826,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/public_offers/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/public_offers/_offers.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="1047" vertical-scroll-proportion="-0.0" />
@@ -788,11 +851,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="14" selection-start="1843" selection-end="1843" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/player_profiles/_player_contacts.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="9" selection-start="187" selection-end="187" vertical-scroll-proportion="0.0" />
@@ -805,41 +863,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/base_admin/fontawesome-webfont.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/base_admin/base-admin-responsive.css.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/base_admin/base-admin.css.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/base_admin/font-awesome.css.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/base_admin/signin.css.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/application.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="61" column="4" selection-start="2889" selection-end="2889" vertical-scroll-proportion="0.0">
@@ -847,9 +870,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/base_admin/base-admin-responsive.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="16" selection-start="498" selection-end="498" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/base_admin/bootstrap.min.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="3" selection-start="514" selection-end="517" vertical-scroll-proportion="-4.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="14" selection-start="1843" selection-end="1843" vertical-scroll-proportion="-0.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/base_admin/base-admin.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="6.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="66" selection-start="257" selection-end="257" vertical-scroll-proportion="0.35519126">
+        <state line="16" column="17" selection-start="374" selection-end="374" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/base_admin/signin.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="23" selection-start="313" selection-end="313" vertical-scroll-proportion="-6.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/base_admin/font-awesome.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="286" selection-start="1413" selection-end="1413" vertical-scroll-proportion="0.8455115">
           <folding />
         </state>
       </provider>

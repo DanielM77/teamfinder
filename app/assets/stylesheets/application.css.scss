@@ -3,7 +3,8 @@
  *= require_tree .
 
 */
-
+@import  'base-admin/bootstrap.min.css';
+@import  'base-admin/bootstrap-responsive.min.css';
 @import  'base-admin/base-admin.css';
 @import  'base-admin/base-admin-responsive.css';
 @import  'base-admin/font-awesome.css';
@@ -11,4 +12,8 @@
 /* market/index  */
 #btn-contact {
     clear:both;
+}
+body {
+  padding-top: 160px;
+  padding-bottom: 40px;
 }

@@ -14,7 +14,7 @@
 
 
 /** Base Body Styles **/
-body{ background: url(assets/body-bg.png); color:#838383; font: 13px/1.7em 'Open Sans';}
+body{ background: url(/assets/body-bg.png); color:#838383; font: 13px/1.7em 'Open Sans';}
 
 
 .account-container {
@@ -61,7 +61,7 @@ body{ background: url(assets/body-bg.png); color:#838383; font: 13px/1.7em 'Open
 	box-shadow: inset 2px 2px 4px #f1f1f1;
 }
 
-.username-field { background: url(assets/signin/user.png) no-repeat; }
+.username-field { background: url(/assets/signin/user.png) no-repeat; }
 
 .password-field {
     background-repeat: no-repeat;
