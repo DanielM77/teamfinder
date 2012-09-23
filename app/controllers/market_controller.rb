@@ -11,10 +11,7 @@ class MarketController < ApplicationController
 
   def index
 
-    #Side Informations
-    @open_player_profiles_count = PlayerProfile.find_all_by_show_profile(true).count
-    @all_player_contacts_count = PlayerContact.count
-    @all_offers_count = PublicOffer.valid_only.count
+
 
     # Params save, if set for reuse
     @param_search = params[:search] if params.has_key?(:search)

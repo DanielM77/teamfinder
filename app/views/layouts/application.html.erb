@@ -3,53 +3,32 @@
 <html>
 <head>
   <title>Spielertransfer24 | <%= yield(:title) %></title>
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <!--[if lt IE 9]>
-  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
+
 </head>
 <body>
 <header class="navbar navbar-fixed-top">
+
   <div class="navbar-inner">
-    <div class="container-fluid">
+
+    <div class="container">
+
       <%= link_to "Spielertransfer24 ", root_path,class:"brand" %>
+
       <div class="nav-collapse">
-
-        <ul class="nav">
+        <ul class="nav pull-right">
           <% if user_signed_in? %>
-          <li><%= link_to "Verein suchen",market_index_path if current_user.has_role?(:player) %></li>
-          <li><%= link_to "Spieler suchen",players_market_index_path  if (can? :read, PlayerProfile) && (current_user.has_role?(:club)) %></li>
-
-            <li>
-            <%# Show new profile only when user doesn't have one and is no club owner %>
-                <%= link_to "Spielerprofil anlegen",new_player_profile_path if can? :create, PlayerProfile %>
-                <%= link_to "Dein Spielerprofil",player_profile_path(PlayerProfile.with_role(:player,current_user).first) unless PlayerProfile.with_role(:player,current_user).empty? %>
-            </li>
-            <% if current_user.has_role?(:club)  %>
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Dein Verein<b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <% Club.with_role(:club, current_user).each do |club| %>
-                  <li><%= link_to  club.name,club_path(club.id) %></li>
-                <% end %>
-                <% if can? :create, Club %>
-
-                  <li><%= link_to "Verein anlegen",new_club_path  %></li>
-                <% end %>
-              </ul>
-            </li>
-            <% end  %>
-            </ul>
-            <div class="btn-group pull-right">
-              <%= link_to raw("<i class='icon-user'></i> #{current_user.email} <span class='caret'></span>"),'#',class:"btn dropdown-toggle", 'data-toggle'=>"dropdown" %>
+              <%= link_to raw("<i class='icon-user'></i> #{current_user.email} <span class='caret'></span>"),'#',class:"dropdown-toggle", 'data-toggle'=>"dropdown" %>
               <ul class="dropdown-menu">
                 <li><%= link_to "Profile","#" %></li>
                 <li class="divider"></li>
                 <li><%= link_to "Logout",destroy_user_session_path, :method => :delete  %></li>
               </ul>
-            </div>
+            </li>
           <% else %>
               </ul>
               <div class="pull-right">
@@ -62,17 +41,57 @@
       </div>
     </div>
   </div>
+  <div class="subnavbar">
+
+    <div class="subnavbar-inner">
+
+      <div class="container">
+
+        <ul class="mainnav">
+
+          <li class="active">
+            <%= link_to raw('<i class="icon-home"></i><span>Home</span>'), root_path %>
+          </li>
+          <% if user_signed_in? %>
+
+              <% if current_user.has_role?(:player)  %>
+              <li><%= link_to raw('<i class="icon-pushpin"></i><span>Verein suchen</span>'), market_index_path if current_user.has_role?(:player) %> </li>
+              <li>
+                <%# Show new profile only when user doesn't have one and is no club owner %>
+                <%= link_to raw('<i class="icon-bar-chart"></i><span>Spielerprofil anlegen</span>'),new_player_profile_path if can? :create, PlayerProfile %>
+                <%= link_to raw('<i class="icon-bar-chart"></i><span>Dein Spielerprofil</span>'),player_profile_path(PlayerProfile.with_role(:player,current_user).first) unless PlayerProfile.with_role(:player,current_user).empty? %>
+              </li>
+
+              <% end %>
+              <% if current_user.has_role?(:club)  %>
+                  <li>
+                    <% club =  Club.with_role(:club, current_user).first %>
+                    <%= link_to raw('<i class="icon-bar-chart"></i><span>Dein Verein</span>'), club_path(club.id)  %>
+                    <%= link_to raw('<i class="icon-bar-chart"></i><span>Verein anlegen</span>'), new_club_path if can? :create, Club %>
+                  </li>
+                  <li><%= link_to raw('<i class="icon-bar-chart"></i><span>Spieler suchen</span>'),players_market_index_path if (can? :read, PlayerProfile) %></li>
+              <% end %>
+        <% end %>
+
+        </ul>
+
+      </div> <!-- /container -->
+
+    </div> <!-- /subnavbar-inner -->
+
+  </div> <!-- /subnavbar -->
 </header>
-<div class="container-fluid">
-  <div class="row-fluid">
+<div class="main">
+
+  <div class="main-inner">
+<div class="container">
+  <div class="row">
+    <% if content_for?( :leftside ) %>
     <div class="span2" id="leftside">
-      <% if content_for?( :leftside ) %>
         <%= yield( :leftside ) %>
-      <% else %>
-        &nbsp;
-      <% end %>
     </div>
-    <div class="span6">
+    <% end %>
+    <div class="span8">
         <% if notice %>
             <p class="alert alert-info"><%= notice %></p>
         <% end %>
@@ -90,7 +109,8 @@
       <% end %>
     </div>
   </div>
-
+</div>
+</div>
 </div>
 
 <footer>

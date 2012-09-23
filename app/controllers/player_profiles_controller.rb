@@ -2,6 +2,7 @@ class PlayerProfilesController < ApplicationController
   before_filter :authenticate_user!
   #load_and_authorize_resource :only => [ :index, :show, :update ]
   load_and_authorize_resource
+
   # GET /player_profiles
   # GET /player_profiles.json
   def index
@@ -11,6 +12,11 @@ class PlayerProfilesController < ApplicationController
   # GET /player_profiles/1
   # GET /player_profiles/1.json
   def show
+    #Side Informations
+    @open_player_profiles_count = PlayerProfile.find_all_by_show_profile(true).count
+    @all_player_contacts_count = PlayerContact.count
+    @all_offers_count = PublicOffer.valid_only.count
+
     @player_profile = PlayerProfile.find(params[:id])
     @player_contacts = PlayerContact.with_role(:player,current_user)
     @club_contacts = ClubContact.with_role(:player,current_user)

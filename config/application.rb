@@ -58,7 +58,7 @@ module Teamfinder
 
     # Enable the asset pipeline
     config.assets.enabled = true
-
+    config.app_generators.stylesheet_engine :less
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 

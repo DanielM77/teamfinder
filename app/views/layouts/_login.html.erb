@@ -1,13 +1,17 @@
 <% unless user_signed_in? %>
-    <div class= "well">
-      <h3>Schon bei uns angemeldet?</h3>
-      <p>
-        <%= link_to "Anmelden", new_user_registration_path, class:"btn btn-success" %>
-        oder
-        <%= link_to "Einloggen", new_user_session_path, class:"btn btn" %>
-      </p>
+    <div class= "widget">
+      <div class="widget-header">
+        <icon class="icon-user"/>
+        <h3>Schon bei uns angemeldet?</h3>
+      </div>
+    <div class="widget-content">
       <p>
         Die Anmeldung ist v&ouml;llig kostenlos und erlaubt Dir, mehr Inhalte bei spielertransfer24 zu entdecken
       </p>
+      <p>
+        <%= link_to "Einloggen", new_user_session_path, class:"btn btn-success" %> oder
+        <%= link_to "Anmelden", new_user_registration_path, class:"btn btn" %>
+      </p>
+    </div>
     </div>
 <% end%>

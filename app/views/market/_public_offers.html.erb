@@ -1,0 +1,24 @@
+<table class="table table-bordered table-striped">
+  <thead>
+      <th>Verein</th>
+      <th>Liga</th>
+      <th>Saison</th>
+      <th>Position</th>
+      <th></th>
+  </thead>
+  <tbody>
+  <% @public_offers.each do |offer| %>
+      <tr>
+        <td><%= offer.team.club.name %> (<%= offer.team.league.area.league_type.team_type.name %>)</td>
+        <td><%= offer.team.league.name %></td>
+        <td><%= offer.season.name %></td>
+        <td><%= offer.position.name %></td>
+
+        <td>
+          <%= link_to 'Kontakt',new_public_offer_player_contact_path(public_offer_id: offer) ,class:'btn btn-mini btn-success' %>
+          <%= link_to 'Details',offer ,class:'btn btn-mini' %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

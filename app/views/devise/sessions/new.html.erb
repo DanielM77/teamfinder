@@ -1,30 +1,33 @@
-<h2>Log Dich ein</h2>
+<div class="account-container">
+  <div class="content clearfix">
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-    <div class="control-group">
-      <%= f.label :email,'Email',class:'control-label' %>
-      <div class="controls">
-        <%= f.email_field :email, class:'input-large', placeholder:'Email' %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= f.label :password,'Passwort', class:'control-label' %>
-      <div class="controls">
-        <%= f.password_field :password,class:'input-large',placeholder:'Passwort' %>
+
+        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+        <h1>Login</h1>
+        <p>Log Dich mit Deinem bestehenden Account ein</p>
+        <div class="login-fields">
+            <div class="field">
+                <%= f.label :email,'Email' %>
+                <%= f.email_field :email, class:'login username-field', placeholder:'Email' %>
+            </div>
+            <div class="field">
+                <%= f.label :password,'Passwort' %>
+                <%= f.password_field :password,class:'login password-field',placeholder:'Passwort' %>
+            </div>
         </div>
+        <div class="login-actions">
+            <% if devise_mapping.rememberable? -%>
+                <span class="login-checkbox">
+                    <div class="field">
+                        <%= f.check_box :remember_me, class:'field login-checkbox' %> angemeldet bleiben
+                    </div>
+                </span>
+            <% end -%>
+            <%= f.submit "Einloggen",class:'button btn btn-warning btn-large' %>
+        </div>
+        <% end %>
+     </div>
     </div>
-    <% if devise_mapping.rememberable? -%>
-    <div class="control-group">
-      <div class="controls">
-        <%= f.check_box :remember_me %> angemeldet bleiben
-      </div>
-    </div>
-    <% end -%>
-    <div class="control-group">
-      <div class="controls">
-        <%= f.submit "Einloggen",class:'btn btn-primary' %>
-      </div>
-    </div>
-<% end %>
-
-<%= render "links" %>
+<div class="login-extra">
+  <%= render "links" %>
+</div>
