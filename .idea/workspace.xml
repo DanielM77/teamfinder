@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="79168461-11c0-4a8e-b963-2332fcf75d29" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/static_pages.css.scss" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/player_profiles/_player.html.erb" afterPath="$PROJECT_DIR$/app/views/player_profiles/_player.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" afterPath="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" />
     </list>
     <ignored path="teamfinder.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,10 +56,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_player.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="_player.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/player_profiles/_player.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="156" column="7" selection-start="5914" selection-end="5914" vertical-scroll-proportion="0.6571429">
+            <state line="156" column="7" selection-start="5914" selection-end="5914" vertical-scroll-proportion="-97.5">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="new.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/devise/registrations/new.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="80" selection-start="343" selection-end="343" vertical-scroll-proportion="0.25714287">
               <folding />
             </state>
           </provider>
@@ -69,15 +78,6 @@
         <entry file="file://$PROJECT_DIR$/app/views/player_profiles/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="6" column="34" selection-start="220" selection-end="227" vertical-scroll-proportion="-3.75">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base-admin-responsive.css.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/base_admin/base-admin-responsive.css.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="16" selection-start="498" selection-end="498" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -140,7 +140,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/base-admin/css/signin.css" />
         <option value="$PROJECT_DIR$/app/controllers/market_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/player_profiles_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/player_profiles/_player_contacts.html.erb" />
@@ -156,6 +155,7 @@
         <option value="$PROJECT_DIR$/app/assets/stylesheets/base_admin/signin.css.scss" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/base_admin/font-awesome.css.scss" />
         <option value="$PROJECT_DIR$/app/views/player_profiles/_player.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" />
       </list>
     </option>
   </component>
@@ -265,7 +265,33 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="player_profiles">
+            <PATH_ELEMENT USER_OBJECT="devise">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="teamfinder">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="views">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="devise">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="registrations">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -768,11 +794,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/market_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="299" selection-end="299" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/player_profiles_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="4" selection-start="641" selection-end="641" vertical-scroll-proportion="0.0" />
@@ -867,7 +888,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/player_profiles/_player.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="156" column="7" selection-start="5914" selection-end="5914" vertical-scroll-proportion="0.6571429">
+        <state line="156" column="7" selection-start="5914" selection-end="5914" vertical-scroll-proportion="-97.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/devise/registrations/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="80" selection-start="343" selection-end="343" vertical-scroll-proportion="0.25714287">
           <folding />
         </state>
       </provider>

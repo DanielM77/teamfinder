@@ -1,41 +1,45 @@
-<h2>Leg mit einem kostenlosen Account los</h2>
+
+<div class="account-container register">
+
+  <div class="content clearfix">
+<h1>Dein Account</h1>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-  <legend>Melde Dich in 30 Sekunden an. Keine Zahlungsinformationen benötigt</legend>
+        <div class="login-fields">
+          <p>Melde Dich in 30 Sekunden an. Es werden keine Zahlungsinformationen benötigt</p>
 
-    <div class="control-group">
-      <%# f.label :initial_role,'Ich bin ein:', class:'control-label'  %>
-      <div class="controls"  >
-        <%= f.radio_button :initial_role,'player', class:'checkbox' %> Spieler
-        <%= f.radio_button :initial_role, 'club', class:'checkbox' %> Verein
+          <%# f.label :initial_role,'Ich bin ein:', class:'control-label'  %>
+          <div class="field">
+          <%= f.radio_button :initial_role,'player' %> Spieler
+          <%= f.radio_button :initial_role, 'club' %> Verein
+
         </div>
-    </div>
+        <div class="field">
 
-  <div class="control-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, placeholder:'Email' %>
+        </div>
+          <div class="field">
+            <%= f.label :password,'Passwort' %>
+            <%= f.password_field :password, placeholder:'Passwort' %>
+          </div>
+          <div class="field">
+            <%= f.label :password_confirmation,'Passwort bestätigen' %>
+            <%= f.password_field :password_confirmation, placeholder:'Passwort bestätigen'  %>
+          </div>
+        </div>
 
-        <%= f.label :email, class:'control-label' %>
+        <div class="login-actions">
+          <%= f.submit "Anmelden", class:'button btn btn-primary btn-large' %>
 
-    <div class="controls"  >
-      <div class="input-prepend">
-        <span class="add-on">@</span>
-        <%= f.email_field :email %>
-      </div>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :password,'Passwort', class:'control-label' %>
-    <div class="controls"  >
-      <%= f.password_field :password %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :password_confirmation,'Passwort bestätigen', class:'control-label' %>
-    <div class="controls"  >
-      <%= f.password_field :password_confirmation %>
-    </div>
-  </div>
-  <div><%= f.submit "Anmelden", class:'btn btn-primary' %></div>
+        </div>
+
+
+
 <% end %>
+    <%= render "links" %>
+  </div>
 
-<%= render "links" %>
+</div>
+
