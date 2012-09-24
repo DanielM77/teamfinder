@@ -1,56 +1,94 @@
-<div id="menu-holder">
-
-  <div class="price_table">
-    <div class="column_1">
-      <ul>
-        <li class="header_row_1 align_center">
-          <div class="pack-title">Basis</div>
-        </li>
-        <li class="header_row_2 align_center">
-          <div class="price"><span>€0</span></div>
-          <div class="time">pro Jahr</div>
-        </li>
-        <li class="row_style_1 align_center"><span>Probier unser Angebot kostenlos aus</span></li>
-        <li class="row_style_1 align_center"><span>max. 1 Spielergesuch</span></li>
-        <li class="row_style_1 align_center"><span>kein Zugriff auf Spielerangebote</span></li>
-        <li class="row_style_footer_1"><%= link_to "Anmelden", new_club_path(membership:"free"), class:'buy_now' %></li>
-      </ul></div><!--end column-->
-
-    <div class="column_1">
-      <ul>
-        <li class="header_row_1 align_center">
-          <div class="pack-title">Professionell</div>
-        </li>
-        <li class="header_row_2 align_center">
-          <div class="price"><span>€24</span></div>
-          <div class="time">pro Jahr</div>
-        </li>
-        <li class="row_style_2 align_center"><span>Biete an, soviel Du willst</span></li>
-        <li class="row_style_2 align_center"><span>unbegrenzte Anzahl Spielergesuche</span></li>
-        <li class="row_style_2 align_center"><span>kein Zugriff auf Spielerangebote</span></li>
-        <li class="row_style_footer_2"><%= link_to "Anmelden", new_club_path(membership:"pro"), class:'buy_now' %></li>
-      </ul></div><!--end column-->
-
-    <div class="column_1">
-      <ul>
-        <li class="header_row_1 align_center">
-          <div class="pack-title">Premium</div>
-        </li>
-        <li class="header_row_2 align_center">
-          <div class="price"><span>€49</span></div>
-          <div class="time">pro Jahr</div>
-        </li>
-        <li class="row_style_1 align_center"><span>die besten Spieler für Dich</span></li>
-        <li class="row_style_1 align_center"><span>unbegrenzte Anzahl Spielergesuche</span></li>
-        <li class="row_style_1 align_center"><span>Zugriff auf alle Spielerangebote</span></li>
-        <li class="row_style_footer_1"><%= link_to "Anmelden", new_club_path(membership:"premium"), class:'buy_now' %></li>
-      </ul></div><!--end column-->
-
-  </div><!--end price table-->
-  <div class="column-clear"></div>
-  <div class="content">
-    <p>Welches Angebot passt zu Dir?</p>
-    <p id="home"><%=link_to  "spielertransfer24.de", root_path, class:"go" %></p>
+<div class="span12">
+<div class="widget">
+  <div class="widget-header">
+      <icon class="icon-th-large"/><h3>Wähle Dein Plan aus</h3>
   </div>
+  <div class="widget-content">
+    <div class="pricing-plans plans-3">
+      <div class="plan-container">
+        <div class="plan">
+          <div class="plan-header">
 
-</div><!--end menu-holder-->
+            <div class="plan-title">
+              Basis
+            </div> <!-- /plan-title -->
+
+            <div class="plan-price">
+              <span class="note">€</span>0<span class="term">pro Jahr</span>
+            </div> <!-- /plan-price -->
+
+          </div> <!-- /plan-header -->
+
+          <div class="plan-features">
+            <ul>
+              <li>Probier unser Angebot <strong>kostenlos</strong> aus</li>
+              <li>max. <strong>1</strong> Spielergesuch</li>
+              <li>kein Zugriff auf Spielerangebote</li>
+            </ul>
+          </div> <!-- /plan-features -->
+
+          <div class="plan-actions">
+            <%= link_to "Anmelden", new_club_path(membership:"free"), class:'btn' %>
+          </div> <!-- /plan-actions -->
+
+        </div> <!-- /plan -->
+      </div> <!-- /plan-container -->
+      <div class="plan-container">
+        <div class="plan orange">
+          <div class="plan-header">
+
+            <div class="plan-title">
+              Professionell
+            </div> <!-- /plan-title -->
+            <div class="plan-price">
+              <span class="note">€</span>24<span class="term">pro Jahr</span>
+            </div> <!-- /plan-price -->
+
+          </div> <!-- /plan-header -->
+
+          <div class="plan-features">
+            <ul>
+              <li>Biete an,  <strong>soviel Du willst</strong> aus</li>
+              <li><strong>unbegrenzte</strong> Anzahl Spielergesuche</li>
+              <li>kein Zugriff auf Spielerangebote</li>
+            </ul>
+          </div> <!-- /plan-features -->
+
+          <div class="plan-actions">
+            <%= link_to "Anmelden", new_club_path(membership:"pro"), class:'btn' %>
+          </div> <!-- /plan-actions -->
+
+        </div> <!-- /plan -->
+      </div> <!-- /plan-container -->
+      <div class="plan-container">
+        <div class="plan">
+          <div class="plan-header">
+
+            <div class="plan-title">
+              Premium
+            </div> <!-- /plan-title -->
+
+            <div class="plan-price">
+              <span class="note">€</span>49<span class="term">pro Jahr</span>
+            </div> <!-- /plan-price -->
+
+          </div> <!-- /plan-header -->
+
+          <div class="plan-features">
+            <ul>
+              <li><span>die besten Spieler für Dich</span></li>
+              <li><span>unbegrenzte Anzahl Spielergesuche</span></li>
+              <li><span>Zugriff auf alle Spielerangebote</span></li>
+            </ul>
+          </div> <!-- /plan-features -->
+
+          <div class="plan-actions">
+            <%= link_to "Anmelden", new_club_path(membership:"premium"), class:'btn' %>
+          </div> <!-- /plan-actions -->
+
+        </div> <!-- /plan -->
+      </div> <!-- /plan-container -->
+    </div>
+  </div>
+</div>
+</div>

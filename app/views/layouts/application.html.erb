@@ -14,6 +14,7 @@
 
   <div class="navbar-inner">
 
+
     <div class="container">
 
       <%= link_to "Spielertransfer24 ", root_path,class:"brand" %>
@@ -66,7 +67,7 @@
               <% if current_user.has_role?(:club)  %>
                   <li>
                     <% club =  Club.with_role(:club, current_user).first %>
-                    <%= link_to raw('<i class="icon-bar-chart"></i><span>Dein Verein</span>'), club_path(club.id)  %>
+                    <%= link_to raw('<i class="icon-bar-chart"></i><span>Dein Verein</span>'), club_path(club.id) unless club.nil?  %>
                     <%= link_to raw('<i class="icon-bar-chart"></i><span>Verein anlegen</span>'), new_club_path if can? :create, Club %>
                   </li>
                   <li><%= link_to raw('<i class="icon-bar-chart"></i><span>Spieler suchen</span>'),players_market_index_path if (can? :read, PlayerProfile) %></li>
