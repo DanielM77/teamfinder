@@ -1,2 +1,0 @@
-module LeagueTypesHelper
-end
