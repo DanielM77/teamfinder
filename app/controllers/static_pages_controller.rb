@@ -5,11 +5,7 @@ class StaticPagesController < ApplicationController
   def about
   end
   def index
-    if      user_signed_in?
-      redirect_to market_index_path
-
-
-    end
+    #redirect_to market_index_path if user_signed_in?
   end
   def pricing
 

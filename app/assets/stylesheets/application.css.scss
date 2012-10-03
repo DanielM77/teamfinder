@@ -4,17 +4,26 @@
 
 */
 @import  'base-admin/bootstrap.min.css';
-@import  'base-admin/bootstrap-responsive.min.css';
 @import  'base-admin/base-admin.css';
-@import  'base-admin/base-admin-responsive.css';
 @import  'base-admin/font-awesome.css';
 @import  'base-admin/signin.css';
 @import  'base-admin/plans.css';
+@import  'base-admin/bootstrap-responsive.min.css';
+@import  'base-admin/base-admin-responsive.css';
 /* market/index  */
 #btn-contact {
     clear:both;
 }
 body {
-  padding-top: 160px;
+  padding-top: 200px;
   padding-bottom: 40px;
+}
+.checkbox {
+  color: #FFFFFF;
+}
+.big-bullets {
+  font-size:large;
+}
+.big-bullets li {
+  margin-top:10px;
 }

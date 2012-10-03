@@ -11,5 +11,16 @@ require 'spec_helper'
 #   end
 # end
 describe ClubsHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  def signed_in_as_club
+    @user ||= FactoryGirl.create :user
+    sign_in user
+    user.add_role(:club)
+  end
+  # for use in request specs
+  def sign_in_as_a_club
+    @user ||= FactoryGirl.create :user
+    post_via_redirect user_session_path, 'user[email]' => @user.email, 'user[password]' => @user.password
+  end
+end
+
 end

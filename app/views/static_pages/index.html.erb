@@ -1,5 +1,5 @@
 <% content_for :rightside do %>
-<div class="widget">
+<!--<div class="widget">
   <div class="widget-header">
     <i class="icon-star"></i>
     <h3>Was ist Spielertransfer24.de?</h3>
@@ -8,17 +8,30 @@
     Spielertransfer24.de wurde geschaffen, um es Amateurvereinen und Amateurspieler einfacher zu machen, den richtigen Spieler bzw. den richtigen Verein zu finden. Der hohe Zeitaufwand, der vor allem von Vereinen und Trainern aufgewendet wird, um Spieler zu sichten, den richtigen Spieler zu finden oder mit potenziellen Spielern zu verhandeln, ist heutzutage sehr groß und die Erfolgsquote wird immer geringer.   Spielertransfer24.de soll hier ein erster Schritt sein, seinen Wunschspieler oder Wunschverein zu finden, ohne große Wege zu gehen.
   </div>
 
-</div>
+</div>-->
 <% end %>
 
-<div class="hero-unit">
-  <h1>Spielertransfer24.de</h1>
-  <p>Die Plattform für Spieler und Vereine</p>
-  <div class="row-fluid">
-    <div class="span3"> <%= link_to "für Spieler", market_index_path, class:"btn btn-large btn-primary" %></div>
-    <div class="span3"><%= link_to "für Vereine", players_market_index_path, class:"btn btn-large btn-primary" %></div>
+
+
+  <div class="row">
+    <div class="span6">
+      <%= image_tag "soccer_500.jpg", width:'450' %>
+    </div>
+    <div class="span2">
+      <h1>Spielertransfer24</h1>
+      <ul class="big-bullets">
+        <li>für Spieler</li>
+        <li>für Vereine</li>
+        <li>unkompliziert</li>
+        <li>direkt</li>
+        <li>in Deine Nähe</li>
+        <li>kostenlose Basisversion</li>
+      </ul>
+        <%= link_to 'Registrieren', new_user_registration_path, class:'btn btn-primary' %>
+    </div>
   </div>
-</div>
+
+
 <div class="row-fluid">
   <div class="span6">
     <h2>für Spieler</h2>
