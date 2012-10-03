@@ -1,0 +1,12 @@
+<div class ="navbar-form pull-right">
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+      <%= f.text_field :email, class:'input-medium', placeholder:'Email' %>
+      <%= f.password_field :password, class:'input-medium', placeholder:'Passwort' %>
+      <%= f.submit 'Anmelden', class:'btn btn-success'%>
+      <label class="checkbox">
+        <%= f.check_box :remember_me, class:'checkbox' %> Angemeldet bleiben?
+        <%= link_to "Passwort vergessen?", new_password_path('user') %>
+      </label>
+
+  <% end %>
+</div>
