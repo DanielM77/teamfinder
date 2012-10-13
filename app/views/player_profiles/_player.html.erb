@@ -5,78 +5,53 @@
   <div class="widget-content">
     <div class='row'>
     <div class='span3'>
-      <div class='control-group'>
-        <%= f.label:first_name,"Vorname",class:'control-label' %>
-        <div class='controls'>
-          <%= f.text_field :first_name, class:'input-large', placeholder:'Vorname', tabindex:1 %>
-        </div>
+      <%# f.label:first_name,"Vorname" %>
+      <label>Vorname <%= mark_required(@player_profile,:first_name) %>
+          <%= f.text_field :first_name, class:'span3', placeholder:'Vorname', tabindex:1 %>
+      </label>
+      <%# f.label:street,"Straße",class:'control-label' %>
+      <label>Straße <%= mark_required(@player_profile,:street) %>
+        <%= f.text_field :street, class:'span3', placeholder:'Straße', tabindex:3 %>
+      </label>
+      <%# f.label:zip,"Postleitzahl",class:'control-label' %>
+      <label>Postleitzahl <%= mark_required(@player_profile,:zip) %>
+        <%= f.text_field :zip, class:'span3', placeholder:'Postleitzahl', tabindex:5 %>
+      </label>
+      <%# f.label:phone,"Telefonnummer",class:'control-label' %>
+      <label>Telefonnummer <%= mark_required(@player_profile,:phone) %>
+        <%= f.text_field :phone, class:'span3', placeholder:'Telefonnummer', tabindex:7 %>
+      </label>
+      <%# f.label:email,"Email",class:'control-label' %>
+      <label>Email <%= mark_required(@player_profile,:email) %>
+        <%= f.text_field :email, class:'span3', placeholder:'Email', tabindex:9 %>
+      </label>
+      <%# f.label:gender,"Geschlecht",class:'control-label' %>
+      <label> Geschlecht <%= mark_required(@player_profile,:gender) %>
+        <%= f.select :gender, %w{männlich weiblich}, class:'input-large', placeholder:'Geschlecht', tabindex:11 %>
+      </label>
       </div>
-
-      <div class='control-group'>
-        <%= f.label:street,"Straße",class:'control-label' %>
-        <div class='controls'>
-          <%= f.text_field :street, class:'input-large', placeholder:'Straße', tabindex:3 %>
-        </div>
-      </div>
-      <div class='control-group'>
-        <%= f.label:zip,"Postleitzahl",class:'control-label' %>
-        <div class='controls'>
-          <%= f.text_field :zip, class:'input-large', placeholder:'Postleitzahl', tabindex:5 %>
-        </div>
-      </div>
-
-      <div class='control-group'>
-        <%= f.label:phone,"Telefonnummer",class:'control-label' %>
-        <div class='controls'>
-          <%= f.text_field :phone, class:'input-large', placeholder:'Telefonnummer', tabindex:7 %>
-        </div>
-        </div>
-        <div class='control-group'>
-            <%= f.label:email,"Email",class:'control-label' %>
-            <div class='controls'>
-            <%= f.text_field :email, class:'input-large', placeholder:'Email', tabindex:9 %>
-            </div>
-        </div>
-        <div class='control-group'>
-            <%= f.label:gender,"Geschlecht",class:'control-label' %>
-            <div class='controls'>
-                <%= f.select :gender, %w{männlich weiblich}, class:'input-large', placeholder:'Geschlecht', tabindex:11 %>
-            </div>
-        </div>
-        </div>
-
     <div class='span3'>
-      <div class='control-group'>
-        <%= f.label :name,"Name",class:'control-label' %>
-        <div class='controls'>
-          <%= f.text_field :name, class:'input-large', placeholder:'Name', tabindex:2 %>
-        </div>
-      </div>
-      <div class='control-group'>
-        <%= f.label:birthdate,"Geburtsdatum",class:'control-label' %>
-        <div class='controls'>
-          <%= f.text_field :birthdate, class:'input-large',placeholder:'Geburtsdatum', tabindex:4 %>
-        </div>
-      </div>
-      <div class='control-group'>
-        <%= f.label:city,"Ort",class:'control-label' %>
-        <div class='controls'>
-          <%= f.text_field :city, class:'input-large', placeholder:'Ort', tabindex:6 %>
-        </div>
-      </div>
-      <div class='control-group'>
-        <%= f.label:mobile,"Handynummer",class:'control-label' %>
-        <div class='controls'>
-          <%= f.text_field :mobile, class:'input-large', placeholder:'Handynummer', tabindex:8 %>
-        </div>
-      </div>
-      <div class='control-group'>
-        <%= f.label:nationality,"Nationalität",class:'control-label' %>
-        <div class='controls'>
-          <%= f.text_field :nationality, class:'input-large', placeholder:'Nationalität', tabindex:10 %>
-        </div>
-      </div>
-</div>
+      <%# f.label :name,"Name",class:'control-label' %>
+      <label>Name <%=  mark_required(@player_profile,:name) %>
+        <%= f.text_field :name, class:'span3', placeholder:'Name', tabindex:2 %>
+      </label>
+      <%# f.label:birthdate,"Geburtsdatum",class:'control-label' %>
+      <label>Geburtsdatum <%= mark_required(@player_profile,:birthdate) %>
+        <%= f.text_field :birthdate, class:'span3',placeholder:'Geburtsdatum', tabindex:4 %>
+      </label>
+      <%# f.label:city,"Ort",class:'control-label' %>
+      <label>Ort <%= mark_required(@player_profile,:city) %>
+        <%= f.text_field :city, class:'span3', placeholder:'Ort', tabindex:6 %>
+      </label>
+      <%# f.label:mobile,"Handynummer",class:'control-label' %>
+      <label>Handynummer <%= mark_required(@player_profile,:mobile) %>
+        <%= f.text_field :mobile, class:'span3', placeholder:'Handynummer', tabindex:8 %>
+      </label>
+      <%# f.label:nationality,"Nationalität",class:'control-label' %>
+      <label>Nationalität <%= mark_required(@player_profile,:nationality) %>
+        <%= f.text_field :nationality, class:'span3', placeholder:'Nationalität', tabindex:10 %>
+      </label>
+    </div>
 </div>
   </div>
 </div>

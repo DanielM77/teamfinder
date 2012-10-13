@@ -1,5 +1,6 @@
 class Player < ActiveRecord::Base
   resourcify
+  validates_presence_of :name, :first_name
   belongs_to :current_league_type, class_name:'LeagueType'
   belongs_to :expected_league_type, class_name:'LeagueType'
   belongs_to :position

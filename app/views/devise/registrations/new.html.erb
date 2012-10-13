@@ -2,20 +2,22 @@
 <div class="account-container register">
 
   <div class="content clearfix">
-<h1>Dein Account</h1>
+<h1>Deine Registrierung</h1>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
         <div class="login-fields">
           <p>Melde Dich in 30 Sekunden an. Es werden keine Zahlungsinformationen benötigt</p>
 
-          <%# f.label :initial_role,'Ich bin ein:', class:'control-label'  %>
-          <div class="field">
-          <%= f.radio_button :initial_role,'player' %> Spieler
-          <%= f.radio_button :initial_role, 'club' %> Verein
+          <%= f.label :initial_role,'Ich bin ein:', class:'radio'  %>
 
-        </div>
-        <div class="field">
+                   <%= f.radio_button :initial_role,'player' %>Spieler
+                  <%= f.radio_button :initial_role,'Verein' %>Verein
+
+
+
+
+          <div class="field">
 
           <%= f.label :email %>
           <%= f.email_field :email, placeholder:'Email' %>
