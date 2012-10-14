@@ -5,10 +5,13 @@ class Player < ActiveRecord::Base
   belongs_to :expected_league_type, class_name:'LeagueType'
   has_many :positionings
   has_many :positions, through: :positionings
+
+  has_many :former_leagues
+  has_many :league_types, through: :former_leagues
   attr_accessible :name, :first_name, :birthdate, :street, :zip, :city, :phone,
                   :mobile, :email, :nationality, :max_distance, :strong_foot,
                   :transfer_fee, :has_contract, :expected_money,
-                  :gender, :current_league_type_id, :expected_league_type_id, :position_ids
+                  :gender, :current_league_type_id, :expected_league_type_id, :position_ids, :league_type_ids
 
   def full_name
     if first_name

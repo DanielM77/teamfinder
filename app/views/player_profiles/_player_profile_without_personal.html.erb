@@ -1,17 +1,17 @@
-<div class="row-fluid">
-  <div class="span6">
+<div class="row">
+  <div class="span3">
     <b>Aktuelle Liga</b>
     <%= player_profile.current_league_type.name unless player_profile.current_league_type.nil? %><br>
     <b>Gewünschte Liga</b>
     <%= player_profile.expected_league_type.name unless player_profile.expected_league_type.nil? %>  <br>
-    <b>Positionen</b>
+    <b>Positionen</b><br>
     <% player_profile.positions.each do |position|%>
       <%= position.name %><br>
     <% end %>
     <b>Starker Fuß</b>
     <%= player_profile.strong_foot %><br>
   </div>
-  <div class="span6">
+  <div class="span3">
     <b>Maximale Entfernung</b>
     <%= player_profile.max_distance %><br>
 

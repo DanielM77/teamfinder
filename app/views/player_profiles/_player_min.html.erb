@@ -1,82 +1,48 @@
-<div class="row-fluid">
-  <div class="span12">
-    <div class="span6">
-<div class='control-group'>
-  <%= f.label:first_name,"Vorname",class:'control-label' %>
-  <div class='controls'>
-    <%= f.text_field :first_name, class:'input-large', placeholder:'Vorname' %>
+<div class="row">
+  <div class="span8">
+    <div class="span3">
+      <%= f.label:first_name,"Vorname" %>
+      <%= f.text_field :first_name, class:'input-large', placeholder:'Vorname' %>
+      <%= f.label:name,"Name" %>
+      <%= f.text_field :name, class:'input-large', placeholder:'Name' %>
+      <%= f.label:email,"Email" %>
+      <%= f.text_field :email, class:'input-large', placeholder:'Email' %>
+      <%= f.label:phone,"Telefonnummer" %>
+      <%= f.text_field :phone, class:'input-large', placeholder:'Telefonnummer' %>
+      <%= f.label:mobile,"Handynummer" %>
+      <%= f.text_field :mobile, class:'input-large', placeholder:'Handynummer' %>
+      <%= f.label:gender,"Geschlecht" %>
+      <%= f.select :gender, %w{männlich weiblich}, class:'input-large', prompt:'Geschlecht' %>
+      <%= f.label:birthdate,"Geburtsdatum" %>
+      <%= f.text_field :birthdate,class:'input-large', placeholder:'Geburtsdatum' %>
+      <%= f.label:current_league_type_id,"aktuelle Liga" %>
+      <%= f.collection_select :current_league_type_id, LeagueType.all, :id, :name, class:'input-large', prompt:'aktuelle Liga' %>
+      <%= f.label:league_type_ids,"Deine bisherigen Ligen"%>
+      <%= hidden_field_tag "product[league_type_ids][]", nil%>
+      <%  LeagueType.all.each do |league_type| %>
+          <label class="checkbox">
+            <%= check_box_tag "player_profile[league_type_ids][]", league_type.id,
+                              @player_profile.league_type_ids.include?(league_type.id) %><%= league_type.name %>
+          </label>
+      <% end %>
   </div>
-</div>
-
-<div class='control-group'>
-  <%= f.label:name,"Name",class:'control-label' %>
-    <div class='controls'>
-        <%= f.text_field :name, class:'input-large', placeholder:'Name' %>
-    </div>
-  </div>
-
-<div class='control-group'>
-  <%= f.label:email,"Email",class:'control-label' %>
-  <div class='controls'>
-    <%= f.text_field :email, class:'input-large', placeholder:'Email' %>
-  </div>
-</div>
-
-<div class='control-group'>
-  <%= f.label:phone,"Telefonnummer",class:'control-label' %>
-  <div class='controls'>
-    <%= f.text_field :phone, class:'input-large', placeholder:'Telefonnummer' %>
-  </div>
-</div>
-<div class='control-group'>
-  <%= f.label:mobile,"Handynummer",class:'control-label' %>
-  <div class='controls'>
-    <%= f.text_field :mobile, class:'input-large', placeholder:'Handynummer' %>
-  </div>
-</div>
-
-<div class='control-group'>
-  <%= f.label:gender,"Geschlecht",class:'control-label' %>
-  <div class='controls'>
-    <%= f.select :gender, %w{männlich weiblich}, class:'input-large', prompt:'Geschlecht' %>
-  </div>
-</div>
-
-<div class='control-group'>
-  <%= f.label:birthdate,"Geburtsdatum",class:'control-label' %>
-  <div class='controls'>
-    <%= f.text_field :birthdate,class:'input-large', placeholder:'Geburtsdatum' %>
-  </div>
-</div>
-
-<div class='control-group'>
-  <%= f.label:current_league_type_id,"aktuelle Liga",class:'control-label' %>
-  <div class='controls'>
-    <%= f.collection_select :current_league_type_id, LeagueType.all, :id, :name, class:'input-large', prompt:'aktuelle Liga' %>
-  </div>
-</div>
-<div class='control-group'>
-  <%= f.label:position_id,"Position",class:'control-label' %>
-    <div class='controls'>
-      <%= f.collection_select :position_id, Position.all, :id, :name, class:'input-large', prompt:'Deine Position' %>
-    </div>
-  </div>
-  </div>
-    <div class="span6">
-      <div class='controls'>
-        <%= f.text_area :message, class:'input-large', rows:8, placeholder:'Deine Nachricht an den Verein' %>
-      </div>
+    <div class="span3">
+    <%= f.text_area :message, class:'input-large', rows:8, placeholder:'Deine Nachricht an den Verein' %>
+    <%= f.label:position_ids,"Deine Positionen" %>
+    <%= hidden_field_tag "product[category_ids][]", nil%>
+    <%  PositionGroup.all.each do |position_group| %>
+      <label><%= position_group.name %></label>
+      <% position_group.positions.each do |position|  %>
+        <label class="checkbox">
+        <%= check_box_tag "player_profile[position_ids][]", position.id,
+                          @player_profile.position_ids.include?(position.id) %><%= position.name %>
+        </label>
+      <% end %>
+    <% end %>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
+<p></p>
 
 
 
