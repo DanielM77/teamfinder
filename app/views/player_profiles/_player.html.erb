@@ -48,7 +48,7 @@
         <%= f.text_field :mobile, class:'span3', placeholder:'Handynummer', tabindex:8 %>
       </label>
       <%# f.label:nationality,"Nationalität",class:'control-label' %>
-      <label>Nationalität <%= mark_required(@player_profile,:nationality) %>
+      <label>Nationalität
         <%= f.text_field :nationality, class:'span3', placeholder:'Nationalität', tabindex:10 %>
       </label>
     </div>
@@ -60,75 +60,62 @@
     <h3>Dein Spielerprofil</h3>
   </div>
   <div class="widget-content">
+    <div class='row'>
+      <div class='span3'>
+        <%# f.label:current_league_type_id,"aktuelle Liga",class:'control-label' %>
+        <label>Aktuelle Liga <%= mark_required(@player_profile,:current_league_type_id) %>
+          <%= f.collection_select :current_league_type_id, LeagueType.all,
+                                  :id, :name, class:'span3', placeholder:'aktuelle Liga', tabindex:12 %>
+        </label>
 
-  <div class='row'>
-  <div class='span3'>
-    <div class='control-group'>
-      <%= f.label:current_league_type_id,"aktuelle Liga",class:'control-label' %>
-      <div class='controls'>
-        <%= f.collection_select :current_league_type_id, LeagueType.all,
-                                :id, :name, class:'input-large', placeholder:'aktuelle Liga', tabindex:12 %>
-      </div>
-    </div>
-    <div class='control-group'>
-      <%= f.label:position_id,"Position",class:'control-label' %>
-      <div class='controls'>
-        <%= f.grouped_collection_select :position_id, PositionGroup.all,
+        <%= f.label:position_ids,"Deine Positionen",class:'control-label' %>
+        <%= hidden_field_tag "product[category_ids][]", nil%>
+        <%  PositionGroup.all.each do |position_group| %>
+            <label><%= position_group.name %></label>
+          <% position_group.positions.each do |position|  %>
+            <label class="checkbox">
+              <%= check_box_tag "player_profile[position_ids][]", position.id,
+                                @player_profile.position_ids.include?(position.id) %><%= position.name %>
+            </label>
+          <% end %>
+        <% end %>
+
+
+          <%# f.grouped_collection_select :position_id, PositionGroup.all,
                                         :positions, :name, :id, :name, class:'input-large',
                                         placeholder:'Position', tabindex:14 %>
-      </div>
-    </div>
+        <%# f.label:max_distance,"Maximale Entfernung",class:'control-label' %>
+        <label>Maximale Entfernung <%= mark_required(@player_profile,:max_distance) %>
+        <%= f.text_field :max_distance, class:'span3', placeholder:'Maximale Entfernung', tabindex:16 %>
+        </label>
+        <%# f.label:expected_money,"erwartete Vergütung",class:'control-label' %>
+        <label>erwartete Vergütung <%= mark_required(@player_profile,:expected_money) %>
+        <%= f.text_field :expected_money, class:'span3', placeholder:'erwartete Vergütung', tabindex:18 %>
+        </label>
 
-    <div class='control-group'>
-      <%= f.label:max_distance,"Maximale Entfernung",class:'control-label' %>
-      <div class='controls'>
-        <%= f.text_field :max_distance, class:'input-large', placeholder:'Maximale Entfernung', tabindex:16 %>
       </div>
-    </div>
-    <div class='control-group'>
-      <%= f.label:expected_money,"erwartete Vergütung",class:'control-label' %>
-      <div class='controls'>
-        <%= f.text_field :expected_money, class:'input-large', placeholder:'erwartete Vergütung', tabindex:18 %>
+      <div class='span3'>
+        <%# f.label:expected_league_type_id,"gewünschte Liga",class:'control-label' %>
+        <label> gewünschte Liga <%= mark_required(@player_profile,:expected_league_type_id) %>
+          <%= f.collection_select :expected_league_type_id, LeagueType.all, :id, :name,
+                                  class:'span3', placeholder:'gewünschte Liga', tabindex:13 %>
+        </label>
+        <%# f.label:strong_foot,"starker Fuß",class:'control-label' %>
+        <label>starker Fuß <%= mark_required(@player_profile,:strong_foot) %>
+          <%= f.select :strong_foot, %w{links rechts beidfuessig}, class:'input-large',
+                         placeholder:'starker Fuß', tabindex:15 %>
+        </label>
+        <%# f.label:transfer_fee,"Ablösesumme",class:'control-label' %>
+        <label>Ablösesumme <%= mark_required(@player_profile,:transfer_fee) %>
+          <%= f.text_field :transfer_fee, class:'span3',
+                           placeholder:'Ablösesumme', tabindex:17 %>
+        </label>
+        <%= f.check_box :has_contract, class:'span3', tabindex:20 %> laufender Vertrag
       </div>
-    </div>
 
-    <div class='control-group'>
-      <div class='controls'>
-        <%= f.check_box :show_profile, class:'input-large', tabindex:20 %> Dein Spielerprofil veröffentlichen (ohne Namen)
-      </div>
-    </div>
-    </div>
-  <div class='span3'>
-    <div class='control-group'>
-      <%= f.label:expected_league_type_id,"gewünschte Liga",class:'control-label' %>
-      <div class='controls'>
-        <%= f.collection_select :expected_league_type_id, LeagueType.all, :id, :name,
-                                class:'input-large', placeholder:'gewünschte Liga', tabindex:13 %>
-      </div>
-    </div>
-    <div class='control-group'>
-      <%= f.label:strong_foot,"starker Fuß",class:'control-label' %>
-      <div class='controls'>
-        <%= f.select :strong_foot, %w{links rechts beidfuessig}, class:'input-large',
-                     placeholder:'starker Fuß', tabindex:15 %>
-      </div>
   </div>
-
-  <div class='control-group'>
-    <%= f.label:transfer_fee,"Ablösesumme",class:'control-label' %>
-    <div class='controls'>
-      <%= f.text_field :transfer_fee, class:'input-large',
-                       placeholder:'Ablösesumme', tabindex:17 %>
-    </div>
-  </div>
-  <div class='control-group'>
-    <div class='controls'>
-      <%= f.check_box :has_contract, class:'input-large', tabindex:20 %> laufender Vertrag
-    </div>
-  </div>
+    <%= f.check_box :show_profile, class:'span3', tabindex:20 %> Dein Spielerprofil veröffentlichen (ohne Namen)
 </div>
-  </div>
-  </div>
     <p></p>
 
 

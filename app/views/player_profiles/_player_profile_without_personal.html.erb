@@ -4,8 +4,10 @@
     <%= player_profile.current_league_type.name unless player_profile.current_league_type.nil? %><br>
     <b>Gewünschte Liga</b>
     <%= player_profile.expected_league_type.name unless player_profile.expected_league_type.nil? %>  <br>
-    <b>Position:</b>
-    <%= player_profile.position.name  unless player_profile.position.nil? %><br>
+    <b>Positionen</b>
+    <% player_profile.positions.each do |position|%>
+      <%= position.name %><br>
+    <% end %>
     <b>Starker Fuß</b>
     <%= player_profile.strong_foot %><br>
   </div>

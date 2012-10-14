@@ -3,11 +3,12 @@ class Player < ActiveRecord::Base
   validates_presence_of :name, :first_name
   belongs_to :current_league_type, class_name:'LeagueType'
   belongs_to :expected_league_type, class_name:'LeagueType'
-  belongs_to :position
+  has_many :positionings
+  has_many :positions, through: :positionings
   attr_accessible :name, :first_name, :birthdate, :street, :zip, :city, :phone,
                   :mobile, :email, :nationality, :max_distance, :strong_foot,
                   :transfer_fee, :has_contract, :expected_money,
-                  :gender, :current_league_type_id, :expected_league_type_id, :position_id
+                  :gender, :current_league_type_id, :expected_league_type_id, :position_ids
 
   def full_name
     if first_name
