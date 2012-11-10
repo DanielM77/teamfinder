@@ -95,7 +95,7 @@ class PublicOffersController < ApplicationController
     @public_offer.destroy
 
     respond_to do |format|
-      format.html { redirect_to public_offers_url }
+      format.html { redirect_to club_path(@team.club), notice: 'Das Angebot wurde geloescht' }
       format.json { head :no_content }
     end
   end

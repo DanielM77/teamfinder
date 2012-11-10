@@ -21,9 +21,12 @@
 <p></p>
 <h3>Anfragen von Spielern</h3>
 <p></p>
-
-<% @club.public_offers.each do |offer| %>
-    <%= render :partial => 'player_contacts/player_contacts', :locals=>{:player_contacts => offer.player_contacts, :public_offer => offer}  unless offer.player_contacts.empty? %>
+<%  if @club.has_player_contacts?  %>
+    <% @club.public_offers.each do |offer| %>
+        <%= render :partial => 'player_contacts/player_contacts', :locals=>{:player_contacts => offer.player_contacts, :public_offer => offer}%>
+    <% end %>
+<% else %>
+    <div class="alert alert-info">Du hast noch keine Anfragen erhalten</div>
 <% end %>
 <p></p>
 <h3>Deine Anfragen bei Spielern</h3>

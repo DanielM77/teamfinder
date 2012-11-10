@@ -17,7 +17,7 @@
         <div class="control-group">
           <%= f.label :min_league, "Mindestliga", class:"control-label" %>
           <div class="controls">
-            <%= f.collection_select :min_league_type_id ,LeagueType.all,:id, :name, placeholder:"Mindestliga" %>
+            <%= f.collection_select :min_league_id ,League.all,:id, :name, placeholder:"Mindestliga" %>
           </div>
         </div>
         <div class="control-group">
@@ -27,11 +27,17 @@
           </div>
         </div>
         <div class="control-group">
-          <%= f.label :position, "Position", class:"control-label" %>
-          <div class="controls">
-            <%= f.grouped_collection_select :position_id, PositionGroup.all,
-                                            :positions, :name, :id, :name, placeholder:"Position" %>
-          </div>
+          <%= f.label:position_ids,"Gesuchte Positionen",class:'control-label' %>
+          <%= hidden_field_tag "public_offer[position_ids][]", nil%>
+          <%  PositionGroup.all.each do |position_group| %>
+              <label><%= position_group.name %></label>
+              <% position_group.positions.each do |position|  %>
+                  <label class="checkbox">
+                    <%= check_box_tag "public_offer[position_ids][]", position.id,
+                                      @public_offer.position_ids.include?(position.id) %><%= position.name %>
+                  </label>
+              <% end %>
+          <% end %>
         </div>
         <div class="control-group">
           <%= f.label :min_age,"Alter (von - bis)", class:"control-label" %>

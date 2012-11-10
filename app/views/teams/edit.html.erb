@@ -1,8 +1,8 @@
 <% content_for :leftside do %>
-    <%= render 'clubs/sidenav' %>
+    <%# render 'clubs/sidenav' %>
 <% end %>
 <%= render 'clubs/header' %>
+<legend>Mannschaft editieren</legend>
 <%= render 'form' %>
 
-<%= link_to 'Show', @team %> |
-<%= link_to 'Back', teams_path %>
+<%= link_to 'Zurück', club_path(@club.id) %>

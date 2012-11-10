@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121014202757) do
+ActiveRecord::Schema.define(:version => 20121110133607) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20121014202757) do
     t.string   "homepage"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
 
   create_table "contacts", :force => true do |t|
@@ -79,13 +80,13 @@ ActiveRecord::Schema.define(:version => 20121014202757) do
   end
 
   create_table "former_leagues", :force => true do |t|
-    t.integer  "league_type_id"
+    t.integer  "league_id"
     t.integer  "player_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
-  create_table "league_types", :force => true do |t|
+  create_table "leagues", :force => true do |t|
     t.string   "name"
     t.integer  "ranking"
     t.integer  "team_type_id"
@@ -93,11 +94,11 @@ ActiveRecord::Schema.define(:version => 20121014202757) do
     t.datetime "updated_at",   :null => false
   end
 
-  create_table "leagues", :force => true do |t|
-    t.string   "name"
-    t.integer  "area_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "offered_positions", :force => true do |t|
+    t.integer  "offer_id"
+    t.integer  "position_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "offers", :force => true do |t|
@@ -112,8 +113,8 @@ ActiveRecord::Schema.define(:version => 20121014202757) do
     t.string   "status"
     t.date     "valid_from"
     t.date     "valid_until"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.integer  "user_id"
     t.integer  "club_id"
     t.integer  "team_id"
@@ -122,7 +123,7 @@ ActiveRecord::Schema.define(:version => 20121014202757) do
     t.string   "strong_foot"
     t.string   "contract"
     t.string   "transfer_fee"
-    t.integer  "min_league_type_id"
+    t.integer  "min_league_id"
     t.integer  "player_id"
     t.string   "type"
   end
@@ -138,8 +139,8 @@ ActiveRecord::Schema.define(:version => 20121014202757) do
     t.string   "mobile"
     t.string   "email"
     t.string   "nationality"
-    t.integer  "current_league_type_id"
-    t.integer  "expected_league_type_id"
+    t.integer  "current_league_id"
+    t.integer  "expected_league_id"
     t.integer  "max_distance"
     t.integer  "position_id"
     t.string   "strong_foot"
@@ -149,8 +150,8 @@ ActiveRecord::Schema.define(:version => 20121014202757) do
     t.boolean  "show_profile"
     t.boolean  "is_public"
     t.string   "gender"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.integer  "offer_id"
     t.string   "message"
     t.string   "status"
@@ -213,9 +214,10 @@ ActiveRecord::Schema.define(:version => 20121014202757) do
     t.string   "name"
     t.string   "league"
     t.integer  "club_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.integer  "league_id"
+    t.integer  "team_type_id"
   end
 
   create_table "users", :force => true do |t|

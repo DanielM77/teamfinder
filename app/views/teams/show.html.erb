@@ -1,5 +1,5 @@
 <% content_for :leftside do %>
-    <%= render 'clubs/sidenav' %>
+    <%# render 'clubs/sidenav' %>
 <% end %>
 <%= render 'clubs/header' %>
 <p>
@@ -14,4 +14,4 @@
 
 
 <%= link_to 'Edit', edit_club_team_path(@club.id, @team) %> |
-<%= link_to 'Back', club_teams_path(@club.id) %>
+<%= link_to 'Back', club_path(@club.id) %>

@@ -2,10 +2,11 @@
 <% unless team.club_contacts.empty? %>
 <h4><%= team.name%></h4>
 <p></p>
-<table class="table">
+<table class="table table-bordered table-striped">
   <tr>
     <th>Anfrage vom</th>
     <th>Spieler</th>
+    <th>für Mannschaft</th>
     <th>Aktuelle Liga</th>
     <th>Status</th>
   </tr>
@@ -14,7 +15,8 @@
       <tr>
         <td><%= date_formatter(contact.created_at) %></td>
         <td>Spieler <%= contact.player_profile.id unless contact.player_profile.nil? %></td>
-        <td><%= contact.player_profile.current_league_type.name unless contact.player_profile.nil? || contact.player_profile.current_league_type.nil? %></td>
+        <td><%= contact.team.long_name unless team.long_name.nil? %></td>
+        <td><%= contact.player_profile.current_league.name unless contact.player_profile.nil? || contact.player_profile.current_league.nil? %></td>
         <td><%= contact.status %></td>
       </tr>
   <% end %>

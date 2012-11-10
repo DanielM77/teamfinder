@@ -38,7 +38,7 @@ class ClubContactsController < ApplicationController
         current_user.add_role(:club,@club_contact)
         user = User.find(@player_profile.user_id)
         user.add_role(:player,@club_contact)
-        redirect_to @club, notice:'Deine Anfrage wurde gestellt.'
+        redirect_to players_market_index_path, notice:'Deine Anfrage wurde gestellt.'
       else
         render action: "new"
       end
@@ -50,7 +50,7 @@ class ClubContactsController < ApplicationController
     @club_contact = ClubContact.find(params[:id])
 
       if @club_contact.update_attributes(params[:@club_contact])
-        redirect_to @club_contact, notice:'ClubContact was successfully updated.'
+        redirect_to @club_contact, notice:'Deine Anfrage wurde aktualisiert.'
       else
         render action: "edit"
       end

@@ -3,14 +3,26 @@
 <header class="jumbotron subhead" id="overview">
   <h1>Spielermarkt</h1>
   <p class="lead">Finde Deinen Spieler - alle Angebote aus Deiner Region</p>
-  <% @player_profiles.each do |player_profile| %>
-      <div class="well">
-        <h3>Spieler <%=player_profile.id %></h3>
-
-        Position: <%=  player_profile.position.name unless player_profile.position.nil? %>
-        <div id="btn-contact">
-          <%= link_to 'Kontakt',new_player_profile_club_contact_path(:player_profile_id=>player_profile) ,class:'btn btn-primary' %>
-        </div>
-      </div>
-
-  <% end  %>
+  <table class="table table-bordered table-striped">
+    <thead>
+    <th>Spieler</th>
+    <th>Aktuelle Liga</th>
+    <th>Positionen</th>
+    <th>Kontakt</th>
+    </thead>
+    <% @player_profiles.each do |player_profile| %>
+      <tr>
+        <td>Spieler <%=player_profile.id %></td>
+        <td><%= player_profile.current_league.name %></td>
+        <td>
+          <% player_profile.positions.each do |position| unless player_profile.positions.empty? %>
+            <%= position.name %><br>
+          <% end %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to 'Kontakt',new_player_profile_club_contact_path(:player_profile_id=>player_profile) ,class:'btn btn-small' %>
+        </td>
+      </tr>
+    <% end  %>
+  </table>

@@ -1,7 +1,7 @@
-<table class="table table-striped">
+<table class="table table-bordered table-striped">
   <tr>
+    <th>Anfrage vom</th>
     <th>Name</th>
-    <th>Mobile</th>
     <th>Aktuelle Liga</th>
     <th>Position</th>
     <th></th>
@@ -9,10 +9,10 @@
 
   <% player_contacts.each do |contact| %>
       <tr>
+        <td><%=  date_formatter(contact.created_at) %></td>
         <td><%= contact.full_name  %></td>
-        <td><%= contact.mobile %></td>
-        <td><%= contact.current_league_type.name unless contact.current_league_type.nil? %></td>
-        <td><%= contact.position.name unless contact.position.nil? %></td>
+        <td><%= contact.current_league.name unless contact.current_league.nil? %></td>
+        <td><%# contact.position.name unless contact.position.nil? %></td>
         <td><%= link_to "Details",public_offer_player_contact_path( public_offer.id, contact.id), class:'btn btn-mini btn-success'%></td>
       </tr>
   <% end %>

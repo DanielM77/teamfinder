@@ -3,17 +3,16 @@
   <th>Mannschaft</th>
   <th>Saison</th>
   <th>Position</th>
-  <th colspan="2">Gültig (von - bis)</th>
+  <th>Gültig (von - bis)</th>
   <th></th>
   </thead>
   <tbody>
   <% @public_offers.each do |offer| %>
       <tr>
-        <td><%= offer.team.name %> (<%= offer.team.league.area.league_type.team_type.name %>)</td>
+        <td><%= offer.team.name %> (<%= offer.team.league.team_type.name %>)</td>
         <td><%= offer.season.name %></td>
-        <td><%= offer.position.name %></td>
-        <td><%= offer.valid_from %></td>
-        <td><%= offer.valid_until %></td>
+        <td><%# offer.position.name %></td>
+        <td><%= date_formatter(offer.valid_from) %> - <%= date_formatter(offer.valid_until) %></td>
         <td>
           <% unless offer.player_contacts.empty?  %>
               <%# link_to "Anfragen", offer_player_contacts_path(offer_id:offer), class:'btn btn-mini btn-success' %>

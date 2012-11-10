@@ -5,7 +5,7 @@ class PlayerContact < Player
   attr_accessible :name, :first_name, :birthdate, :street, :zip, :city, :phone,
                    :mobile, :email, :nationality, :max_distance, :strong_foot,
                    :transfer_fee, :has_contract, :expected_money, :show_profile,
-                   :gender, :current_league_type_id, :expected_league_type_id, :position_id,
+                   :gender, :current_league_id, :expected_league_id,
                    :message, :status
 
 

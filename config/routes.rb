@@ -12,7 +12,7 @@ Teamfinder::Application.routes.draw do
 
   resources :club_contacts
 
-  resources :player_profiles
+  resources :player_profiles, only: [:show, :edit, :create, :update, :destroy]
 
   resources :seasons
 
@@ -21,10 +21,6 @@ Teamfinder::Application.routes.draw do
   resources :positions
 
   resources :leagues
-
-  resources :areas
-
-  resources :league_types
 
   resources :team_types
 

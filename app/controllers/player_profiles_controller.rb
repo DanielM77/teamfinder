@@ -1,13 +1,7 @@
 class PlayerProfilesController < ApplicationController
   before_filter :authenticate_user!
-  #load_and_authorize_resource :only => [ :index, :show, :update ]
+  #load_and_authorize_resource :only => [ :show, :update ]
   load_and_authorize_resource
-
-  # GET /player_profiles
-  # GET /player_profiles.json
-  def index
-    @player_profiles = PlayerProfile.with_role(:player, current_user).map{|player| player.id}
-  end
 
   # GET /player_profiles/1
   # GET /player_profiles/1.json

@@ -13,7 +13,7 @@
         <td><%= contact.public_offer.team.club.name %></td>
         <td><%= contact.public_offer.team.name %></td>
         <td><%= contact.public_offer.team.league.name %></td>
-        <td><%= contact.public_offer.position.name %></td>
+        <td><%# contact.public_offer.position.name %></td>
         <td><%= contact.status %></td>
         <td><%= link_to "Details", public_offer_player_contact_path(contact.public_offer,contact),class:'btn btn-mini btn-success' %></td>
       </tr>

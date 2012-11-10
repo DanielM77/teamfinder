@@ -81,21 +81,21 @@
       </div>
       <div class='span3'>
         <%# f.label:current_league_type_id,"aktuelle Liga",class:'control-label' %>
-        <label>Aktuelle Liga <%= mark_required(@player_profile,:current_league_type_id) %>
-          <%= f.collection_select :current_league_type_id, LeagueType.all,
+        <label>Aktuelle Liga <%= mark_required(@player_profile,:current_league_id) %>
+          <%= f.collection_select :current_league_id, League.all,
                                   :id, :name, class:'span3', placeholder:'aktuelle Liga'%>
         </label>
         <%# f.label:expected_league_type_id,"gewünschte Liga",class:'control-label' %>
-        <label> gewünschte Liga <%= mark_required(@player_profile,:expected_league_type_id) %>
-          <%= f.collection_select :expected_league_type_id, LeagueType.all, :id, :name,
+        <label> gewünschte Liga <%= mark_required(@player_profile,:expected_league_id) %>
+          <%= f.collection_select :expected_league_id, League.all, :id, :name,
                                   class:'span3', placeholder:'gewünschte Liga' %>
         </label>
-        <%= f.label:league_type_ids,"Deine bisherigen Ligen",class:'control-label' %>
-        <%= hidden_field_tag "product[league_type_ids][]", nil%>
-        <%  LeagueType.all.each do |league_type| %>
+        <%= f.label:league_ids,"Deine bisherigen Ligen",class:'control-label' %>
+        <%= hidden_field_tag "player_profile[league_ids][]", nil%>
+        <%  League.all.each do |league| %>
             <label class="checkbox">
-              <%= check_box_tag "player_profile[league_type_ids][]", league_type.id,
-                                @player_profile.league_type_ids.include?(league_type.id) %><%= league_type.name %>
+              <%= check_box_tag "player_profile[league_ids][]", league.id,
+                                @player_profile.league_ids.include?(league.id) %><%= league.name %>
             </label>
         <% end %>
 

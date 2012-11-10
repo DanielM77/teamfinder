@@ -13,7 +13,9 @@
         <td><%= contact.team.club.name %></td>
         <td><%= contact.team.name %></td>
         <td><%= contact.team.league.name %></td>
-        <td><%= contact.position.name %></td>
+        <td>
+          <%# contact.position.name %>
+        </td>
         <td><%= contact.status %></td>
         <td>
           <%= link_to "Details", player_profile_club_contact_path(contact.player_profile,contact),class:'btn btn-mini' %>

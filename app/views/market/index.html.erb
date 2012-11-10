@@ -8,10 +8,10 @@
           <div class="widget-content">
           <ul class="nav nav-list">
             <li class="nav-header">Position</li>
-            <li><%= link_to "Alle", market_index_path(league_type_id:@param_league_type_ranking,
+            <li><%= link_to "Alle", market_index_path(league_id:@param_league_ranking,
                                                                     team_type_id:@param_team_type_id) %></li>
             <% @position_groups.each do |position_group|  %>
-                <li><%= link_to position_group.name, market_index_path(league_type_id:@param_league_type_ranking,
+                <li><%= link_to position_group.name, market_index_path(league_id:@param_league_ranking,
                                                                                      position_group_id:position_group.id,
                                                                                      team_type_id:@param_team_type_id) %></li>
             <% end %>
@@ -20,19 +20,19 @@
             <li class="nav-header">Liga</li>
             <li><%= link_to "Alle", market_index_path(position_group_id:@param_position_group_id,
                                                                        team_type_id:@param_team_type_id) %></li>
-            <% @league_types.each do |league_type|  %>
-                <li><%= link_to league_type.name, market_index_path(league_type_ranking:league_type.ranking,
+            <% @leagues.each do |league|  %>
+                <li><%= link_to league.name, market_index_path(league_ranking:league.ranking,
                                                                                        position_group_id:@param_position_group_id,
                                                                                        team_type_id:@param_team_type_id) %></li>
             <% end %>
           </ul>
           <ul class="nav nav-list">
             <li class="nav-header">Mannschaft</li>
-            <li><%= link_to "Alle", market_index_path(league_type_ranking:@param_league_type_ranking,
+            <li><%= link_to "Alle", market_index_path(league_ranking:@param_league_ranking,
                                                                          position_group_id:@param_position_group_id,
             ) %></li>
             <% @team_types.each do |team_type|  %>
-                <li><%= link_to team_type.name, market_index_path(league_type_ranking:@param_league_type_ranking,
+                <li><%= link_to team_type.name, market_index_path(league_ranking:@param_league_ranking,
                                                                                      position_group_id:@param_position_group_id,
                                                                                      team_type_id:team_type.id) %></li>
 

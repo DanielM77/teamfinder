@@ -1,9 +1,9 @@
 <div class="row">
   <div class="span3">
     <b>Aktuelle Liga</b>
-    <%= player_profile.current_league_type.name unless player_profile.current_league_type.nil? %><br>
+    <%= player_profile.current_league.name unless player_profile.current_league.nil? %><br>
     <b>Gewünschte Liga</b>
-    <%= player_profile.expected_league_type.name unless player_profile.expected_league_type.nil? %>  <br>
+    <%= player_profile.expected_league.name unless player_profile.expected_league.nil? %>  <br>
     <b>Positionen</b><br>
     <% player_profile.positions.each do |position|%>
       <%= position.name %><br>

@@ -19,9 +19,8 @@ class PlayerProfile < Player
       :has_contract => self.has_contract,
       :show_profile => false,
       :gender => self.gender,
-      :current_league_type_id => self.current_league_type_id,
-      :expected_league_type_id => self.expected_league_type_id,
-      :position_id => self.position_id}
+      :current_league_id => self.current_league_id,
+      :expected_league_id => self.expected_league_id}
 
   end
 end

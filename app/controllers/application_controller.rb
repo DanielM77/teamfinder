@@ -15,11 +15,13 @@ class ApplicationController < ActionController::Base
             market_index_path
           end
         else
-          if resource.has_role?(:club) && Club.with_role(:club, resource).empty?
-            #new_club_url
-            membership_url
-          else
-            players_market_index_url
+          if resource.has_role?(:club)
+            if Club.with_role(:club, resource).empty?
+              membership_url
+            else
+              club = Club.with_role(:club, resource).first
+              club_path(club)
+            end
           end
         end
       else

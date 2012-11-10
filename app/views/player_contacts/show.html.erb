@@ -25,11 +25,11 @@
 
 <p>
   <b>Position:</b>
-  <%= @player_contact.position.name %>
+  <%# @player_contact.position.name %>
 </p>
 <p>
   <b>aktuelle Liga</b>
-  <%= @player_contact.current_league_type.name unless @player_contact.current_league_type.nil? %>
+  <%= @player_contact.current_league.name unless @player_contact.current_league.nil? %>
 </p>
 
 <p>

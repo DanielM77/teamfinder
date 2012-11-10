@@ -1,11 +1,12 @@
 class Team < ActiveRecord::Base
   resourcify
-  belongs_to :club
-  belongs_to :league
+  belongs_to  :club
+  belongs_to  :league
+  belongs_to  :team_type
   has_many :public_offers
   has_many :club_contacts
-  attr_accessible :league, :league_id, :name, :club
-  def team_type_name
-  	return league.area.league_type.team_type.name
+  attr_accessible :league_id, :name, :club, :team_type_id
+  def long_name
+    "#{name} (#{team_type.name})"
   end
 end
