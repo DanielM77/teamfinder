@@ -1,0 +1,23 @@
+de:
+  activerecord:
+    attributes:
+      offer:
+        min_age:    "Mindestalter"
+        max_age:    "Maximales Alter"
+        min_league: "Mindestliga"
+        valid_from: "Gültig ab"
+        valid_until: "Gültig bis"
+        season: "Saison"
+    errors:
+      models:
+        offer:
+          blank: "darf nicht leer bleiben"
+          not_a_number: "muss eine Zahl sein"
+          invalid: "hat ein ungültiges Format"
+          attributes:
+            min_age:
+                greater_than_or_equal_to: "beträgt 14 Jahre"
+            max_age:
+                less_than_or_equal_to: "beträgt 99 Jahre"
+
+

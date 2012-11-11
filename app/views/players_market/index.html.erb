@@ -12,7 +12,7 @@
     </thead>
     <% @player_profiles.each do |player_profile| %>
       <tr>
-        <td>Spieler <%=player_profile.id %></td>
+        <td><%= link_to "Spieler #{player_profile.id}" ,new_player_profile_club_contact_path(:player_profile_id=>player_profile) %></td>
         <td><%= player_profile.current_league.name %></td>
         <td>
           <% player_profile.positions.each do |position| unless player_profile.positions.empty? %>
@@ -22,6 +22,7 @@
         </td>
         <td>
           <%= link_to 'Kontakt',new_player_profile_club_contact_path(:player_profile_id=>player_profile) ,class:'btn btn-small' %>
+
         </td>
       </tr>
     <% end  %>

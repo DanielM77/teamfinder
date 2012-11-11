@@ -21,7 +21,8 @@
             <li><%= link_to "Alle", market_index_path(position_group_id:@param_position_group_id,
                                                                        team_type_id:@param_team_type_id) %></li>
             <% @leagues.each do |league|  %>
-                <li><%= link_to league.name, market_index_path(league_ranking:league.ranking,
+                <% league_count = @public_offers.by_league_ranking(league.ranking).count %>
+                <li><%= link_to "#{league.name} (#{league_count.to_s})", market_index_path(league_ranking:league.ranking,
                                                                                        position_group_id:@param_position_group_id,
                                                                                        team_type_id:@param_team_type_id) %></li>
             <% end %>

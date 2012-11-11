@@ -1,11 +1,21 @@
 <h1>Kontaktanfrage</h1>
 <p>Stelle Deine Kontaktanfrage. Wenn der Spieler interessiert ist, gibt er seine Kontaktdaten an Dich weiter.</p>
-<h3>Spielerprofil</h3>
-<div class="well">
-<%= render :partial => 'player_profiles/player_profile_without_personal', :locals =>{:player_profile => @player_profile} %>
-</div>
-<div class="well">
-<%= render 'form' %>
+
+<div class="widget">
+  <div class="widget-header">
+    <h3>Spielerprofil von Spieler <%= @player_profile.id %></h3>
+  </div>
+  <div class="widget-content">
+      <%= render :partial => 'player_profiles/player_profile_without_personal', :locals =>{:player_profile => @player_profile} %>
+    </div>
+  <p></p>
+<div class="widget">
+  <div class="widget-header">
+    <h3>Deine Anfrage</h3>
+  </div>
+  <div class="widget-content">
+    <%= render 'form' %>
+
+  </div>
   <%= link_to 'Zurück', players_market_index_path %>
-</div>
 

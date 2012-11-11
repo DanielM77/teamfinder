@@ -1,19 +1,23 @@
-
-<%= form_for([@team,@public_offer]) do |f| %>
-  <% if @public_offer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@offer.errors.count, "error") %> prohibited this offer from being saved:</h2>
-
+<% if @public_offer.errors.any? %>
+    <div id="error_explanation" class="alert alert-error">
+      <h3>Fehler beim Speichern:</h3>
       <ul>
-      <% @offer.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @public_offer.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
-  <% end %>
-    <div class="row-fluid">
-      <div class="span12">
-      <div class="span6">
+<% end %>
+
+<div class="widget">
+  <div class="widget-header">
+    <h3>Dein Spielergesuch</h3>
+  </div>
+  <div class="widget-content">
+<%= form_for([@team,@public_offer]) do |f| %>
+    <div class="row">
+      <div class="span8">
+      <div class="span3">
         <div class="control-group">
           <%= f.label :min_league, "Mindestliga", class:"control-label" %>
           <div class="controls">
@@ -21,24 +25,12 @@
           </div>
         </div>
         <div class="control-group">
-          <%= f.label :season, "Saison", class:"control-label" %>
+          <%= f.label :season, class:"control-label" %>
           <div class="controls">
             <%= f.collection_select(:season_id, Season.all, :id, :name, placeholder:"Saison")  %>
           </div>
         </div>
-        <div class="control-group">
-          <%= f.label:position_ids,"Gesuchte Positionen",class:'control-label' %>
-          <%= hidden_field_tag "public_offer[position_ids][]", nil%>
-          <%  PositionGroup.all.each do |position_group| %>
-              <label><%= position_group.name %></label>
-              <% position_group.positions.each do |position|  %>
-                  <label class="checkbox">
-                    <%= check_box_tag "public_offer[position_ids][]", position.id,
-                                      @public_offer.position_ids.include?(position.id) %><%= position.name %>
-                  </label>
-              <% end %>
-          <% end %>
-        </div>
+
         <div class="control-group">
           <%= f.label :min_age,"Alter (von - bis)", class:"control-label" %>
           <div class="controls">
@@ -59,14 +51,23 @@
           </div>
         </div>
       </div>
-      <div class="span6">
+      <div class="span3">
         <div class="control-group">
-          <%= f.label :description,"Nachricht", class:"control-label" %>
-          <div class="controls">
-            <%= f.text_area :description %>
-          </div>
+          <%= f.label:position_ids,"Gesuchte Positionen",class:'control-label' %>
+          <%= hidden_field_tag "public_offer[position_ids][]", nil%>
+          <%  PositionGroup.all.each do |position_group| %>
+              <label><%= position_group.name %></label>
+              <% position_group.positions.each do |position|  %>
+                  <label class="checkbox">
+                    <%= check_box_tag "public_offer[position_ids][]", position.id,
+                                      @public_offer.position_ids.include?(position.id) %><%= position.name %>
+                  </label>
+              <% end %>
+          <% end %>
         </div>
       </div>
-    <% end %>
   </div>
 </div>
+<% end %>
+      </div>
+    </div>
