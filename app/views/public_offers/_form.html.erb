@@ -45,6 +45,12 @@
             <%= f.text_field :valid_until, class:"input-small", placeholder:"bis" %>
           </div>
         </div>
+          <div class="control-group">
+            <%= f.label :description, "Beschreibung", class:"control-label" %>
+            <div class="controls">
+              <%= f.text_area :description, rows:8 %>
+            </div>
+          </div>
         <div class="control-group">
           <div class="controls">
             <%= f.submit(:team_id => @team.id, value:"Absenden", class:"btn btn-primary")  %>
