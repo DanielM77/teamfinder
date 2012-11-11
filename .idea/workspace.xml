@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="79168461-11c0-4a8e-b963-2332fcf75d29" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/static_pages.css.scss" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/public_offers/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/public_offers/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/club_contacts/_club_contacts.html.erb" afterPath="$PROJECT_DIR$/app/views/club_contacts/_club_contacts.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/club_contacts/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/club_contacts/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/clubs/_header.html.erb" afterPath="$PROJECT_DIR$/app/views/clubs/_header.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/clubs/show.html.erb" afterPath="$PROJECT_DIR$/app/views/clubs/show.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/teams/_teams.html.erb" afterPath="$PROJECT_DIR$/app/views/teams/_teams.html.erb" />
     </list>
     <ignored path="teamfinder.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,28 +33,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="edit.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/public_offers/edit.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="23" selection-start="73" selection-end="73" vertical-scroll-proportion="-0.625">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="new.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/public_offers/new.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="23" selection-start="64" selection-end="73" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_form.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="_form.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/public_offers/_form.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="17" selection-start="2088" selection-end="2088" vertical-scroll-proportion="0.58877283">
+            <state line="55" column="17" selection-start="2088" selection-end="2088" vertical-scroll-proportion="-18.791666">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_club_contacts.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/player_profiles/_club_contacts.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
               <folding />
             </state>
           </provider>
@@ -59,16 +54,7 @@
       <file leaf-file-name="_club_contacts.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/club_contacts/_club_contacts.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="new.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/club_contacts/new.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="18" selection-start="582" selection-end="582" vertical-scroll-proportion="-10.0">
+            <state line="2" column="0" selection-start="66" selection-end="66" vertical-scroll-proportion="-1.25">
               <folding />
             </state>
           </provider>
@@ -77,7 +63,34 @@
       <file leaf-file-name="_form.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/club_contacts/_form.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="20" selection-start="1081" selection-end="1368" vertical-scroll-proportion="-21.875">
+            <state line="27" column="62" selection-start="1116" selection-end="1116" vertical-scroll-proportion="-16.875">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/clubs/show.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="14" selection-start="47" selection-end="47" vertical-scroll-proportion="-0.625">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_header.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/clubs/_header.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="3" selection-start="30" selection-end="30" vertical-scroll-proportion="0.019582245">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_player_contacts.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/player_contacts/_player_contacts.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
               <folding />
             </state>
           </provider>
@@ -87,15 +100,6 @@
         <entry file="file://$PROJECT_DIR$/app/views/players_market/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="14" column="25" selection-start="447" selection-end="447" vertical-scroll-proportion="-8.75">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/market/index.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="55" selection-start="1960" selection-end="1960" vertical-scroll-proportion="-19.375">
               <folding />
             </state>
           </provider>
@@ -141,10 +145,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/clubs/show.html.erb" />
-        <option value="$PROJECT_DIR$/app/models/club.rb" />
-        <option value="$PROJECT_DIR$/app/views/club_contacts/_club_contacts.html.erb" />
-        <option value="$PROJECT_DIR$/app/models/club_contact.rb" />
         <option value="$PROJECT_DIR$/config/initializers/i18n.rb" />
         <option value="$PROJECT_DIR$/config/locales/en.yml" />
         <option value="$PROJECT_DIR$/config/locales/de.yml" />
@@ -152,11 +152,15 @@
         <option value="$PROJECT_DIR$/app/views/public_offers/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/public_offers/edit.html.erb" />
         <option value="$PROJECT_DIR$/app/views/club_contacts/new.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/club_contacts/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/players_market/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/market_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/market/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/public_offers/_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/club_contacts/_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/clubs/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/teams/_teams.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/club_contacts/_club_contacts.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/clubs/_header.html.erb" />
       </list>
     </option>
   </component>
@@ -260,51 +264,7 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="public_offers">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="teamfinder">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="views">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="market">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="teamfinder">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="views">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="club_contacts">
+            <PATH_ELEMENT USER_OBJECT="clubs">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -856,41 +816,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="8" selection-start="3858" selection-end="3903" vertical-scroll-proportion="-25.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/locales/en.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="191" selection-end="191" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/initializers/i18n.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="26" selection-start="87" selection-end="87" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/locales/de.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="32" selection-start="220" selection-end="220" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/public_offer.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="94" selection-start="120" selection-end="120" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/public_offers/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -919,13 +844,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/players_market/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="25" selection-start="447" selection-end="447" vertical-scroll-proportion="-8.75">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/market_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="17" selection-start="613" selection-end="613" vertical-scroll-proportion="0.0">
@@ -933,9 +851,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/public_offers/_form.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="17" selection-start="2088" selection-end="2088" vertical-scroll-proportion="-18.791666">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/player_profiles/_club_contacts.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/club_contacts/_form.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="62" selection-start="1116" selection-end="1116" vertical-scroll-proportion="-16.875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/teams/_teams.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="8" selection-start="140" selection-end="140" vertical-scroll-proportion="0.11749347">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/market/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="55" selection-start="1960" selection-end="1960" vertical-scroll-proportion="-19.375">
+        <state line="37" column="47" selection-start="2467" selection-end="2467" vertical-scroll-proportion="0.5691906">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/players_market/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="25" selection-start="447" selection-end="447" vertical-scroll-proportion="-8.75">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/player_contacts/_player_contacts.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -949,21 +909,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/club_contacts/_club_contacts.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="2" column="0" selection-start="66" selection-end="66" vertical-scroll-proportion="-1.25">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/club_contacts/_form.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/clubs/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="20" selection-start="1081" selection-end="1368" vertical-scroll-proportion="-21.875">
+        <state line="1" column="14" selection-start="47" selection-end="47" vertical-scroll-proportion="-0.625">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/public_offers/_form.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/clubs/_header.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="17" selection-start="2088" selection-end="2088" vertical-scroll-proportion="0.58877283">
+        <state line="1" column="3" selection-start="30" selection-end="30" vertical-scroll-proportion="0.019582245">
           <folding />
         </state>
       </provider>

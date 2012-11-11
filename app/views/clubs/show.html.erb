@@ -3,24 +3,42 @@
 <% content_for :leftside do %>
     <%# render 'sidenav' %>
 <% end %>
-<h3>Mannschaften</h3>
-<%  unless @club.teams.empty? %>
-    <%= render :partial => 'teams/teams' %>
-<% else %>
-    <div class="alert alert-info"> Du hast noch keine Mannschaften angelegt  </div>
-<% end  %>
+<div class="widget">
+  <div class="widget-header">
+    <h3>Mannschaften</h3>
+  </div>
+  <div class="widget-content">
 
-<%= link_to 'Neue Mannschaft', new_club_team_path(@club.id), class:'btn btn-mini' %>
+    <%  unless @club.teams.empty? %>
+        <%= render :partial => 'teams/teams' %>
+    <% else %>
+        <div class="alert alert-info"> Du hast noch keine Mannschaften angelegt  </div>
+    <% end  %>
+    <%= link_to 'Neue Mannschaft', new_club_team_path(@club.id), class:'btn btn-mini' %>
+  </div>
+</div>
+
 <p></p>
-<h3>Angebote</h3>
+<div class="widget">
+  <div class="widget-header">
+    <h3>Angebote</h3>
+  </div>
+  <div class="widget-content">
+
 <%  unless @club.public_offers.empty? %>
     <%= render :partial => 'public_offers/offers' %>
 <% else %>
     <div class="alert alert-info">Du hast noch keine Angebote erstellt</div>
 <% end  %>
+  </div>
+</div>
+
 <p></p>
-<h3>Anfragen von Spielern</h3>
-<p></p>
+<div class="widget">
+  <div class="widget-header">
+    <h3>Anfragen von Spielern</h3>
+  </div>
+  <div class="widget-content">
 <%  if @club.has_player_contacts?  %>
     <% @club.public_offers.each do |offer| %>
         <%= render :partial => 'player_contacts/player_contacts', :locals=>{:player_contacts => offer.player_contacts, :public_offer => offer}%>
@@ -28,11 +46,20 @@
 <% else %>
     <div class="alert alert-info">Du hast noch keine Anfragen erhalten</div>
 <% end %>
+</div>
+</div>
+
 <p></p>
-<h3>Deine Anfragen bei Spielern</h3>
-<p></p>
+<div class="widget">
+  <div class="widget-header">
+    <h3>Deine Anfragen bei Spielern</h3>
+  </div>
+  <div class="widget-content">
+
 
         <%= render :partial => 'club_contacts/club_contacts', :locals=>{teams:@club.teams} %>
+  </div>
+</div>
 
 
 <p></p>

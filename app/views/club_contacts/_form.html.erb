@@ -25,6 +25,7 @@
                 <%= f.collection_select(:season_id, Season.all, :id, :name)  %>
               </div>
             </div>
+            <%= f.submit 'Absenden',class:'btn btn-primary' %>
           </div>
           <div class="span3">
             <div class="control-group">
@@ -39,7 +40,7 @@
       </div>
     </div>
   </div>
-    <p></p>
-    <%= f.submit 'Absenden',class:'btn btn-primary' %>
+
+
 
 <% end %>
