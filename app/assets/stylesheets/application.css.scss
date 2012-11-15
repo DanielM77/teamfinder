@@ -4,12 +4,16 @@
 
 */
 @import  'base-admin/bootstrap.min.css';
-@import  'base-admin/base-admin.css';
+@import  'base-admin/bootstrap-responsive.min.css';
+
 @import  'base-admin/font-awesome.css';
+
+@import  'base-admin/base-admin.css';
+@import  'base-admin/base-admin-responsive.css';
+
 @import  'base-admin/signin.css';
 @import  'base-admin/plans.css';
-@import  'base-admin/bootstrap-responsive.min.css';
-@import  'base-admin/base-admin-responsive.css';
+
 /* market/index  */
 #btn-contact {
     clear:both;

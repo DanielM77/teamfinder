@@ -8,8 +8,7 @@
   <%= devise_error_messages! %>
         <div class="login-fields">
           <p>Melde Dich in 30 Sekunden an. Es werden keine Zahlungsinformationen benötigt</p>
-
-          <%= f.label :initial_role,'Ich bin ein:', class:'radio'  %>
+          <%= f.label :initial_role,'Ich bin ein:'  %>
              <%= f.radio_button :initial_role,'player' %>Spieler
              <%= f.radio_button :initial_role,'club' %>Verein
 

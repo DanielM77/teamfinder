@@ -1,48 +1,110 @@
 <% content_for :rightside do %>
-<!--<div class="widget">
-  <div class="widget-header">
-    <i class="icon-star"></i>
-    <h3>Was ist Spielertransfer24.de?</h3>
-  </div>
-  <div class="widget-content">
-    Spielertransfer24.de wurde geschaffen, um es Amateurvereinen und Amateurspieler einfacher zu machen, den richtigen Spieler bzw. den richtigen Verein zu finden. Der hohe Zeitaufwand, der vor allem von Vereinen und Trainern aufgewendet wird, um Spieler zu sichten, den richtigen Spieler zu finden oder mit potenziellen Spielern zu verhandeln, ist heutzutage sehr groß und die Erfolgsquote wird immer geringer.   Spielertransfer24.de soll hier ein erster Schritt sein, seinen Wunschspieler oder Wunschverein zu finden, ohne große Wege zu gehen.
-  </div>
+  <div class="widget">
+    <div class="widget-header">
+      <i class="icon-star"></i>
+          <h3>Spielertransfer24.de</h3>
+        </div> <!-- /widget-header -->
+        <div class="widget-content">
+          <%# image_tag "soccer_500.jpg", width:'450' %>
+          <ul>
+            <li>für Spieler</li>
+            <li>für Vereine</li>
+            <li>unkompliziert</li>
+            <li>direkt</li>
+            <li>in Deine Nähe</li>
+            <li>kostenlose Basisversion</li>
+          </ul>
+          <%= link_to 'Registrieren', new_user_registration_path, class:'btn' %>
 
-</div>-->
+        </div>
+      </div>
 <% end %>
 
 
 
-  <div class="row">
-    <div class="span6">
-      <%= image_tag "soccer_500.jpg", width:'450' %>
-    </div>
-    <div class="span2">
-      <h1>Spielertransfer24</h1>
-      <ul class="big-bullets">
-        <li>für Spieler</li>
-        <li>für Vereine</li>
-        <li>unkompliziert</li>
-        <li>direkt</li>
-        <li>in Deine Nähe</li>
-        <li>kostenlose Basisversion</li>
-      </ul>
-        <%= link_to 'Registrieren', new_user_registration_path, class:'btn btn-primary' %>
-    </div>
-  </div>
+<div class="row">
+    <div class="span4">
+      <div class="widget">
+        <div class="widget-header">
+          <h3>für Vereine</h3>
+        </div> <!-- /widget-header -->
+        <div class="widget-content">
+          <p>Suchst Du noch Spieler für Dein perfektes Team? Stell Dein Angebot auf unseren Markplatz und finde Deinen Spieler.
+            Oder wähle aus den zahlreichen Spielerprofilen auf unserem Marktplatz aus.</p>
+          <p><%= link_to "Mehr &raquo;".html_safe, players_market_index_path, class:"btn" %></p>
+        </div>
+      </div>
+      <div class="widget widget-table action-table">
+        <div class="widget-header">
+          <h3>Die aktuellsten Spielergesuche</h3>
+        </div> <!-- /widget-header -->
 
+        <div class="widget-content">
+          <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+              <th>Datum</th>
+              <th>Position</th>
+              <th>Liga</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @top_five_player_offers.each do |offer| %>
+                <tr>
+                  <td><%=date_formatter(offer.created_at) %></td>
+                  <td><%= offer.positions.first.position_group.name unless offer.positions.empty? %></td>
+                  <td><%=offer.current_league.name %></td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+          <%# image_tag "soccer_500.jpg", width:'450' %>
 
-<div class="row-fluid">
-  <div class="span6">
-    <h2>für Spieler</h2>
-    <p>Finde auf unserem Marktplatz Deinen Traumverein und nimm direkt Kontakt auf.
-      Oder stelle Dein Spielerprofil online und warte auf das perfekte Angebot.</p>
-    <p><%= link_to "Mehr &raquo;".html_safe, market_index_path, class:"btn" %> </p>
-  </div>
-  <div class="span6">
-    <h2>für Vereine</h2>
-    <p>Suchst Du noch Spieler für Dein perfektes Team? Stell Dein Angebot auf unseren Markplatz und finde Deinen Spieler.
-      Oder wähle aus den zahlreichen Spielerprofilen auf unserem Marktplatz aus.</p>
-    <p><%= link_to "Mehr &raquo;".html_safe, players_market_index_path, class:"btn" %></p>
+          <%# link_to 'mehr', market_index_path, class:'btn btn-primary' %>
+
+        </div>
+      </div>
+    </div>
+    <div class="span4">
+    <div class="widget">
+      <div class="widget-header">
+        <h3>für Spieler</h3>
+      </div> <!-- /widget-header -->
+      <div class="widget-content">
+        <p>Finde auf unserem Marktplatz Deinen Traumverein und nimm direkt Kontakt auf.
+           Oder stelle Dein Spielerprofil online und warte auf das perfekte Angebot.<br></p>
+        <p><%= link_to "Mehr &raquo;".html_safe, market_index_path, class:"btn" %> </p>
+      </div>
+    </div>
+    <div class="widget widget-table action-table">
+        <div class="widget-header">
+          <h3>Die aktuellsten Vereinsangebote</h3>
+        </div> <!-- /widget-header -->
+
+        <div class="widget-content">
+          <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+              <th>Datum</th>
+              <th>Verein</th>
+              <th>Liga</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @top_five_club_offers.each do |offer| %>
+            <tr>
+              <td><%=date_formatter(offer.created_at) %></td>
+              <td><%=offer.team.club.name %></td>
+              <td><%=offer.team.league.name %></td>
+            </tr>
+            <% end %>
+            </tbody>
+          </table>
+          <%# image_tag "soccer_500.jpg", width:'450' %>
+
+          <%# link_to 'mehr', market_index_path, class:'btn btn-primary' %>
+
+        </div>
+      </div>
   </div>
 </div>
