@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="79168461-11c0-4a8e-b963-2332fcf75d29" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/static_pages.css.scss" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/static_pages/index.html.erb" afterPath="$PROJECT_DIR$/app/views/static_pages/index.html.erb" />
     </list>
     <ignored path="teamfinder.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,7 +32,7 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/static_pages/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="100" selection-start="1918" selection-end="1918" vertical-scroll-proportion="0.019582245">
+            <state line="55" column="78" selection-start="2002" selection-end="2002" vertical-scroll-proportion="0.3537859">
               <folding />
             </state>
           </provider>
@@ -838,7 +839,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/static_pages/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="100" selection-start="1918" selection-end="1918" vertical-scroll-proportion="0.019582245">
+        <state line="55" column="78" selection-start="2002" selection-end="2002" vertical-scroll-proportion="0.3537859">
           <folding />
         </state>
       </provider>

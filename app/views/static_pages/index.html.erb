@@ -53,7 +53,7 @@
                 <tr>
                   <td><%=date_formatter(offer.created_at) %></td>
                   <td><%= offer.positions.first.position_group.name unless offer.positions.empty? %></td>
-                  <td><%=offer.current_league.name %></td>
+                  <td><%=offer.current_league.name unless offer.current_league.empty?%></td>
                 </tr>
             <% end %>
             </tbody>
@@ -93,9 +93,9 @@
             <tbody>
             <% @top_five_club_offers.each do |offer| %>
             <tr>
-              <td><%=date_formatter(offer.created_at) %></td>
-              <td><%=offer.team.club.name %></td>
-              <td><%=offer.team.league.name %></td>
+              <td><%=date_formatter(offer.created_at)  %></td>
+              <td><%=offer.team.club.name unless offer.team.nil? %></td>
+              <td><%=offer.team.league.name unless offer.team.league.nil?%></td>
             </tr>
             <% end %>
             </tbody>
