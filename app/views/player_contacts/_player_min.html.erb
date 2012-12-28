@@ -1,0 +1,60 @@
+
+<%= f.label :message,"Deine Nachricht an den Verein" %>
+<%= f.text_area :message,class:"span7", rows:5, placeholder:'Deine Nachricht an den Verein' %>
+<p></p>
+<div class="row">
+    <div class="span4">
+      <%= f.label:first_name,"Vorname" %>
+      <%= f.text_field :first_name, class:'input-large', placeholder:'Vorname' %>
+      <%= f.label:name,"Name" %>
+      <%= f.text_field :name, class:'input-large', placeholder:'Name' %>
+      <%# f.label:email,"Email" %>
+      <%# f.text_field :email, class:'input-large', placeholder:'Email' %>
+      <%= f.label:phone,"Telefonnummer" %>
+      <%= f.text_field :phone, class:'input-large', placeholder:'Telefonnummer' %>
+      <%# f.label:mobile,"Handynummer" %>
+      <%# f.text_field :mobile, class:'input-large', placeholder:'Handynummer' %>
+      <%# f.label:gender,"Geschlecht" %>
+      <%# f.select :gender, %w{männlich weiblich}, class:'input-large', prompt:'Geschlecht' %>
+      <%= f.label:birthdate,"Geburtsdatum" %>
+      <%= f.text_field :birthdate,class:'input-large', placeholder:'Geburtsdatum' %>
+      <%= f.label:current_league_type_id,"aktuelle Liga" %>
+      <%= f.collection_select :current_league_id, League.all, :id, :name, class:'input-large', prompt:'aktuelle Liga' %>
+      <%= f.label:league_ids,"Deine bisherigen Ligen"%>
+      <%= hidden_field_tag "product[league_ids][]", nil%>
+      <%  League.all.each do |league| %>
+          <%= f.label :league_ids, "bisherige liegen" do %>
+          <label class="checkbox">
+            <%= check_box_tag "player_profile[league_ids][]", league.id,
+                              @player_profile.league_ids.include?(league.id) %><%= league.name %>
+          </label>
+          <% end %>
+      <% end %>
+  </div>
+    <div class="span3">
+    
+    <%= f.label:position_ids,"Deine Positionen" %>
+    <%= hidden_field_tag "product[category_ids][]", nil%>
+    <%  PositionGroup.all.each do |position_group| %>
+      <label><%= position_group.name %></label>
+      <% position_group.positions.each do |position|  %>
+        <label class="checkbox">
+        <%= check_box_tag "player_profile[position_ids][]", position.id,
+                          @player_profile.position_ids.include?(position.id) %><%= position.name %>
+        </label>
+      <% end %>
+    <% end %>
+    </div>
+  </div>
+
+<p></p>
+
+
+
+
+
+
+
+
+
+

@@ -10,8 +10,6 @@ Teamfinder::Application.routes.draw do
     resources :club_contacts
   end
 
-  resources :club_contacts
-
   resources :player_profiles, only: [:show, :edit, :create, :update, :destroy]
 
   resources :seasons
@@ -28,11 +26,7 @@ Teamfinder::Application.routes.draw do
     resources :teams
   end
   resources :clubs do
-    resources :public_offers, only: [:index]
-  end
-
-  resources :teams do
-    resources :public_offers
+    resources :public_offers, :player_contacts, :club_contacts
   end
 
   devise_for :users

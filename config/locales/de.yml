@@ -1,4 +1,13 @@
 de:
+  date:
+    formats:
+      long:         "Long"
+  time:
+    formats:
+      long:         "Long"
+  errors:      
+    messages:
+      not_saved:    "Speichern nicht möglich"
   activerecord:
     attributes:
       offer:
@@ -8,7 +17,7 @@ de:
         valid_from: "Gültig ab"
         valid_until: "Gültig bis"
         season: "Saison"
-    errors:
+    errors:      
       models:
         offer:
           blank: "darf nicht leer bleiben"
@@ -16,8 +25,29 @@ de:
           invalid: "hat ein ungültiges Format"
           attributes:
             min_age:
-                greater_than_or_equal_to: "beträgt 14 Jahre"
+              greater_than_or_equal_to: "beträgt 14 Jahre"
             max_age:
-                less_than_or_equal_to: "beträgt 99 Jahre"
-
-
+              less_than_or_equal_to: "beträgt 99 Jahre"
+        club:
+          attributes:
+            name:
+              taken:  "ist bereits in Verwendung"
+        user:
+          attributes:
+            email:
+              taken: "ist bereits in Verwendung"
+  active_admin:
+    batch_actions:
+      button_label:  "Batch Aktionen"
+  devise:
+    sessions:
+      user:
+        signed_in: "Du hast Dich angemeldet"
+        signed_out: "Du hast Dich abgemeldet"
+    registrations:
+      user:
+        signed_up:  "Du hast Dich erfolgreich registriert."   
+    failure:
+      user:
+        invalid: "Benutzer oder Passwort ungültig." 
+        unauthenticated:  "Bitte melde Dich zuerst an!"        

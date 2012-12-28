@@ -1,24 +1,21 @@
-<% teams.each do |team| %>
-<% unless team.club_contacts.empty? %>
 
 <table class="table table-bordered table-striped">
   <tr>
     <th>Anfrage vom</th>
     <th>Spieler</th>
     <th>für Mannschaft</th>
-    <th>Aktuelle Liga</th>
+    <th>Liga des Spielers</th>
     <th>Status</th>
   </tr>
 
-  <% team.club_contacts.each do |contact| %>
+  <% @club_contacts.each do |contact| %>
       <tr>
         <td><%= date_formatter(contact.created_at) %></td>
         <td>Spieler <%= contact.player_profile.id unless contact.player_profile.nil? %></td>
-        <td><%= contact.team.long_name unless team.long_name.nil? %></td>
+        <td><%= contact.team_type.name unless contact.team_type.nil? %> 
+          (<%= contact.league.name unless contact.league.nil? %>)</td>
         <td><%= contact.player_profile.current_league.name unless contact.player_profile.nil? || contact.player_profile.current_league.nil? %></td>
         <td><%= contact.status %></td>
       </tr>
   <% end %>
 </table>
-<% end %>
-<% end %>

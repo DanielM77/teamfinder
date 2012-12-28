@@ -14,11 +14,17 @@
         <div class="span8">
           <div class="span3">
             <div class="control-group">
-              <%= f.label :team, "Mannschaft", class:"control-label" %>
+              <%= f.label :team_type, "Mannschaft", class:"control-label" %>
               <div class="controls">
-              <%= f.collection_select(:team_id,@club.teams, :id, :long_name, :prompt=>'Mannschaft für Anfrage auswählen' ) %>
+              <%= f.collection_select(:team_type_id,TeamType.all, :id, :name, :prompt=>'Deine Mannschaft für Anfrage auswählen' ) %>
               </div>
             </div>
+            <div class="control-group">
+              <%= f.label :league, "Liga", class:"control-label" %>
+              <div class="controls">
+              <%= f.collection_select(:league_id,League.all, :id, :name, :prompt=>'Liga Deiner Mannschaft auswählen' ) %>
+              </div>
+            </div>            
             <div class="control-group">
               <%= f.label :season, "Saison", class:"control-label" %>
               <div class="controls">

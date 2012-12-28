@@ -12,7 +12,8 @@ class ApplicationController < ActionController::Base
           if PlayerProfile.with_role(:player, resource).empty?
             new_player_profile_url
           else
-            market_index_path
+            player_profile = PlayerProfile.with_role(:player, resource).first
+            player_profile_path(player_profile)
           end
         else
           if resource.has_role?(:club)

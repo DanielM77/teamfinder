@@ -1,25 +1,24 @@
-<table class="table table-striped">
+<table class="table table-bordered table-striped">
   <thead>
+  <th>Angebot vom</th>
   <th>Verein</th>
   <th>Mannschaft</th>
   <th>Liga</th>
-  <th>Position</th>
   <th>Status</th>
   <th></th>
   </thead>
   <tbody>
   <% @club_contacts.each do |contact| %>
       <tr>
+        <td><%= date_formatter(contact.created_at) %></td>
         <td><%= contact.team.club.name %></td>
-        <td><%= contact.team.name %></td>
+        <td><%= contact.team.long_name %></td>
         <td><%= contact.team.league.name %></td>
-        <td>
-          <%# contact.position.name %>
-        </td>
         <td><%= contact.status %></td>
         <td>
-          <%= link_to "Details", player_profile_club_contact_path(contact.player_profile,contact),class:'btn btn-mini' %>
-          <%= link_to "Annehmen", player_profile_club_contact_path(contact.player_profile,contact),class:'btn btn-mini btn-success' if contact.status=="angefragt" %>
+          <%= link_to "Anzeigen", player_profile_club_contact_path(contact.player_profile,contact),class:'btn btn-mini btn-success' %>
+          <%#= link_to_function "Anzeigen", update_page { |page| page[:club_contact_detail].toggle },class:'btn btn-mini btn-success' %>
+          <%#= link_to "Annehmen", player_profile_club_contact_path(contact.player_profile,contact),class:'btn btn-mini btn-success' if contact.status=="angefragt" %>
         </td>
       </tr>
   <% end %>

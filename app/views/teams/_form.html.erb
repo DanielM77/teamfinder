@@ -1,7 +1,9 @@
-<%= form_for([@club, @team]) do |f| %>
+<table>
+
+<%= form_for([@club, @team], :html=>{class:'form-inline'}) do |f| %>
   <% if @team.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@team.errors.count, "error") %> prohibited this team from being saved:</h2>
+      <h3><%= pluralize(@team.errors.count, "error") %> Fehler sind beim Speichern aufgetreten</h2>
 
       <ul>
       <% @team.errors.full_messages.each do |msg| %>
@@ -10,27 +12,15 @@
       </ul>
     </div>
   <% end %>
-  <div class="control-group">
-    <%= f.label :name, "Name", class:"control-label" %>
-    <div class="controls">
-        <%= f.text_field :name, placeholder:'Name' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :league, "Liga", class:"control-label" %>
-    <div class="controls" >
-    <%= f.collection_select(:league_id, League.all, :id, :name, prompt:'Liga auswählen') %>
-  </div>
-    <div class="control-group">
-      <%= f.label :team_type, "Mannschaftart", class:"control-label" %>
-      <div class="controls" >
-        <%= f.collection_select(:team_type_id, TeamType.all, :id, :name, prompt:'Mannschaftsart auswählen') %>
-      </div>
-  </div>
-    <div class="control-group">
-      <div class="controls" >
-        <%= f.submit "Absenden", class:'btn btn-primary' %>
-      </div>
-    </div>
+    
+    <td>
+      <%= @club.name %><br>
+      <%= @team.inspect %><br>
+      <%= f.text_field :name, placeholder:'Name', class:'span2' %></td>
+    <td><%= f.collection_select(:team_type_id, TeamType.all, :id, :name, {prompt:'Mannschaft auswählen'},class:'span2') %></td>
+    <td><%= f.collection_select(:league_id, League.all, :id, :name, {prompt:'Liga auswählen'}, class:'span2') %></td>
+    <td><%= f.submit "Absenden", class:'btn btn-mini btn-primary' %></td>
 
 <% end %>
+</tr>
+</table>

@@ -1,0 +1,3 @@
+$('#new_team_link').show();
+$('#new_team_line').remove();
+$('#team_list tr:last').after('<%= j render partial:'teams/team', :locals=>{team:@team} %>');

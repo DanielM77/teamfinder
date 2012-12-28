@@ -14,7 +14,7 @@
 
 
 /** Base Body Styles **/
-body{ background: url(/assets/body-bg.png); color:#838383; font: 13px/1.7em 'Open Sans';}
+body{ background: image-url('body-bg.png'); color:#838383; font: 13px/1.7em 'Open Sans';}
 
 
 .account-container {
@@ -61,11 +61,11 @@ body{ background: url(/assets/body-bg.png); color:#838383; font: 13px/1.7em 'Ope
 	box-shadow: inset 2px 2px 4px #f1f1f1;
 }
 
-.username-field { background: url(/assets/signin/user.png) no-repeat; }
+.username-field { background: image-url('signin/user.png') no-repeat; }
 
 .password-field {
     background-repeat: no-repeat;
-    background-image: url(/assets/signin/password.png);
+    background-image: image-url('signin/password.png');
 }
 
 
@@ -112,7 +112,7 @@ span.login-checkbox > input[type='checkbox'] + label {
     font-size: 12px;
     line-height: 1.2em;
     
-    background: url(signin/check.png) no-repeat 0 0;
+    background: image-url('signin/check.png') no-repeat 0 0;
     
     cursor: pointer;
 }
@@ -120,6 +120,31 @@ span.login-checkbox > input[type='checkbox'] + label {
 span.login-checkbox > input[type='checkbox']:checked + label {	
 	background-position: 0 -15px;
 }
+/**	radio buttons in Login **/
+span.login-radio {
+	/*float: left;*/
+	margin-top: 31px;
+}
+
+span.login-radio > input[type='radio'] {
+    
+    float: left;
+    width: 15px;
+}
+
+span.login-radio > input[type='radio'] + label {    
+    clear: none;
+    color: #8e8d8d;
+	height: 20px; 
+	display: block;
+    padding: 0 0 0 22px;
+    margin: 0;
+    
+    font-size: 13px;
+    line-height: 1.3em;
+    
+}
+
 
 /** Text Under Box**/
 .login-extra {

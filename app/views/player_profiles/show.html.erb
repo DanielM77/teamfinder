@@ -15,7 +15,51 @@
     </div>
 <% end %>
 
-<div class="widget">
+
+  <div class="widget widget-table">
+    <div class="widget-header">
+      <i class="icon-list-alt"></i>
+      <h3>Deine Anfragen bei Vereinen</h3>
+    </div>
+    <div class="widget-content">
+      <% unless @player_contacts.empty? %>
+          <%= render :partial => 'player_contacts' %>
+      <% else  %>
+          <div class="alert alert-info">
+            Aktuell hast Du keine Anfragen gestellt.
+          </div>
+          <%= link_to "Verein suchen", market_index_path, class:'btn' %>
+          <p></p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="widget widget-table">
+    <div class="widget-header">
+      <i class="icon-list-alt"></i>
+      <h3>Vereine, Die Dich anfragen:</h3>
+    </div>
+    <div class="widget-content">
+      <% unless @club_contacts.empty? %>
+          <%= render :partial => 'club_contacts' %>
+      <% else %>
+          <div class="alert alert-info">
+            Aktuell hast Du keine Anfragen.
+          </div>
+      <% end %>
+    </div>
+  </div>
+<div id="club_contact_detail" style="display:none;">
+  <div class="widget">
+    <div class="widget-header">
+      Da isser    
+    </div>
+    <div class=widget-content>
+      Da isser
+    </div>
+  </div>
+</div>
+<div class="widget">  
   <div class="widget-header">
     <i class="icon-user"></i>
     <h3>Dein Profil</h3>
@@ -47,7 +91,6 @@
 
           </div>
           <div class="span4">
-
             <b>Telefonnummer:</b> <%= @player_profile.phone %><br>
             <b>Handynummer:</b> <%=  @player_profile.mobile %><br>
             <b>Email:</b> <%= @player_profile.email %>
@@ -58,41 +101,11 @@
       </div>
     </div>
     <p></p>
-      <%= link_to 'Spielerpofil anpassen', edit_player_profile_path(@player_profile), class:'btn' %>
+      <%= link_to 'Spielerprofil anpassen', edit_player_profile_path(@player_profile), class:'btn' %>
 
   </div>
 </div>
 </div>
-  <div class="widget widget-table">
-    <div class="widget-header">
-       <h3>Deine Anfragen bei Vereinen</h3>
-    </div>
-    <div class="widget-content">
-      <% unless @player_contacts.empty? %>
-          <%= render :partial => 'player_contacts' %>
-      <% else  %>
-          <div class="alert alert-info">
-            Aktuell hast Du keine Anfragen gestellt
-          </div>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="widget widget-table">
-    <div class="widget-header">
-      <h3>Anfragen von Vereinen</h3>
-    </div>
-    <div class="widget-content">
-      <% unless @club_contacts.empty? %>
-          <%= render :partial => 'club_contacts' %>
-      <% else %>
-          <div class="alert alert-info">
-            Aktuell hast Du keine Anfragen
-          </div>
-      <% end %>
-    </div>
-  </div>
-
 
 
 

@@ -32,8 +32,9 @@ class TeamsController < ApplicationController
     @team = @club.teams.build
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html 
       format.json { render json: @team }
+      format.js
     end
   end
 
@@ -44,16 +45,19 @@ class TeamsController < ApplicationController
 
   # POST /teams
   # POST /teams.json
+  # POST /teams.js
   def create
     @team = @club.teams.build(params[:team])
 
     respond_to do |format|
       if @team.save
-        format.html { redirect_to club_path(@club), notice: 'Mannschaft wurde erstellt.' }
+        format.html { redirect_to club_path(@club), notice: 'Mannschaft wurde erstellt. (though in html)' }
         format.json { render json: @team, status: :created, location: @team }
+        format.js
       else
         format.html { render action: "new" }
         format.json { render json: @team.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end

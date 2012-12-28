@@ -13,7 +13,7 @@
         <td><%= contact.full_name  %></td>
         <td><%= contact.current_league.name unless contact.current_league.nil? %></td>
         <td><%# contact.position.name unless contact.position.nil? %></td>
-        <td><%= link_to "Details",public_offer_player_contact_path( public_offer.id, contact.id), class:'btn btn-mini btn-success'%></td>
+        <td><%#= link_to "Details",public_offer_player_contact_path( public_offer.id, contact.id), class:'btn btn-mini btn-success'%></td>
       </tr>
   <% end %>
 </table>

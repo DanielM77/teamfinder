@@ -1,9 +1,11 @@
 class Club < ActiveRecord::Base
   resourcify
-  has_many    :teams , :dependent => :destroy
-  has_many    :public_offers, :through => :teams, :dependent => :destroy
+  has_many    :public_offers, :dependent => :destroy
+  has_many    :player_contacts, :through => :public_offers, :dependent => :destroy
   belongs_to  :user
-  attr_accessible :city, :email, :fax, :homepage, :image_path, :mobile, :name, :phone, :street, :street_no, :zip
+
+  attr_accessible :city, :email, :fax, :homepage, :image_path, 
+                  :mobile, :name, :phone, :street, :street_no, :zip
 
   validates :name, presence: true, length: {minimum: 5, maximum: 50}, uniqueness:true
   validates :phone, :street, :zip, :city, presence: true

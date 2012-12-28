@@ -1,15 +1,16 @@
 <table class="table table-bordered table-striped">
   <thead>
   <th>Mannschaft</th>
+  <th>Liga</th>
   <th>Saison</th>
-  <th>Position</th>
+  <th>Positionen</th>
   <th>Gültig (von - bis)</th>
-  <th></th>
   </thead>
   <tbody>
   <% @public_offers.each do |offer| %>
       <tr>
-        <td><%= offer.team.name %> (<%= offer.team.league.team_type.name %>)</td>
+        <td><%= offer.team_type.name %></td>
+        <td><%= offer.league.name %></td>
         <td><%= offer.season.name %></td>
         <td><%# offer.position.name %></td>
         <td><%= date_formatter(offer.valid_from) %> - <%= date_formatter(offer.valid_until) %></td>
@@ -17,8 +18,8 @@
           <% unless offer.player_contacts.empty?  %>
               <%# link_to "Anfragen", offer_player_contacts_path(offer_id:offer), class:'btn btn-mini btn-success' %>
           <% end  %>
-          <%= link_to "Bearbeiten", edit_team_public_offer_path(offer.team.id, offer), class:'btn btn-mini' %>
-          <%= link_to "Löschen", team_public_offer_path(offer.team.id, offer),confirm: 'Bist Du sicher?', method: :delete, class:'btn btn-mini btn-danger' %>
+          <%= link_to "Bearbeiten", edit_club_public_offer_path(offer.club.id, offer), class:'btn btn-mini' %>
+          <%= link_to "Löschen", club_public_offer_path(offer.club.id, offer),confirm: 'Bist Du sicher?', method: :delete, class:'btn btn-mini btn-danger' %>
 
 
         </td>

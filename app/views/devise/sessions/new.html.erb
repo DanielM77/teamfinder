@@ -1,10 +1,8 @@
 <div class="account-container">
   <div class="content clearfix">
-
-
         <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-        <h1>Login</h1>
-        <p>Log Dich mit Deinem bestehenden Account ein</p>
+        <h1>Anmeldung</h1>
+        <p>Melde Dich mit Deinem bestehenden Account an</p>
         <div class="login-fields">
             <div class="field">
                 <%= f.label :email,'Email' %>
@@ -23,7 +21,7 @@
                     </div>
                 </span>
             <% end -%>
-            <%= f.submit "Einloggen",class:'button btn btn-warning btn-large' %>
+            <%= f.submit "Anmelden",class:'button btn btn-warning btn-large' %>
         </div>
         <% end %>
      </div>

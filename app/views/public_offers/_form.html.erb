@@ -14,14 +14,27 @@
     <h3>Dein Spielergesuch</h3>
   </div>
   <div class="widget-content">
-<%= form_for([@team,@public_offer]) do |f| %>
+<%= form_for([@club,@public_offer]) do |f| %>
     <div class="row">
       <div class="span8">
       <div class="span3">
         <div class="control-group">
-          <%= f.label :min_league, "Mindestliga", class:"control-label" %>
+          <%= f.label :team_type, "Mannschaft", class:"control-label" %>
           <div class="controls">
-            <%= f.collection_select :min_league_id ,League.all,:id, :name, placeholder:"Mindestliga" %>
+            <%= f.collection_select :team_type_id ,TeamType.all,:id, :name, placeholder:
+            "Mannschaft" %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :league, "aktuelle Liga", class:"control-label" %>
+          <div class="controls">
+            <%= f.collection_select :league_id ,League.all,:id, :name, placeholder:"aktuelle Liga" %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :min_league, "Mindestliga des Spielers", class:"control-label" %>
+          <div class="controls">
+            <%= f.collection_select :min_league_id ,League.all,:id, :name, placeholder:"Mindestliga des Spielers" %>
           </div>
         </div>
         <div class="control-group">
@@ -53,7 +66,7 @@
           </div>
         <div class="control-group">
           <div class="controls">
-            <%= f.submit(:team_id => @team.id, value:"Absenden", class:"btn btn-primary")  %>
+            <%= f.submit(:club_id => @club.id, value:"Absenden", class:"btn btn-primary")  %>
           </div>
         </div>
       </div>

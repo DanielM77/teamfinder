@@ -14,8 +14,7 @@ class ClubsController < ApplicationController
   # GET /clubs/1
   # GET /clubs/1.json
   def show
-    @club = Club.find(params[:id])
-    @teams = @club.teams.all
+    @club = Club.find(params[:id])    
     @public_offers = @club.public_offers
     respond_to do |format|
       format.html # show.html.erb
@@ -70,6 +69,7 @@ class ClubsController < ApplicationController
 
         format.html { redirect_to @club, notice: 'Dein Verein wurde erfolgreich erstellt' }
         format.json { render json: @club, status: :created, location: @club }
+        format.js
       else
         format.html { render action: "new" }
         format.json { render json: @club.errors, status: :unprocessable_entity }

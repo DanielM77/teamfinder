@@ -1,10 +1,7 @@
 class PublicOffersController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :setup_team_or_club
-  def setup_team_or_club
-    if params.has_key?(:team_id)
-      @team = Team.find(params[:team_id])
-    end
+  before_filter :setup_club
+  def setup_club
     if params.has_key?(:club_id)
       @club = Club.find(params[:club_id])
     end
@@ -13,14 +10,7 @@ class PublicOffersController < ApplicationController
   # GET /public_offers
   # GET /public_offers.json
   def index
-    if @club
       @public_offers = @club.public_offers
-    else
-      @public_offers = @team.public_offers
-      @club = @team.club
-    end
-    #@public_offers = Offer.find_all_by_user_id(current_user)
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @offers }
@@ -41,7 +31,7 @@ class PublicOffersController < ApplicationController
   # GET /public_offers/new.json
   def new
 
-    @public_offer = @team.public_offers.build
+    @public_offer = @club.public_offers.build
     @public_offer.user_id=current_user
     respond_to do |format|
       format.html # new.html.erb
@@ -57,13 +47,13 @@ class PublicOffersController < ApplicationController
   # POST /public_offers
   # POST /public_offers.json
   def create
-    @public_offer = @team.public_offers.build(params[:public_offer])
+    @public_offer = @club.public_offers.build(params[:public_offer])
     @public_offer.user_id = current_user.id
     #@offer = Offer.new(params[:offer])
     #@offer.user_id = current_user.id
     respond_to do |format|
       if @public_offer.save
-        format.html { redirect_to club_path(@team.club), notice: 'Das Angebot wurde erstellt.' }
+        format.html { redirect_to club_public_offers_path(@club), notice: 'Das Angebot wurde erstellt.' }
         format.json { render json: @public_offer, status: :created, location: @public_offer }
       else
         format.html { render action: "new" }
@@ -79,7 +69,7 @@ class PublicOffersController < ApplicationController
 
     respond_to do |format|
       if @public_offer.update_attributes(params[:public_offer])
-        format.html { redirect_to club_path(@team.club), notice: 'Das Angebot wurde aktualisiert.' }
+        format.html { redirect_to club_public_offers_path(@club), notice: 'Das Angebot wurde aktualisiert.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

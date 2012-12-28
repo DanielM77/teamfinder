@@ -1,57 +1,57 @@
-<p>
-  <b>Club:</b>
-  <%= @public_offer.team.club.name %>
-</p>
+<div class="widget">
+  <div class="widget-header">
+    <h3>Spielergesuch von <%= @public_offer.team.club.name %>
+ </h3>
+  </div>
+  <div class="widget-content">
+<div class="row">
+  <div class="span4">
+    <p>
+      <b>Mannschaft</b><br>
+      <%= @public_offer.team.long_name %>
+    </p>    
 
 <p>
-  <b>Team:</b>
-  <%= @public_offer.team.name %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @public_offer.description %>
-</p>
-
-<p>
-  <b>League:</b>
+  <b>Liga der Mannschaft</b><br>
   <%= @public_offer.team.league.name %>
 </p>
 
 <p>
-  <b>Min league:</b>
+  <b>Mindestliga für Bewerber</b><br>
   <%= @public_offer.min_league.name unless @public_offer.min_league.nil? %>
 </p>
 
 <p>
-  <b>Season:</b>
+  <b>Saison</b><br>
   <%= @public_offer.season.name %>
 </p>
 
 <p>
-  <b>Position:</b>
-  <%# @public_offer.position.name %>
+  <b>Alter (von - bis)</b><br>
+  <%= @public_offer.min_age %> - <%= @public_offer.max_age %> Jahren
+
 </p>
 
-<p>
-  <b>Min age:</b>
-  <%= @public_offer.min_age %>
-</p>
 
-<p>
-  <b>Max age:</b>
-  <%= @public_offer.max_age %>
-</p>
 
-<p>
-  <b>Valid from:</b>
-  <%= @public_offer.valid_from %>
-</p>
-
-<p>
-  <b>Valid until:</b>
-  <%= @public_offer.valid_until %>
-</p>
+  </div>
+  <div class="span3">
+    <p>
+      <b>Beschreibung</b>
+      <%= @public_offer.description %>
+    </p>
+    <p>
+      <b>Positionen</b><br>
+      <ul>
+      <% @public_offer.positions.each do |position| %>
+        <li><%=position.name%></li>
+      <% end %>
+    </ul>
+    </p>
+  </div>
+</div>
+</div>
+</div>
 
 
 <%# link_to 'Edit', edit_team_public_offer_path(@public_offer.team, @public_offer) %>

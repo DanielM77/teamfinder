@@ -2,15 +2,20 @@ class PlayerContactsController < ApplicationController
   # GET /player_contacts
   # GET /player_contacts.json
   before_filter :authenticate_user!
-  before_filter :setup_offer
+  before_filter :setup_offer, :setup_club
   load_and_authorize_resource
-
+  def setup_club
+    @club = Club.find(params[:club_id]) unless params[:club_id].nil?
+  end
   def setup_offer
-    @public_offer = PublicOffer.find(params[:public_offer_id])
+    unless params[:public_offer_id].nil?      
+      @public_offer= PublicOffer.find(params[:public_offer_id])
+      @club = @public_offer.club
+    end
   end
 
   def index
-    @player_contacts = @public_offer.player_contacts
+    @player_contacts = @club.player_contacts
 
     respond_to do |format|
       format.html # index.html.erb

@@ -62,11 +62,21 @@
 
               <% end %>
               <% if current_user.has_role?(:club)  %>
+                <% club =  Club.with_role(:club, current_user).first %>
                   <li>
-                    <% club =  Club.with_role(:club, current_user).first %>
                     <%= link_to raw('<i class="icon-bar-chart"></i><span>Dein Verein</span>'), club_path(club.id) unless club.nil?  %>
                     <%= link_to raw('<i class="icon-bar-chart"></i><span>Verein anlegen</span>'), new_club_path if can? :create, Club %>
                   </li>
+                  <li>
+                    <%= link_to raw('<i class="icon-bar-chart"></i><span>Deine Angebote</span>'), club_public_offers_path(club.id) unless club.public_offers.empty?  %>
+                    <%= link_to raw('<i class="icon-bar-chart"></i><span>Angebot anlegen</span>'), new_club_public_offer_path if club.public_offers.empty? %>
+                  </li>
+                  <li>
+                    <%= link_to raw('<i class="icon-bar-chart"></i><span>Anfragen bei Spielern</span>'), club_club_contacts_path(club.id) %>
+                                      </li>
+                  <li>
+                    <%= link_to raw('<i class="icon-bar-chart"></i><span>Spieleranfragen</span>'), club_player_contacts_path(club.id) %>
+                                      </li>
                   <li><%= link_to raw('<i class="icon-bar-chart"></i><span>Spieler suchen</span>'),players_market_index_path if (can? :read, PlayerProfile) %></li>
               <% end %>
           <% else %>

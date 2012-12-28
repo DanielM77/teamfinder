@@ -6,32 +6,33 @@
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-        <div class="login-fields">
-          <p>Melde Dich in 30 Sekunden an. Es werden keine Zahlungsinformationen benötigt</p>
-          <%= f.label :initial_role,'Ich bin ein:'  %>
-             <%= f.radio_button :initial_role,'player' %>Spieler
-             <%= f.radio_button :initial_role,'club' %>Verein
+        <div class="login-fields">          
+            <p>Melde Dich in 30 Sekunden an. Es werden keine Zahlungsinformationen benötigt</p>
+          <div class="field">
 
-
+          <%# f.label :initial_role,'Ich bin ein:'  %>
+            <span class="login-radio"><%= f.radio_button :initial_role,'player' %><%= f.label :initial_role_player, 'Ich bin ein Spieler' %></span>
+            <span class="login-radio"><%= f.radio_button :initial_role,'club' %><%= f.label :initial_role_club, 'Ich bin ein Verein' %></span>
+        </div>
 
 
           <div class="field">
 
           <%= f.label :email %>
-          <%= f.email_field :email, placeholder:'Email' %>
+          <%= f.email_field :email, placeholder:'Email', class:'login' %>
         </div>
           <div class="field">
             <%= f.label :password,'Passwort' %>
-            <%= f.password_field :password, placeholder:'Passwort' %>
+            <%= f.password_field :password, placeholder:'Passwort', class:'login'  %>
           </div>
           <div class="field">
             <%= f.label :password_confirmation,'Passwort bestätigen' %>
-            <%= f.password_field :password_confirmation, placeholder:'Passwort bestätigen'  %>
+            <%= f.password_field :password_confirmation, placeholder:'Passwort bestätigen', class:'login'  %>
           </div>
         </div>
 
         <div class="login-actions">
-          <%= f.submit "Anmelden", class:'button btn btn-primary btn-large' %>
+          <%= f.submit "Registrieren", class:'button btn btn-primary btn-large' %>
 
         </div>
 

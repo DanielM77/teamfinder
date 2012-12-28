@@ -94,8 +94,8 @@
             <% @top_five_club_offers.each do |offer| %>
             <tr>
               <td><%=date_formatter(offer.created_at)  %></td>
-              <td><%=offer.team.club.name unless offer.team.nil? %></td>
-              <td><%=offer.team.league.name unless offer.team.league.nil?%></td>
+              <td><%=offer.club.name unless offer.club.nil? %></td>
+              <td><%=offer.league.name unless offer.league.nil?%></td>
             </tr>
             <% end %>
             </tbody>

@@ -1,8 +1,19 @@
-<h2><%= @offer.club %></h2>
-<p>
-  <%= @offer.team.name %> (<%= @offer.position.name %>)
-</p>
+<div class="widget">
+  <div class="widget-header">
+    <h3>Anfragen von Spielern</h3>
+  </div>
+  <div class="widget-content">
+<%  if @club.has_player_contacts?  %>
+    <% @club.public_offers.each do |offer| %>
+        <%= render :partial => 'player_contacts/player_contacts', 
+        :locals=>{:player_contacts => @club.player_contacts}%>
+    <% end %>
+<% else %>
+    <div class="alert alert-info">Du hast noch keine Anfragen erhalten</div>
+<% end %>
+</div>
+</div>
 
 
-<%= render :partial => 'player_contacts' %>
-<%= link_to "Back",team_offers_path(@offer.team) %>
+
+<%= link_to "Back",club_public_offers_path(@club) %>

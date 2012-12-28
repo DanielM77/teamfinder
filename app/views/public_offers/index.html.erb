@@ -1,12 +1,11 @@
 <% content_for :leftside do %>
-    <%= render 'clubs/sidenav' %>
+    <%#= render 'clubs/sidenav' %>
 <% end %>
 <%= render 'clubs/header' %>
-<h3>Meine Spielergesuche</h3>
+<h3>Deine Angebote</h3>
 
 <%= render :partial => 'offers' %>
-
-<br />
+  <%= link_to 'Neues Angebot', new_club_public_offer_path(@club), id:'new_public_offer_link', class:'btn btn-mini' %>
 
 
 

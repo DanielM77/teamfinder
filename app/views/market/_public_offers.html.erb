@@ -9,14 +9,14 @@
   <tbody>
   <% @public_offers.each do |offer| %>
       <tr>
-        <td><%= offer.team.club.name %> (<%= offer.team.team_type.name unless offer.team.team_type.nil? %>)</td>
-        <td><%= offer.team.league.name %></td>
+        <td><%= offer.club.name %> (<%= offer.team_type.name unless offer.team_type.nil? %>)</td>
+        <td><%= offer.league.name %></td>
         <td><%= offer.season.name %></td>
         <td><%# offer.position.name %></td>
 
         <td>
-          <%= link_to 'Kontakt',new_public_offer_player_contact_path(public_offer_id: offer) ,class:'btn btn-mini btn-success' %>
-          <%= link_to 'Details',offer ,class:'btn btn-mini' %>
+          <%= link_to 'Ansehen',new_public_offer_player_contact_path(public_offer_id: offer) ,class:'btn btn-mini btn-success' %>
+          <%# link_to 'Details',offer ,class:'btn btn-mini' %>
         </td>
       </tr>
   <% end %>

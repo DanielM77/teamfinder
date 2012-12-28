@@ -1,0 +1,10 @@
+      <tr>
+        <td><%= team.name %></td>
+        <td><%= team.team_type.name %></td>
+        <td><%= team.league.name %></td>
+        <td>
+          <%# link_to 'Bearbeiten', edit_club_team_path(@club.id, team), class:'btn btn-mini btn-info' %>
+          <%# link_to 'Löschen', club_team_path(@club.id, team), confirm: 'Bist Du sicher?', method: :delete, class:'btn btn-mini btn-danger' %>
+          <%= link_to 'Neues Angebot', new_team_public_offer_path(team.id), class:'btn btn-mini btn-success' %>          
+        </td>
+      </tr>
