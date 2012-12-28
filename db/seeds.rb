@@ -17,57 +17,26 @@ team_types.each do |tt|
 	puts 'TeamType created: ' << tt.name
 end
 team_type = TeamType.find_by_name('Herren')
-league_type = team_type.league_types.create!(name: 'Hessenliga', ranking:4)
-puts 'LeagueType created: ' << league_type.name
-	area = league_type.areas.create!(name:'Hessen')
-	puts 'Area created: ' << area.name
+league = team_type.leagues.create!(name: 'Hessenliga', ranking:4)
+puts 'League created: ' << league.name
 
-league_type = team_type.league_types.create!(name: 'Verbandsliga', ranking:5)
-puts 'LeagueType created: ' << league_type.name
-	area = league_type.areas.create!(name:'Hessen')
-	puts 'Area created: ' << area.name
-		league = area.leagues.create!(name:'Verbandsliga Gruppe Mitte')
-		puts 'League created: ' << league.name
-		league = area.leagues.create!(name:'Verbandsliga Gruppe Nord')
-		puts 'League created: ' << league.name
-		league = area.leagues.create!(name:'Verbandsliga Gruppe Sued')
-		puts 'League created: ' << league.name
+league = team_type.leagues.create!(name: 'Verbandsliga', ranking:5)
+puts 'League created: ' << league.name
 
-league_type = team_type.league_types.create!(name: 'Gruppenliga', ranking:6)
-puts 'LeagueType created: ' << league_type.name
-	area = league_type.areas.create!(name:'Region Wiesbaden')
-	puts 'Area created: ' << area.name
-	area.leagues.create!(name:'Gruppenliga Wiesbaden')
-	puts 'League created: ' << league.name
+league = team_type.leagues.create!(name: 'Gruppenliga', ranking:6)
+puts 'League created: ' << league.name
 
+league = team_type.leagues.create!(name: 'Kreisoberliga', ranking:7)
+puts 'League created: ' << league.name
 
-league_type = team_type.league_types.create!(name: 'Kreisoberliga', ranking:7)
-puts 'LeagueType created: ' << league_type.name
-	area = league_type.areas.create!(name:'Kreis Limburg-Weilburg')
-	puts 'Area created: ' << area.name
-	league = area.leagues.create!(name:'Kreisoberliga Limburg-Weilburg')
-	puts 'League created: ' << league.name
+league = team_type.leagues.create!(name: 'Kreisliga A', ranking:8)
+puts 'League created: ' << league.name
 
-league_type = team_type.league_types.create!(name: 'Kreisliga A', ranking:8)
-puts 'LeagueType created: ' << league_type.name
-	area = league_type.areas.create!(name:'Kreis Limburg-Weilburg')
-	puts 'Area created: ' << area.name
-	league = area.leagues.create!(name:'Kreisliga A Limburg-Weilburg')
-	puts 'League created: ' << league.name
+league = team_type.leagues.create!(name: 'Kreisliga B', ranking:9)
+puts 'League created: ' << league.name
 
-league_type = team_type.league_types.create!(name: 'Kreisliga B', ranking:9)
-puts 'LeagueType created: ' << league_type.name
-	area = league_type.areas.create!(name:'Kreis Limburg-Weilburg')
-	puts 'Area created: ' << area.name
-	league = area.leagues.create!(name:'Kreisliga B Limburg-Weilburg')
-	puts 'League created: ' << league.name
-
-league_type = team_type.league_types.create!(name: 'Kreisliga C', ranking:10)
-puts 'LeagueType created: ' << league_type.name
-	area = league_type.areas.create!(name:'Kreis Limburg-Weilburg')
-	puts 'Area created: ' << area.name
-	league = area.leagues.create!(name:'Kreisliga C Limburg-Weilburg')
-	puts 'League created: ' << league.name
+league = team_type.leagues.create!(name: 'Kreisliga C', ranking:10)
+puts 'League created: ' << league.name
 
 #Positions
 groups = PositionGroup.create!([{name:'Tor'},{name:'Abwehr'},{name:'Mittelfeld'},{name:'Sturm'}])
